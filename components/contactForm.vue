@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center items-center my-20">
+    <div class="flex min-h-screen justify-center items-center my-20">
 
         <div class="container mx-auto my-4 px-4 lg:px-20">
             <form @submit.prevent="submitForm">
@@ -58,8 +58,8 @@
 
                     <div class="flex my-4 w-2/3 lg:w-2/3">
                         <div class="flex flex-col">
-                            <h2 class="text-xl">Studio Address</h2>
-                            <p class="whitespace-nowrap">4 Stonegate Dr NW Airdrie <br />T4B 2T2</p>
+                            <h2 class="text-xl">Ashish Verma Photography</h2>
+                            <p class="whitespace-nowrap">Calgary <br />Alberta</p>
                         </div>
                     </div>
 

@@ -7,11 +7,13 @@ module.exports = {
     './plugins/**/*.{js,ts}',
     './app.vue',
     './error.vue',
+    './nuxt.config.{js,ts}',
+    './node_modules/flowbite/**/*.{js,ts}',
   ],
   theme: {
     extend: {},
   },
-  plugins: [require('daisyui')],
+  plugins: [require('daisyui', 'flowbite/plugin')],
 
   daisyui: {
     themes: ['fantasy'], // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]

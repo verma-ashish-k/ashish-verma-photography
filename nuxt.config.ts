@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
@@ -6,6 +5,9 @@ export default defineNuxtConfig({
 
   image: {
     dir: 'assets/images',
+    cloudinary: {
+      baseURL: 'https://res.cloudinary.com/ashish-verma-photography/image/upload/',
+    },
   },
 
   postcss: {
@@ -15,16 +17,21 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxtjs/tailwindcss', 'nuxt-anchorscroll', "@nuxt/image", "@hypernym/nuxt-anime" ],
+  modules: ['@nuxtjs/tailwindcss', 'nuxt-anchorscroll', '@nuxt/image', '@hypernym/nuxt-anime', '@nuxtjs/cloudinary'],
 
-    anime: {
-      provide: true
+  anime: {
+    provide: true
+  },
 
+  cloudinary: {
+    cloudName: process.env.NUXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+    apiKey: process.env.NUXT_PUBLIC_CLOUDINARY_API_KEY,
+    apiSecret: process.env.NUXT_PUBLIC_CLOUDINARY_API_SECRET,
   },
 
   runtimeConfig: {
-    public: {
     apiKey: process.env.NUXT_PUBLIC_WEB3_API_KEY,
-    },
+    cloudinaryApiKey: process.env.NUXT_PUBLIC_CLOUDINARY_API_KEY,
+    
   },
 })

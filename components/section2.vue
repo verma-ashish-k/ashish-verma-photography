@@ -1,8 +1,14 @@
 <template>
     <div>
-        <div class="hero py-32 min-h-screen -mt-5" id="sec-2">
+        <div class="hero min-h-screen -mt-5" id="sec-2">
+            <div>
+                <NuxtImg :style="{ width: '100vw' }" provider="cloudinary"
+                    src="/v1707337372/real_estate/T3E-16-resized_ibwjun.jpg" format="webp" quality="60" loading="lazy"
+                    class="min-h-screen object-cover opacity-20" />
+            </div>
             <div class="hero-content flex-col lg:flex-row-reverse">
-                <NuxtImg src="/ashish.jpg" format="webp" class="max-w-sm rounded-lg shadow-2xl" />
+                <NuxtImg provider="cloudinary" src="/v1707806315/head_shots/IMG_1421_ya4wyd.jpg" format="webp"
+                    loading="lazy" class="max-w-xs w-full rounded-lg shadow-2xl" />
                 <div>
                     <h1 class="text-8xl font-black text-orange-500">
                         Meet Ashish!
