@@ -152,28 +152,28 @@
             </nav>
             <nav>
                 <header class="footer-title">SERVICES</header>
-                <NuxtLink to="/real-estate-photography"
+                <NuxtLink to=""
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">
                     Real Estate Photography</NuxtLink>
-                <NuxtLink to="/video-tours"
+                <NuxtLink to=""
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">
                     Video Tours</NuxtLink>
-                <NuxtLink to="/iguide"
+                <NuxtLink to=""
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">
                     iGuide Floor Plans</NuxtLink>
-                <NuxtLink to="/drone"
+                <NuxtLink to=""
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">
                     Aerial Imaging</NuxtLink>
-                <NuxtLink to="/virtual-tours"
+                <NuxtLink to=""
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">
                     Virtual Tours</NuxtLink>
-                <NuxtLink to="/twilight-photography"
+                <NuxtLink to=""
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">
                     Twilight Photography</NuxtLink>
-                <NuxtLink to="/commercial-photography"
+                <NuxtLink to=""
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">
                     Commercial Photography</NuxtLink>
-                <NuxtLink to="/headshots"
+                <NuxtLink to=""
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">
                     Headshots</NuxtLink>
             </nav>
@@ -192,13 +192,13 @@
                     </fieldset>
                 </form>
                 <header class="footer-title mt-5">NOT SO FUN STUFF</header>
-                <NuxtLink to="/termsConditions"
+                <NuxtLink to=""
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">
                     Terms & Conditions</NuxtLink>
-                <NuxtLink to="/video-tours"
+                <NuxtLink to=""
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">
                     Legal</NuxtLink>
-                <NuxtLink to="/iguide"
+                <NuxtLink to=""
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">
                     Cookie / Privacy Policy</NuxtLink>
 
