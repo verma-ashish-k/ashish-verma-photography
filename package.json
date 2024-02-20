@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@cloudinary/url-gen": "^1.16.1",
+    "@nuxt/image": "1.3.0",
     "@nuxt/image-edge": "1.3.0-28468005.8ad772e",
     "@nuxtjs/cloudinary": "^2.5.2",
     "@vueuse/nuxt": "^10.7.2",
@@ -33,8 +34,8 @@
     "flowbite": "^2.3.0",
     "gsap": "^3.12.5",
     "nitro": "^0.0.0",
+    "nuxi": "^3.10.1",
     "vue-cool-lightbox": "^2.7.5",
-    "vue-lightbox": "^1.1.6",
-    "@nuxt/image": "1.3.0"
+    "vue-lightbox": "^1.1.6"
   }
 }
