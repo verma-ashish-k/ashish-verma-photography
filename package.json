@@ -32,6 +32,7 @@
     "cloudinary": "^2.0.1",
     "flowbite": "^2.2.1",
     "gsap": "^3.12.5",
+    "nitro": "^0.0.0",
     "vue-cool-lightbox": "^2.7.5",
     "vue-lightbox": "^1.1.6"
   }
