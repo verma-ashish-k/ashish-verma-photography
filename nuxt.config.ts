@@ -23,6 +23,8 @@ export default defineNuxtConfig({
     provide: true
   },
 
+  ssr: false,
+
   cloudinary: {
     cloudName: process.env.NUXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
     apiKey: process.env.NUXT_PUBLIC_CLOUDINARY_API_KEY,
