@@ -1,24 +1,38 @@
 <template>
-    <header>
-        <div class="navbar h-14 text-auto">
-            <div class="navbar-start">
-                <NuxtLink to="/"><img class="h-24" src="assets/images/Logo_2.png" /></NuxtLink>
+    <header class=" bg-white bg-opacity-80 md:fixed md:left-0 md:top-0 w-full z-30">
+        <nav class="flex justify-between items-center mx-5">
+            <div>
+                <NuxtLink to="/">
+                    <img class="w-32 my-2 cursor-pointer" src="assets/images/logo_transparent.png"
+                        alt="urban_snap_logo">
+                </NuxtLink>
             </div>
-            <div class="navbar-end text-white gap-10 mr-5 p-5">
-                <div
-                    class=" hover:bg-orange-400 hover:bg-opacity-80 px-5 py-2 rounded-lg transition-all ease-in-out duration-200">
-                    Portfolio</div>
-                <div
-                    class=" hover:bg-orange-400 hover:bg-opacity-80 px-5 py-2 rounded-lg transition-all ease-in-out duration-200">
-                    Services</div>
-                <div
-                    class=" hover:bg-orange-400 hover:bg-opacity-80 px-5 py-2 rounded-lg transition-all ease-in-out duration-200">
-                    About</div>
-                <div
-                    class=" hover:bg-orange-400 hover:bg-opacity-80 px-5 py-2 rounded-lg transition-all ease-in-out duration-200">
-                    Contact</div>
+            <div>
+                <div class="flex justify-center items-center px-5 z-50 duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full bg-white bg-opacity-90 md:bg-transparent"
+                    :class="{ 'top-[9%]': menuOpen }">
+                    <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 text-base-100">
+                        <li>
+                            <a class="hover:text-gray-500" href="#">Portfolio</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-gray-500" href="#">Pricing</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-gray-500" href="#">Contact</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-gray-500" href="#">About</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-gray-500" href="#">Resources</a>
+                        </li>
+                    </ul>
+                </div>
+                <IonIcon @click="toggleMenu" :name="menuIcon" class="text-3xl text-primary cursor-pointer md:hidden">
+                </IonIcon>
+
             </div>
-        </div>
+        </nav>
     </header>
     <div>
         <slot />
@@ -42,7 +56,7 @@
                                 d="M17.466 5.04L9.6 9.83a1.144 1.144 0 0 1-1.2 0L.534 5.04a1.09 1.09 0 0 1-.49-1.24 1.14 1.14 0 0 1 1.09-.8h15.733a1.138 1.138 0 0 1 1.09.8 1.09 1.09 0 0 1-.49 1.24z">
                             </path>
                         </g>
-                    </svg> | hello@ashishverma.ca</NuxtLink>
+                    </svg> | hello@urbansnap.ca</NuxtLink>
                 <NuxtLink
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200"
                     to="tel:+1(368)993-7999"><svg class="h-3 w-3 mr-2" fill="currentColor" viewBox="0 0 24 24"
@@ -63,9 +77,12 @@
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                             <g id="SVGRepo_iconCarrier">
-                                <rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint0_radial_87_7153)"></rect>
-                                <rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint1_radial_87_7153)"></rect>
-                                <rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint2_radial_87_7153)"></rect>
+                                <rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint0_radial_87_7153)">
+                                </rect>
+                                <rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint1_radial_87_7153)">
+                                </rect>
+                                <rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint2_radial_87_7153)">
+                                </rect>
                                 <path
                                     d="M23 10.5C23 11.3284 22.3284 12 21.5 12C20.6716 12 20 11.3284 20 10.5C20 9.67157 20.6716 9 21.5 9C22.3284 9 23 9.67157 23 10.5Z"
                                     fill="white"></path>
@@ -102,7 +119,8 @@
                             </g>
                         </svg></NuxtLink>
                     <NuxtLink to="" class=""><svg class="w-8" viewBox="0 0 48 48" version="1.1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            fill="#000000">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                             <g id="SVGRepo_iconCarrier">
@@ -119,7 +137,8 @@
                             </g>
                         </svg></NuxtLink>
                     <NuxtLink to="" class=""><svg class="w-10" viewBox="0 -7 48 48" version="1.1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            fill="#000000">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                             <g id="SVGRepo_iconCarrier">
@@ -140,14 +159,15 @@
             </nav>
             <nav>
                 <header class="footer-title">ABOUT</header>
-                <p class="w-60  text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">Ashish
-                    is a Real Estate and Architectural Photographer based out of Calgary,
-                    he has over 15 years of experience as a professional photographer
-                    and over 6 years of experience as a Real Estate and Architectural Photographer. <br /><br />
-                    He has worked with many realtors, builders, and interior designers in Metro Vancouver and Calgary.
-
-                    He has extensive experience in Aerial Imaging, 4K Video, 360 Virtual Tours,
-                    and Floor Plans.
+                <p class="w-60  text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">
+                    Elevate your Calgary real estate listings with Urban Snap, the premier photography service
+                    specializing in captivating imagery tailored to the city's dynamic market. <br><br>
+                    Our expert team combines
+                    local expertise with meticulous attention to detail, ensuring each property shines online. From
+                    downtown condos to suburban homes, our personalized approach, quick turnaround times, and commitment
+                    to excellence set us apart.<br><br>
+                    Trust Urban Snap to enhance your listings and attract potential buyers.
+                    Contact us today to experience the difference.
                 </p>
             </nav>
             <nav>
@@ -186,7 +206,8 @@
                             <span class="label-text">Enter your email address</span>
                         </label>
                         <div class="join">
-                            <input type="text" placeholder="your.name@email.com" class="input input-bordered join-item" />
+                            <input type="text" placeholder="your.name@email.com"
+                                class="input input-bordered join-item" />
                             <button class="btn btn-secondary join-item">Subscribe</button>
                         </div>
                     </fieldset>
@@ -207,15 +228,35 @@
         </footer>
         <div class="bg-neutral text-white h-10 flex justify-center">
             <div class="flex justify-center items-center">
-                <p class="text-secondary-content">© 2018-2024 Ashish Verma Photography. All rights reserved.</p>
+                <p class="text-secondary-content">© 2018-2024 Urban Snap Inc. All rights reserved.</p>
             </div>
         </div>
     </footer>
 </template>
 
-<script setup>
+<script>
+import { IonIcon } from '@ionic/vue';
 
-
+export default {
+    data() {
+        return {
+            menuOpen: false
+        };
+    },
+    computed: {
+        menuIcon() {
+            return this.menuOpen ? 'close' : 'menu';
+        }
+    },
+    methods: {
+        toggleMenu() {
+            this.menuOpen = !this.menuOpen;
+        }
+    },
+    components: {
+        IonIcon
+    }
+};
 </script>
 
 <style scoped></style>

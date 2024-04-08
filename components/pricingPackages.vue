@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1 class="text-2xl font-bold text-gray-400 text-center my-10">Real Estate Pricing Packages</h1>
-        <div class="flex flex-row justify-center gap-5 mx-auto my-10 content-center">
+        <div class="flex flex-col lg:flex-row justify-center items-center gap-5 lg:my-10 content-center">
             <div class="w-full max-w-sm p-4 bg-gray-300 border border-gray-200 rounded-lg shadow sm:p-8">
                 <h5 class="mb-4 text-xl font-medium text-white">Basic Package</h5>
                 <div class="flex items-baseline text-gray-900 ">

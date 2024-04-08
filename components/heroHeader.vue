@@ -3,21 +3,19 @@
         <div class="hero min-h-screen mb-5">
 
             <!-- Hero Content -->
-            <div class="hero-content text-center text-base-100 mt-96">
+            <div class="hero-content text-center text-white bg-black bg-opacity-10 rounded-lg lg:mt-2.5">
                 <div class="max-w-7xl">
                     <span
-                        class="mb-5 text-7xl title font-extrabold bg-gradient-to-br from-orange-400 to-orange-700 text-transparent bg-clip-text"
+                        class="mb-5 text-4xl lg:text-7xl title font-extrabold bg-gradient-to-b from-[#F25243] via-[#F25243] to-[#FF7600] text-transparent bg-clip-text"
                         :key="currentTitle">{{
                             currentTitle }}</span><br />
-                    <span class="mt-10 text-5xl font-bold">in {{ location }}</span>
-                    <p class="mb-5 mt-2 text-2xl">Ashish is an experienced and talented Photographer and provides his
-                        services
-                        in {{
-                            location }}
-                        and surrounding areas.</p>
+                    <span class="mt-10 lg:text-5xl text-3xl font-bold">in {{ location }}</span>
+                    <p class="mb-5 mt-2 lg:text-2xl">Discover the Power of Visual Storytelling with Urban Snap. From
+                        Downtown Condos to Suburban Retreats, Let Us Showcase Your Property's Unique Charm and Attract
+                        Potential Buyers.</p>
                     <div class="flex justify-center gap-5">
-                        <button class="btn btn-outline btn-accent w-1/4">View Portfolio</button>
-                        <button class="btn btn-outline btn-accent w-1/4">Book Now</button>
+                        <button class="btn btn-outline btn-primary w-1/4">View Portfolio</button>
+                        <button class="btn btn-outline btn-primary w-1/4">Book Now</button>
                     </div>
 
                 </div>
@@ -32,26 +30,27 @@
             <div class="animate-bounce absolute bottom-0">
                 <NuxtLink to="#sec-2" ref="nextSectionRef" @click="scrollToNextSection()">
                     <svg class="w-16" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-51.2 -51.2 614.40 614.40" xml:space="preserve"
-                        fill="#000000" stroke="#000000" stroke-width="0.00512" transform="rotate(0)">
+                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-51.2 -51.2 614.40 614.40"
+                        xml:space="preserve" fill="#000000" stroke="#000000" stroke-width="0.00512"
+                        transform="rotate(0)">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC"
                             stroke-width="7.168000000000001"></g>
                         <g id="SVGRepo_iconCarrier">
                             <g>
-                                <path style="fill:#ff8800;"
+                                <path style="fill:#30a8d8;"
                                     d="M256,310.857c-30.299,0-54.857,24.558-54.857,54.857c0,30.299,24.558,54.857,54.857,54.857 c30.299,0,54.857-24.558,54.857-54.857C310.857,335.415,286.299,310.857,256,310.857">
                                 </path>
-                                <path style="fill:#ff8800;"
+                                <path style="fill:#30a8d8;"
                                     d="M356.571,201.143c-30.299,0-54.857,24.558-54.857,54.857c0,30.299,24.558,54.857,54.857,54.857 c30.299,0,54.857-24.558,54.857-54.857C411.429,225.701,386.871,201.143,356.571,201.143">
                                 </path>
-                                <path style="fill:#ff8800;"
+                                <path style="fill:#30a8d8;"
                                     d="M457.143,91.429c-30.299,0-54.857,24.558-54.857,54.857s24.558,54.857,54.857,54.857 c30.299,0,54.857-24.558,54.857-54.857S487.442,91.429,457.143,91.429">
                                 </path>
-                                <path style="fill:#ff8800;"
+                                <path style="fill:#30a8d8;"
                                     d="M155.429,201.143c-30.299,0-54.857,24.558-54.857,54.857c0,30.299,24.558,54.857,54.857,54.857 s54.857-24.558,54.857-54.857C210.286,225.701,185.728,201.143,155.429,201.143">
                                 </path>
-                                <path style="fill:#ff8800;"
+                                <path style="fill:#30a8d8;"
                                     d="M54.857,91.429C24.558,91.429,0,115.986,0,146.286s24.558,54.857,54.857,54.857 s54.857-24.558,54.857-54.857S85.157,91.429,54.857,91.429">
                                 </path>
                             </g>
@@ -64,7 +63,7 @@
 
     </div>
 </template>
-  
+
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import { gsap } from 'gsap';
@@ -205,24 +204,10 @@ onMounted(() => {
 onUnmounted(() => {
     clearInterval(typingInterval);
 });
-
-useHead({
-    title: 'Ashish Verma Photography | Calgary, Alberta',
-    meta: [
-        {
-            name: 'description',
-            content: 'Ashish Verma is a photographer based in Calgary, Alberta. He specializes in Architectural photography and loves to do portraits and event photography.'
-        },
-        {
-            name: 'keywords',
-            content: 'Photography, Photographer, Airdrie, Alberta, Calgary, Edmonton, Surrey, Vancouver, Architectural, Portraits, Event'
-        }
-    ]
-});
 </script>
 
 
-  
+
 <style scoped>
 span {
     transition: all 1s ease-in-out;
@@ -232,5 +217,3 @@ body {
     scroll-behavior: smooth;
 }
 </style>
-
-  

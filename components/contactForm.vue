@@ -106,11 +106,11 @@
     </div>
     <div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
         <div>
-            <a title="call me" href="tel:+1-368-993-7999"
-                class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
+            <a title="call us" href="tel:+1-368-993-7999"
+                class="block w-10 h-10 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
                 <svg height="" width="" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#ff961f"
-                    stroke="#ff961f">
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#30a8d8"
+                    stroke="#30a8d8">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                     <g id="SVGRepo_iconCarrier">
