@@ -1,5 +1,6 @@
 <template>
     <div>
+        <contact-form />
 
     </div>
 </template>

@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div class="hero min-h-screen mb-5">
+        <div class="hero min-h-screen mb-24">
 
             <!-- Hero Content -->
-            <div class="hero-content text-center text-white bg-black bg-opacity-10 rounded-lg lg:mt-2.5">
+            <div class="hero-content text-center text-white bg-black bg-opacity-20 rounded-lg lg:mt-2.5">
                 <div class="max-w-7xl">
                     <span
                         class="mb-5 text-4xl lg:text-7xl title font-extrabold bg-gradient-to-b from-[#F25243] via-[#F25243] to-[#FF7600] text-transparent bg-clip-text"

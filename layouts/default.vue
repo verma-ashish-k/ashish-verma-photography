@@ -1,5 +1,6 @@
 <template>
-    <header class=" bg-white bg-opacity-80 md:fixed md:left-0 md:top-0 w-full z-30">
+    <animated-cursor />
+    <header :class="navbarClass">
         <nav class="flex justify-between items-center mx-5">
             <div>
                 <NuxtLink to="/">
@@ -12,19 +13,19 @@
                     :class="{ 'top-[9%]': menuOpen }">
                     <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 text-base-100">
                         <li>
-                            <a class="hover:text-gray-500" href="#">Portfolio</a>
+                            <a class="hover:text-gray-500" href="/">Home</a>
                         </li>
                         <li>
-                            <a class="hover:text-gray-500" href="#">Pricing</a>
+                            <a class="hover:text-gray-500" href="/real_estate_photography">Portfolio</a>
                         </li>
                         <li>
-                            <a class="hover:text-gray-500" href="#">Contact</a>
+                            <a class="hover:text-gray-500" href="/pricing">Pricing</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-gray-500" href="/contact">Contact</a>
                         </li>
                         <li>
                             <a class="hover:text-gray-500" href="#">About</a>
-                        </li>
-                        <li>
-                            <a class="hover:text-gray-500" href="#">Resources</a>
                         </li>
                     </ul>
                 </div>
@@ -198,21 +199,7 @@
                     Headshots</NuxtLink>
             </nav>
             <nav>
-
-                <header class="footer-title">Newsletter</header>
-                <form>
-                    <fieldset class="form-control">
-                        <label class="label">
-                            <span class="label-text">Enter your email address</span>
-                        </label>
-                        <div class="join">
-                            <input type="text" placeholder="your.name@email.com"
-                                class="input input-bordered join-item" />
-                            <button class="btn btn-secondary join-item">Subscribe</button>
-                        </div>
-                    </fieldset>
-                </form>
-                <header class="footer-title mt-5">NOT SO FUN STUFF</header>
+                <header class="footer-title">NOT SO FUN STUFF</header>
                 <NuxtLink to=""
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">
                     Terms & Conditions</NuxtLink>
@@ -240,18 +227,39 @@ import { IonIcon } from '@ionic/vue';
 export default {
     data() {
         return {
-            menuOpen: false
+            menuOpen: false,
+            isScrolled: false, // Flag to track if user has scrolled
         };
     },
     computed: {
         menuIcon() {
             return this.menuOpen ? 'close' : 'menu';
-        }
+        },
+        navbarClass() {
+            return {
+                'bg-white bg-opacity-80': !this.isScrolled, // Original color when not scrolled
+                'bg-secondary bg-opacity-80': this.isScrolled, // New color when scrolled
+                'md:fixed md:left-0 md:top-0 w-full z-30': true, // Add fixed positioning and other classes
+            };
+        },
     },
+    mounted() {
+        // Listen for scroll events
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    beforeDestroy() {
+        // Remove scroll event listener to prevent memory leaks
+        window.removeEventListener('scroll', this.handleScroll);
+    },
+
     methods: {
         toggleMenu() {
             this.menuOpen = !this.menuOpen;
-        }
+        },
+        handleScroll() {
+            // Check if user has scrolled beyond the top of the page
+            this.isScrolled = window.scrollY > 0;
+        },
     },
     components: {
         IonIcon

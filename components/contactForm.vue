@@ -5,7 +5,7 @@
             <form @submit.prevent="submitForm">
                 <div class="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
                     <div class="flex">
-                        <h1 class="font-bold text-3xl">Send me a message</h1>
+                        <h1 class="font-bold text-3xl">Send Us a message</h1>
                     </div>
                     <div class="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
                         <input type="hidden" name="from_name" v-model="fromName">
@@ -38,8 +38,8 @@
                     <div class="my-2 w-1/2 lg:w-1/4">
                         <input type="checkbox" name="botcheck" class="hidden" style="display: none;" v-model="botcheck">
                         <!-- Show button only if form not submitted -->
-                        <button v-if="!formSubmitted" type="submit" class="btn btn-outline btn-accent"
-                            :disabled="!isFormValid">
+                        <button v-if="!formSubmitted" type="submit"
+                            class="btn btn-outline btn-secondary disabled:btn-neutral" :disabled="!isFormValid">
                             Send Message
                         </button>
 
@@ -48,7 +48,7 @@
                     <div v-if="formSubmitted" class="text-orange-400 w-full">
                         Thank you for your message!
                         <br />
-                        I will get back to you soon.
+                        We will get back to you soon.
                     </div>
                 </div>
             </form>
@@ -58,20 +58,32 @@
 
                     <div class="flex my-4 w-2/3 lg:w-2/3">
                         <div class="flex flex-col">
-                            <h2 class="text-xl">Ashish Verma Photography</h2>
-                            <p class="whitespace-nowrap">Calgary <br />Alberta</p>
+                            <h2 class="text-xl">Urban Snap</h2>
+                            <p class="whitespace-nowrap">Real Estate Photography Calgary <br />Alberta</p>
                         </div>
                     </div>
 
                     <div class="flex my-4 w-2/3 lg:w-1/2">
                         <div class="flex flex-col">
-                            <h2 class="text-xl">Call Me</h2>
-                            <p class=" whitespace-nowrap">(368) 993-7999</p>
+                            <h2 class="text-xl">Call us</h2>
+                            <a class="" href="tel:403-994-7627">
+                                <p class=" whitespace-nowrap">403-994-SNAP(7627)</p>
+                            </a>
                         </div>
+
+                    </div>
+                    <div class="flex my-4 w-2/3 lg:w-1/2">
+                        <div class="flex flex-col">
+                            <h2 class="text-xl">Email</h2>
+                            <a class="" href="mailto:letschat@urbansnap.ca">
+                                <p class=" whitespace-nowrap">letschat@urbansnap.ca</p>
+                            </a>
+                        </div>
+
                     </div>
 
                     <div class="flex my-4 w-2/3 lg:w-1/2">
-                        <a href="https://www.facebook.com/ENLIGHTENEERING/" target="_blank" rel="noreferrer"
+                        <a href="" target="_blank" rel="noreferrer"
                             class="rounded-full h-8 w-8 inline-block mx-1 text-center pt-1">
                             <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -86,7 +98,7 @@
                                 </g>
                             </svg>
                         </a>
-                        <a href="https://www.linkedin.com/company/enlighteneering-inc-" target="_blank" rel="noreferrer"
+                        <a href="" target="_blank" rel="noreferrer"
                             class="rounded-full h-8 w-8 inline-block mx-1 text-center pt-1">
                             <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -99,28 +111,57 @@
                                 </g>
                             </svg>
                         </a>
+                        <a href="" target="_blank" rel="noreferrer"
+                            class="rounded-full h-8 w-8 inline-block mx-1 text-center pt-1">
+                            <svg height="" width="" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
+                                fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path style="fill:#ffffff;"
+                                        d="M0,512l35.31-128C12.359,344.276,0,300.138,0,254.234C0,114.759,114.759,0,255.117,0 S512,114.759,512,254.234S395.476,512,255.117,512c-44.138,0-86.51-14.124-124.469-35.31L0,512z">
+                                    </path>
+                                    <path style="fill:#55CD6C;"
+                                        d="M137.71,430.786l7.945,4.414c32.662,20.303,70.621,32.662,110.345,32.662 c115.641,0,211.862-96.221,211.862-213.628S371.641,44.138,255.117,44.138S44.138,137.71,44.138,254.234 c0,40.607,11.476,80.331,32.662,113.876l5.297,7.945l-20.303,74.152L137.71,430.786z">
+                                    </path>
+                                    <path style="fill:#FEFEFE;"
+                                        d="M187.145,135.945l-16.772-0.883c-5.297,0-10.593,1.766-14.124,5.297 c-7.945,7.062-21.186,20.303-24.717,37.959c-6.179,26.483,3.531,58.262,26.483,90.041s67.09,82.979,144.772,105.048 c24.717,7.062,44.138,2.648,60.028-7.062c12.359-7.945,20.303-20.303,22.952-33.545l2.648-12.359 c0.883-3.531-0.883-7.945-4.414-9.71l-55.614-25.6c-3.531-1.766-7.945-0.883-10.593,2.648l-22.069,28.248 c-1.766,1.766-4.414,2.648-7.062,1.766c-15.007-5.297-65.324-26.483-92.69-79.448c-0.883-2.648-0.883-5.297,0.883-7.062 l21.186-23.834c1.766-2.648,2.648-6.179,1.766-8.828l-25.6-57.379C193.324,138.593,190.676,135.945,187.145,135.945">
+                                    </path>
+                                </g>
+                            </svg>
+                        </a>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
     <div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
         <div>
-            <a title="call us" href="tel:+1-368-993-7999"
+            <a title="call us" href="tel:403-994-7627"
                 class="block w-10 h-10 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
-                <svg height="" width="" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#30a8d8"
-                    stroke="#30a8d8">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <g>
-                            <path class="st0"
-                                d="M255.998,0.002C114.606,0.012,0.01,114.604,0,256c0.01,141.406,114.65,255.328,255.926,255.998h0.334 l0.297-0.009c27.124,0.038,49.507-8.527,64.961-22.594c15.468-14.01,23.727-33.254,23.708-52.736 c0.02-9.148-1.914-18.306-5.521-27.024c6.086-3.464,10.143-6.612,11.301-7.444c4.152-2.957,16-18.766,7.693-31.79 c-8.344-13.014-38.042-42.678-46.152-47.702c-8.086-5.015-21.598-0.124-28.105,9.426c-6.526,9.55-11.674,6.689-11.674,6.689 s-18.516-14.957-44.124-66.621c-25.607-51.694-26.263-75.454-26.263-75.454s0.833-5.847,12.388-5.263 c11.53,0.621,23.598-7.168,24.516-16.66c0.928-9.464-4.698-51.091-10-65.598c-5.316-14.516-25.062-14.65-29.928-13.138 c-4.89,1.502-55.033,13.712-59.014,66.21c-3.966,52.506,9.565,100.18,28.943,139.309c19.387,39.119,49.128,78.765,93.3,107.406 c17.89,11.598,35.058,13.1,49.493,10.67c2.483,5.54,3.718,11.291,3.746,16.985c-0.028,11.292-4.621,22.354-14.066,30.966 c-9.469,8.564-24.071,14.928-45.2,14.967l-0.516,0.009C130.797,481.96,29.387,381.09,29.397,256 c0.01-62.621,25.339-119.186,66.367-160.237c41.053-41.023,97.612-66.354,160.234-66.364c62.621,0.01,119.181,25.34,160.232,66.364 c41.033,41.052,66.354,97.606,66.373,160.237c-0.01,38.67-9.666,74.966-26.698,106.784c-9.531,17.837-21.397,34.23-35.177,48.812 c-5.569,5.905-5.301,15.206,0.594,20.776c5.894,5.578,15.205,5.32,20.784-0.584c15.54-16.46,28.937-34.976,39.712-55.139 C501.071,340.717,512,299.589,512,256C511.98,114.604,397.389,0.012,255.998,0.002z">
+                <UTooltip text="Reach us on WhatsApp" :popper="{ arrow: true }">
+                    <svg height="" width="" version=" 1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
+                        fill="#000000">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path style="fill:#20A83E;"
+                                d="M437.019,74.98C388.668,26.628,324.38,0,256,0S123.333,26.628,74.98,74.98S0,187.62,0,256 c0,51.485,15.154,100.938,43.874,143.34L0.69,500.106c-1.343,3.134-0.607,6.966,1.798,9.381c2.495,2.506,6.519,3.206,9.714,1.684 l96.358-45.885C151.858,495.866,202.721,512,256,512c68.38,0,132.668-26.628,181.019-74.98C485.371,388.667,512,324.38,512,256 S485.371,123.333,437.019,74.98z">
+                            </path>
+                            <circle style="fill:#E5E5E5;" cx="256" cy="256" r="213.333"></circle>
+                            <circle style="fill:#FFFFFF;" cx="256" cy="256" r="187.733"></circle>
+                            <path style="fill:#20A83E;"
+                                d="M392.391,342.641l-7.673-41.561c-0.635-3.432-3.295-6.133-6.718-6.818l-60.339-12.067 c-2.802-0.559-5.691,0.317-7.709,2.334l-24.514,24.514c-41.302-18.507-64.226-41.478-84.396-84.555l24.435-24.436 c2.018-2.017,2.893-4.91,2.334-7.708l-12.068-60.34c-0.685-3.423-3.386-6.084-6.819-6.718l-41.561-7.673 c-1.138-0.21-2.31-0.187-3.44,0.07c-10.974,2.494-20.987,8.023-28.956,15.994c-13.801,13.801-19.075,33.938-15.252,58.237 c6.418,40.801,26.409,97.583,63.289,134.61l0.502,0.5c37.001,36.855,93.782,56.846,134.583,63.265 c5.14,0.809,10.092,1.21,14.838,1.21c17.694,0,32.517-5.581,43.4-16.462c7.97-7.971,13.5-17.984,15.993-28.957 C392.578,344.951,392.602,343.78,392.391,342.641z">
+                            </path>
+                            <path style="fill:#189433;"
+                                d="M349.996,376.428c-4.747,0-9.698-0.401-14.838-1.21c-40.801-6.419-97.583-26.41-134.583-63.265 l-0.502-0.5c-36.88-37.027-56.87-93.809-63.289-134.61c-3.323-21.118,0.236-39.088,10.283-52.492 c-4.388,2.565-8.458,5.689-12.097,9.328c-13.801,13.801-19.075,33.938-15.252,58.237c6.418,40.801,26.409,97.583,63.289,134.61 l0.502,0.5c37.001,36.855,93.782,56.846,134.583,63.265c5.14,0.809,10.092,1.21,14.838,1.21c17.694,0,32.517-5.581,43.4-16.462 c1.974-1.974,3.797-4.075,5.463-6.284C372.747,373.836,362.037,376.428,349.996,376.428z">
                             </path>
                         </g>
-                    </g>
-                </svg>
+                    </svg>
+                </UTooltip>
             </a>
         </div>
     </div>
@@ -130,7 +171,7 @@
 import { ref, computed } from 'vue';
 
 // Define reactive variables
-const fromName = ref('Contact Lead - Ashish Verma Photography');
+const fromName = ref('Contact Lead - Urban Snap');
 const firstName = ref('');
 const lastName = ref('');
 
