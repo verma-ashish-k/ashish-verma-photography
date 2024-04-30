@@ -45,7 +45,7 @@
                 <header class="footer-title flex content-start items-start">SAY HELLO!</header>
                 <NuxtLink
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200"
-                    to="mailto:hello@ashishverma.ca"><svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"
+                    to="mailto:letschat@urbansnap.ca"><svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"
                         class="h-3 w-3 mr-2" fill="currentColor">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -57,10 +57,10 @@
                                 d="M17.466 5.04L9.6 9.83a1.144 1.144 0 0 1-1.2 0L.534 5.04a1.09 1.09 0 0 1-.49-1.24 1.14 1.14 0 0 1 1.09-.8h15.733a1.138 1.138 0 0 1 1.09.8 1.09 1.09 0 0 1-.49 1.24z">
                             </path>
                         </g>
-                    </svg> | hello@urbansnap.ca</NuxtLink>
+                    </svg> | letschat@urbansnap.ca</NuxtLink>
                 <NuxtLink
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200"
-                    to="tel:+1(368)993-7999"><svg class="h-3 w-3 mr-2" fill="currentColor" viewBox="0 0 24 24"
+                    to="tel:+1(403)994-7627"><svg class="h-3 w-3 mr-2" fill="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -73,8 +73,8 @@
 
                 <header class="footer-title flex content-start items-start mt-8">SOCIALIZE</header>
                 <div class="flex gap-4 items-center justify-center">
-                    <NuxtLink to="" class=""><svg class="w-10" viewBox="0 0 32 32" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
+                    <NuxtLink to="https://www.instagram.com/urban_snap_yyc/"><svg class="w-10" viewBox="0 0 32 32"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                             <g id="SVGRepo_iconCarrier">
@@ -119,8 +119,8 @@
                                 </defs>
                             </g>
                         </svg></NuxtLink>
-                    <NuxtLink to="" class=""><svg class="w-8" viewBox="0 0 48 48" version="1.1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    <NuxtLink to="https://www.facebook.com/urbansnap.ca"><svg class="w-8" viewBox="0 0 48 48"
+                            version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             fill="#000000">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -137,8 +137,8 @@
                                 </g>
                             </g>
                         </svg></NuxtLink>
-                    <NuxtLink to="" class=""><svg class="w-10" viewBox="0 -7 48 48" version="1.1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    <NuxtLink to="https://www.youtube.com/@Urban_Snap"><svg class="w-10" viewBox="0 -7 48 48"
+                            version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             fill="#000000">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -200,13 +200,13 @@
             </nav>
             <nav>
                 <header class="footer-title">NOT SO FUN STUFF</header>
-                <NuxtLink to=""
+                <NuxtLink to="/termsConditions"
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">
                     Terms & Conditions</NuxtLink>
-                <NuxtLink to=""
+                <NuxtLink to="/legal"
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">
                     Legal</NuxtLink>
-                <NuxtLink to=""
+                <NuxtLink to="/privacyPolicy"
                     class="flex items-center text-gray-400 hover:text-secondary-content transition-all ease-in-out duration-200">
                     Cookie / Privacy Policy</NuxtLink>
 

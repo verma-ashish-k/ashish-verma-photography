@@ -1,90 +1,67 @@
 <template>
     <AnimatedCursor />
-    <div class="mx-20 mb-20">
-        <h2 class="text-center text-2xl"><strong>Cookie and Privacy Policy</strong>
-        </h2>
-        <br />
-        <br />
-        <p>
-            <strong>Effective Date: 2024-01-01</strong>
-            <br />
-            <br />
+    <div class="py-20 bg-gradient-to-r from-slate-300 to-slate-500 text-white">
+        <div class="container mx-auto p-8">
+            <div class="bg-gradient-to-r from-red-500 to-orange-500 rounded-xl shadow-lg p-10 m-4">
+                <h1 class="text-3xl font-bold mb-2">Privacy Policy for Urban Snap</h1>
+                <p><strong>Effective Date:</strong> 01-01-2024</p>
 
-            Welcome to Ashish Verma Photography. We respect your privacy and are committed to protecting your personal
-            information. This Cookie and Privacy Policy outlines how we collect, use, disclose, and safeguard your
-            information when you visit our website https://ashishvermaphotography.com.
-            <br />
-            <br />
-            <strong>1. Information We Collect</strong>
-            We may collect personal information such as your name, email address, and location data when you interact with
-            our website, especially if you:
+                <h2 class="text-2xl font-bold mt-4">1. Introduction</h2>
+                <p>Welcome to Urban Snap. We are committed to protecting the privacy of our clients and website
+                    visitors. This Privacy Policy outlines the types of personal information we collect, how it is used,
+                    and the steps we take to ensure your personal information is handled appropriately.</p>
+                <p><strong>Contact Information:</strong></p>
+                <ul>
+                    <li><strong>Website:</strong> urbansnap.ca</li>
+                    <li><strong>Phone:</strong> 403-994-7627</li>
+                    <li><strong>Email:</strong> info@urbansnap.ca</li>
+                </ul>
 
-            Contact us via our email hello@ashishvermaphotography.com.
-            Use our location-based services to tailor content specific to your area.
+                <h2 class="text-2xl font-bold mt-4">2. Information We Collect</h2>
+                <p>Urban Snap collects personal information to provide photography services. This may include:</p>
+                <ul>
+                    <li>Contact details such as name, address, email address, and phone number.</li>
+                    <li>Photos and videos taken during our sessions.</li>
+                    <li>Payment information and transaction details.</li>
+                </ul>
 
-            <br />
-            <br />
-            <strong>2. Use of Cookies</strong>
-            Our website uses cookies to enhance your browsing experience, analyze website traffic, and understand where our
-            visitors are coming from. Cookies are small data files stored on your device that help us improve our services
-            and your experience.
+                <h2 class="text-2xl font-bold mt-4">3. Use of Information</h2>
+                <p>The personal information collected is used to:</p>
+                <ul>
+                    <li>Schedule, perform, and manage photography sessions.</li>
+                    <li>Process payments and communicate about transactions.</li>
+                    <li>Provide customer support and respond to inquiries.</li>
+                    <li>Improve our services and website.</li>
+                </ul>
 
-            <br />
-            <br />
+                <h2 class="text-2xl font-bold mt-4">4. Consent</h2>
+                <p>By using our services and providing personal information, you consent to the collection, use, and
+                    disclosure of your information in accordance with this Privacy Policy.</p>
 
-            <strong>3. How We Use Your Information</strong>
-            The information we collect may be used to:
+                <h2 class="text-2xl font-bold mt-4">5. Disclosure of Information</h2>
+                <p>Urban Snap will not share your personal information with third parties, except:</p>
+                <ul>
+                    <li>To service providers involved in the delivery of our services.</li>
+                    <li>As required by law, such as in response to a subpoena or other legal process.</li>
+                </ul>
 
-            Provide, operate, and maintain our website.
-            Improve, personalize, and expand our website.
-            Understand and analyze how you use our website.
+                <h2 class="text-2xl font-bold mt-4">6. Security of Your Information</h2>
+                <p>We take reasonable steps to protect your personal information from unauthorized access, use, or
+                    disclosure, including electronic security measures and secure storage practices.</p>
 
+                <h2 class="text-2xl font-bold mt-4">7. Accessing and Updating Your Information</h2>
+                <p>You have the right to access, update, and correct inaccuracies in your personal information in our
+                    custody and control, subject to certain exceptions prescribed by law.</p>
 
-            Communicate with you, either directly or through one of our partners, including for customer service, to provide
-            you with updates and other information relating to the website, and for marketing and promotional purposes.
+                <h2 class="text-2xl font-bold mt-4">8. Changes to This Privacy Policy</h2>
+                <p>We may update this policy from time to time. Changes will be posted on our website with an updated
+                    revision date.</p>
 
-            <br />
-            <br />
-            <strong>4. Sharing Your Information</strong>
-            We do not share your personally identifiable information with third parties except as necessary to provide our
-            services or as required by law. This may include sharing with third-party vendors that perform services for us,
-            in compliance with this policy and any other appropriate confidentiality and security measures.
-
-            <br />
-            <br />
-
-            <strong>5. Data Protection</strong>
-            We take your privacy seriously and implement a variety of security measures to maintain the safety of your
-            personal information. However, please remember that no method of transmission over the Internet or method of
-            electronic storage is 100% secure.
-
-            <br />
-            <br />
-
-            <strong>6. Your Privacy Rights</strong>
-            Under Canadian law, you have the right to access, correct, or delete your personal data collected by us. If you
-            wish to exercise these rights, please contact us at hello@ashishvermaphotography.com.
-
-            <br />
-            <br />
-
-            <strong>7. Changes to This Policy</strong>
-            We may update our Cookie and Privacy Policy from time to time. We will notify you of any changes by posting the
-            new policy on this page.
-
-            <br />
-            <br />
-
-            <strong>8. Contact Us</strong>
-            If you have any questions or concerns about our Cookie and Privacy Policy, please contact us at:
-
-            <br />
-            <br />
-
-            <strong>Email: hello@ashishvermaphotography.com
-                <br />
-                Website: https://ashishvermaphotography.com</strong>
-        </p>
+                <h2 class="text-2xl font-bold mt-4">9. Contact Us</h2>
+                <p>If you have questions or concerns about our privacy policy or practices, please contact us at the
+                    details provided above.</p>
+            </div>
+        </div>
 
     </div>
 </template>

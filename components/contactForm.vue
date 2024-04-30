@@ -61,11 +61,11 @@
                     <div class="flex my-4 w-2/3 lg:w-2/3">
                         <div class="flex flex-col">
                             <img src="/static/logo_transparent.png" class="w-36" alt="urban_snap_logo" />
-                            <p class="whitespace-nowrap">Real Estate Photography Calgary <br />Alberta</p>
+                            <p class="whitespace-nowrap mt-2">Real Estate Photography Calgary <br />Alberta</p>
                         </div>
                     </div>
 
-                    <div class="flex my-4 w-2/3 lg:w-1/2">
+                    <div class="flex my-2 w-2/3 lg:w-1/2">
                         <div class="flex flex-col">
                             <h2 class="text-xl">Call us</h2>
                             <a class="" href="tel:403-994-7627">
@@ -74,7 +74,7 @@
                         </div>
 
                     </div>
-                    <div class="flex my-4 w-2/3 lg:w-1/2">
+                    <div class="flex my-2 w-2/3 lg:w-1/2">
                         <div class="flex flex-col">
                             <h2 class="text-xl">Email</h2>
                             <a class="" href="mailto:letschat@urbansnap.ca">
