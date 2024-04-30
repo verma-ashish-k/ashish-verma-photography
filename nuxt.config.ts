@@ -35,6 +35,9 @@ export default defineNuxtConfig({
       ],
     }
   },
+  site: {
+    url: 'https://urbansnap.ca'
+  },
 
   image: {
     dir: 'assets/images',
@@ -50,7 +53,15 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxtjs/tailwindcss', 'nuxt-anchorscroll', '@nuxt/image', '@hypernym/nuxt-anime', '@nuxtjs/cloudinary'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    'nuxt-anchorscroll',
+    '@nuxt/image',
+    '@hypernym/nuxt-anime',
+    '@nuxtjs/cloudinary',
+    '@nuxtjs/sitemap',
+    "nuxt-simple-robots"
+  ],
 
   anime: {
     provide: true
