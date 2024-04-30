@@ -1,7 +1,7 @@
 <template>
-    <div class="text-3xl text-center bg-base-100 text-transparent bg-clip-text">
+    <div class="text-3xl text-center bg-base-100 text-white">
         Clients we have worked with</div>
-    <div class="image-marquee bg-secondary" ref="marquee">
+    <div class="image-marquee bg-secondary pb-5" ref="marquee">
         <div class="marquee-content" ref="content">
             <!-- Render images including a cloned set of images -->
             <NuxtImg provider="cloudinary" v-for="(image, index) in imagesWithClones" :key="index" :src="image"

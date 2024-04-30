@@ -8,7 +8,7 @@
             </div>
             <div class="hero-content flex-col lg:flex-row-reverse">
                 <NuxtImg provider="cloudinary" src="/v1712543352/company_logo/logo_house_ohkava.png" format="webp"
-                    loading="lazy" class="max-w-xs w-full rounded-lg shadow-2xl" />
+                    loading="lazy" class="max-w-xs md:w-full rounded-lg shadow-2xl" />
                 <div>
                     <h1
                         class="text-8xl font-black bg-gradient-to-b from-[#F25243] via-[#F25243] to-[#FF7600] text-transparent bg-clip-text">

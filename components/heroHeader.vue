@@ -70,6 +70,14 @@ import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 gsap.registerPlugin(ScrollToPlugin);
+
+const scrollToNextSection = () => {
+    // Get the next section element
+    const nextSection = document.querySelector('#sec-2');
+
+    // Scroll to the top of the next section using GSAP
+    gsap.to(window, { duration: 1, scrollTo: { y: nextSection.offsetTop, autoKill: false } });
+};
 //typing titles, updated as needed
 const titles = [
     'Architectural Photography',
@@ -84,11 +92,6 @@ const titles = [
     'Virtual Tours',
     'Professional Headshots',
 ];
-
-
-const scrollToNextSection = () => {
-    gsap.to(window, { duration: 2, scrollTo: sec - 2 });
-};
 
 const currentTitle = ref('');
 const location = ref('Calgary'); // Default location
@@ -176,6 +179,7 @@ const typeInTitle = () => {
         setTimeout(typeOutTitle, nextTitleDelay);
     }
 };
+
 
 const typeOutTitle = () => {
     if (charIndex > 0) {

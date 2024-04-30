@@ -1,9 +1,10 @@
 <template>
-    <div class="flex min-h-screen justify-center items-center my-20">
+    <div class="flex min-h-screen justify-center items-center">
 
         <div class="container mx-auto my-4 px-4 lg:px-20">
             <form @submit.prevent="submitForm">
-                <div class="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
+                <div
+                    class="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl bg-gradient-to-r from-red-500 to-orange-500 bg-opacity-70">
                     <div class="flex">
                         <h1 class="font-bold text-3xl">Send Us a message</h1>
                     </div>
@@ -53,12 +54,13 @@
                 </div>
             </form>
 
-            <div :class="'w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-accent bg-opacity-80 rounded-2xl'">
+            <div
+                :class="'w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-gradient-to-r from-cyan-500 to-blue-500 bg-opacity-80 rounded-2xl'">
                 <div class="flex flex-col text-white">
 
                     <div class="flex my-4 w-2/3 lg:w-2/3">
                         <div class="flex flex-col">
-                            <h2 class="text-xl">Urban Snap</h2>
+                            <img src="/static/logo_transparent.png" class="w-36" alt="urban_snap_logo" />
                             <p class="whitespace-nowrap">Real Estate Photography Calgary <br />Alberta</p>
                         </div>
                     </div>
@@ -83,7 +85,7 @@
                     </div>
 
                     <div class="flex my-4 w-2/3 lg:w-1/2">
-                        <a href="" target="_blank" rel="noreferrer"
+                        <a href="https://www.facebook.com/urbansnap.ca" target="_blank" rel="noreferrer"
                             class="rounded-full h-8 w-8 inline-block mx-1 text-center pt-1">
                             <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -98,7 +100,7 @@
                                 </g>
                             </svg>
                         </a>
-                        <a href="" target="_blank" rel="noreferrer"
+                        <a href="https://www.instagram.com/urban_snap_yyc/" target="_blank" rel="noreferrer"
                             class="rounded-full h-8 w-8 inline-block mx-1 text-center pt-1">
                             <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -111,7 +113,7 @@
                                 </g>
                             </svg>
                         </a>
-                        <a href="" target="_blank" rel="noreferrer"
+                        <a href="https://wa.me/message/JIDTIORNF7ZSG1" target="_blank" rel="noreferrer"
                             class="rounded-full h-8 w-8 inline-block mx-1 text-center pt-1">
                             <svg height="" width="" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
@@ -139,7 +141,7 @@
     </div>
     <div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
         <div>
-            <a title="call us" href="tel:403-994-7627"
+            <a title="Message us!" href="https://wa.me/message/JIDTIORNF7ZSG1"
                 class="block w-10 h-10 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
                 <UTooltip text="Reach us on WhatsApp" :popper="{ arrow: true }">
                     <svg height="" width="" version=" 1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"

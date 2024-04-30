@@ -40,7 +40,7 @@
     </div>
 
     <footer>
-        <footer class="footer p-5">
+        <footer class="footer p-5 bg-slate-200">
             <nav>
                 <header class="footer-title flex content-start items-start">SAY HELLO!</header>
                 <NuxtLink
@@ -69,7 +69,7 @@
                                 d="M21.384,17.752a2.108,2.108,0,0,1-.522,3.359,7.543,7.543,0,0,1-5.476.642C10.5,20.523,3.477,13.5,2.247,8.614a7.543,7.543,0,0,1,.642-5.476,2.108,2.108,0,0,1,3.359-.522L8.333,4.7a2.094,2.094,0,0,1,.445,2.328A3.877,3.877,0,0,1,8,8.2c-2.384,2.384,5.417,10.185,7.8,7.8a3.877,3.877,0,0,1,1.173-.781,2.092,2.092,0,0,1,2.328.445Z">
                             </path>
                         </g>
-                    </svg> | +1 (368) 993-7999</NuxtLink>
+                    </svg> | +1 (403) 994-7627</NuxtLink>
 
                 <header class="footer-title flex content-start items-start mt-8">SOCIALIZE</header>
                 <div class="flex gap-4 items-center justify-center">
@@ -237,8 +237,8 @@ export default {
         },
         navbarClass() {
             return {
-                'bg-white bg-opacity-80': !this.isScrolled, // Original color when not scrolled
-                'bg-secondary bg-opacity-80': this.isScrolled, // New color when scrolled
+                'bg-white bg-opacity-80 transition-all ease-in-out duration-300': !this.isScrolled, // Original color when not scrolled
+                'bg-secondary bg-opacity-80 transition-all ease-in-out duration-300': this.isScrolled, // New color when scrolled
                 'md:fixed md:left-0 md:top-0 w-full z-30': true, // Add fixed positioning and other classes
             };
         },
