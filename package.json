@@ -18,6 +18,7 @@
     "daisyui": "^4.7.2",
     "nuxt": "^3.10.2",
     "nuxt-anchorscroll": "^1.0.3",
+    "nuxt-gtag": "^2.0.5",
     "nuxt-simple-robots": "^4.0.0-rc.17",
     "postcss": "^8.4.35",
     "sharp": "^0.33.2",

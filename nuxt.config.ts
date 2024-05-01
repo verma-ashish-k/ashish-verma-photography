@@ -19,29 +19,19 @@ export default defineNuxtConfig({
           },
           {
               name: 'keywords',
-              content: 'Real Estate Photography, Real Estate Videography, Virtual Tours, Professional Headshots, Interior Photography, Exterior Photography, Twilight Photography, Aerial Photography, Property Photography, Real Estate Marketing, Virtual Tours'
+              content: 'Event, Real Estate Photography, Real Estate Videography, Virtual Tours, Professional Headshots, Interior Photography, Exterior Photography, Twilight Photography, Aerial Photography, Property Photography, Real Estate Marketing, Virtual Tours,'
           },
       ],
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       script: [
-        { 
-          src: 'https://www.googletagmanager.com/gtag/js?id=G-VTTPE9V8EC',
-          async: true
-        },
-        { 
-          innerHTML: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-VTTPE9V8EC');`,
-          type: 'text/javascript',
-        },
-        { 
-          type:"module",
-          src:"https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"
-        },
-        // ionicons
-        {
-          nomodule: '',
-          src: 'https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js'
-        },
+        { type:"module",
+         src:"https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"},
+          // ionicons
+          {
+            nomodule: '',
+            src: 'https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js'
+          },
       ],
     }
   },
@@ -70,8 +60,13 @@ export default defineNuxtConfig({
     '@hypernym/nuxt-anime',
     '@nuxtjs/cloudinary',
     '@nuxtjs/sitemap',
-    "nuxt-simple-robots"
+    'nuxt-simple-robots',
+    'nuxt-gtag'
   ],
+
+  gtag: {
+    id: 'G-VTTPE9V8EC'
+  },
 
   anime: {
     provide: true
