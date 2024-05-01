@@ -3,7 +3,7 @@
         <div class="select-none scroll-smooth">
             <hero-header class="-mt-16 -z-10" />
             <section2 />
-            <before-after />
+            <before-after class="hidden lg:visible" />
             <marquee />
             <div class="services">
                 <services />

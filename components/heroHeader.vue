@@ -13,11 +13,8 @@
                     <p class="mb-5 mt-2 lg:text-2xl">Discover the Power of Visual Storytelling with Urban Snap. From
                         Downtown Condos to Suburban Retreats, Let Us Showcase Your Property's Unique Charm and Attract
                         Potential Buyers.</p>
-                    <div class="flex justify-center gap-5">
-                        <button class="btn btn-outline btn-primary w-1/4">View Portfolio</button>
-                        <button class="btn btn-outline btn-primary w-1/4">Book Now</button>
-                    </div>
-
+                    <a href="/contact"><button class="btn px-20 text-white btn-primary">Book
+                            Now</button></a>
                 </div>
             </div>
 
@@ -27,7 +24,7 @@
                 Your browser does not support the video tag.
             </video>
 
-            <div class="animate-bounce absolute bottom-0">
+            <div class="animate-bounce absolute bottom-0 hidden md:visible">
                 <NuxtLink to="#sec-2" ref="nextSectionRef" @click="scrollToNextSection()">
                     <svg class="w-16" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-51.2 -51.2 614.40 614.40"

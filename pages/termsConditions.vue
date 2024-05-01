@@ -1,5 +1,4 @@
 <template>
-    <AnimatedCursor />
 
     <div class="py-20 bg-gradient-to-r from-slate-300 to-slate-500 text-white leading-normal tracking-normal">
         <div class="container mx-auto p-8">

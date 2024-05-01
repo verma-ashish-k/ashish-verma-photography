@@ -1,5 +1,4 @@
 <template>
-    <AnimatedCursor />
     <div class="py-20 bg-gradient-to-r from-slate-300 to-slate-500 text-white">
         <div class="container mx-auto p-8">
             <div class="bg-gradient-to-r from-red-500 to-orange-500 rounded-xl shadow-lg p-10 m-4">

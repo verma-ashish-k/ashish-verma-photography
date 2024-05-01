@@ -1,5 +1,4 @@
 <template>
-    <animated-cursor />
     <header :class="navbarClass">
         <nav class="flex justify-between items-center mx-5">
             <div>
