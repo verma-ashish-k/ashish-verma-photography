@@ -19,19 +19,29 @@ export default defineNuxtConfig({
           },
           {
               name: 'keywords',
-              content: 'Photography, Photographer, Airdrie, Alberta, Calgary, Edmonton, Surrey, Vancouver, Architectural, Portraits, Event, Real Estate Photography, Real Estate Videography, Virtual Tours, Professional Headshots, Interior Photography, Exterior Photography, Twilight Photography, Aerial Photography, Property Photography, Real Estate Marketing, Virtual Tours, Professional Headshots'
+              content: 'Real Estate Photography, Real Estate Videography, Virtual Tours, Professional Headshots, Interior Photography, Exterior Photography, Twilight Photography, Aerial Photography, Property Photography, Real Estate Marketing, Virtual Tours'
           },
       ],
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       script: [
-        { type:"module",
-         src:"https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"},
-          // ionicons
-          {
-            nomodule: '',
-            src: 'https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js'
-          },
+        { 
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-VTTPE9V8EC',
+          async: true
+        },
+        { 
+          innerHTML: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-VTTPE9V8EC');`,
+          type: 'text/javascript',
+        },
+        { 
+          type:"module",
+          src:"https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"
+        },
+        // ionicons
+        {
+          nomodule: '',
+          src: 'https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js'
+        },
       ],
     }
   },
