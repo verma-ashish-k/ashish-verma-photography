@@ -40,13 +40,13 @@
                         <input type="checkbox" name="botcheck" class="hidden" style="display: none;" v-model="botcheck">
                         <!-- Show button only if form not submitted -->
                         <button v-if="!formSubmitted" type="submit"
-                            class="btn btn-outline btn-secondary disabled:btn-neutral" :disabled="!isFormValid">
+                            class="btn btn-md btn-secondary disabled:btn-neutral" :disabled="!isFormValid">
                             Send Message
                         </button>
 
                     </div>
                     <!-- Show thank you message after form submission -->
-                    <div v-if="formSubmitted" class="text-orange-400 w-full">
+                    <div v-if="formSubmitted" class=" w-full">
                         Thank you for your message!
                         <br />
                         We will get back to you soon.
@@ -222,7 +222,7 @@ const submitForm = async () => {
                 'Accept': 'application/json',
             },
             body: JSON.stringify({
-                access_key: config.public.apiKey,
+                access_key: 'd1bc0811-4796-4f5a-956b-782094171a22',
                 from_name: fromName.value,
                 "First Name": firstName.value,
                 "Last Name": lastName.value,
