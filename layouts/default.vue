@@ -1,4 +1,5 @@
 <template>
+    <SpeedInsights />
     <header :class="navbarClass">
         <nav class="flex justify-between items-center mx-5">
             <div>
@@ -222,6 +223,7 @@
 
 <script>
 import { IonIcon } from '@ionic/vue';
+import { SpeedInsights } from '@vercel/speed-insights/vue';
 
 export default {
     data() {
