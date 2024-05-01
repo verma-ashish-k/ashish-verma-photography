@@ -49,7 +49,16 @@ useHead({
         {
             type: 'application/ld+json',
             innerHTML: JSON.stringify(jsonLdData)
-        }
+        },
+        {
+            src: 'https://www.googletagmanager.com/gtag/js?id=G-VTTPE9V8EC',
+            async: true
+        },
+        {
+            innerHTML: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-VTTPE9V8EC');`,
+            type: 'text/javascript',
+            charset: 'utf-8'
+        },
     ]
 });
 
