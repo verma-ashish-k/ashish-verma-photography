@@ -1,37 +1,39 @@
 <template>
-  <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-    <form class="card-surface p-6 sm:p-8" @submit.prevent="submitForm">
+  <div class="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8">
+    <form class="card-surface p-7 sm:p-10" @submit.prevent="submitForm">
       <p class="eyebrow">Book a shoot</p>
-      <h2 class="mt-2 font-display text-3xl text-ink-900">Send us a message</h2>
-      <p class="mt-3 text-sm text-ink-500">Tell us the address, square footage, and the services you need.</p>
+      <h2 class="display-sm mt-3">Send us a message</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-fg-muted">
+        Tell us the address, square footage, and the services you need.
+      </p>
 
-      <div v-if="formSubmitted" class="mt-8 rounded-2xl bg-cream p-6 text-ink-800">
+      <div v-if="formSubmitted" class="mt-8 rounded-2xl bg-page-alt p-6 text-[17px] text-fg">
         Thank you for your message. We will get back to you soon.
       </div>
 
-      <div v-else class="mt-6 grid gap-4 sm:grid-cols-2">
+      <div v-else class="mt-8 grid gap-4 sm:grid-cols-2">
         <input type="text" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" v-model="botcheck" />
-        <label class="block text-sm font-medium text-ink-700">
+        <label class="block text-[13px] font-medium tracking-wide text-fg">
           First name
           <input v-model="firstName" required class="input" type="text" name="firstName" autocomplete="given-name" />
         </label>
-        <label class="block text-sm font-medium text-ink-700">
+        <label class="block text-[13px] font-medium tracking-wide text-fg">
           Last name
           <input v-model="lastName" required class="input" type="text" name="lastName" autocomplete="family-name" />
         </label>
-        <label class="block text-sm font-medium text-ink-700">
+        <label class="block text-[13px] font-medium tracking-wide text-fg">
           Email
           <input v-model="email" required class="input" type="email" name="email" autocomplete="email" />
         </label>
-        <label class="block text-sm font-medium text-ink-700">
+        <label class="block text-[13px] font-medium tracking-wide text-fg">
           Phone
           <input v-model="phone" required class="input" type="tel" name="phone" autocomplete="tel" />
         </label>
-        <label class="block text-sm font-medium text-ink-700 sm:col-span-2">
+        <label class="block text-[13px] font-medium tracking-wide text-fg sm:col-span-2">
           Subject
           <input v-model="subject" required class="input" type="text" name="subject" />
         </label>
-        <label class="block text-sm font-medium text-ink-700 sm:col-span-2">
+        <label class="block text-[13px] font-medium tracking-wide text-fg sm:col-span-2">
           Message
           <textarea v-model="message" required class="input min-h-32" name="message" />
         </label>
@@ -42,24 +44,26 @@
       </div>
     </form>
 
-    <aside class="rounded-3xl bg-ink-900 p-6 text-white sm:p-8">
+    <aside class="rounded-[28px] bg-ink-950 p-7 text-white sm:p-10">
       <p class="eyebrow text-coral-light">Studio</p>
-      <h2 class="mt-2 font-display text-3xl">Urban Snap</h2>
-      <p class="mt-3 text-white/70">Real Estate Photography<br />{{ site.locationLabel }}</p>
-      <div class="mt-8 space-y-5 text-sm">
+      <h2 class="display-sm mt-3 text-white">Urban Snap</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-white/55">
+        Real Estate Photography<br />{{ site.locationLabel }}
+      </p>
+      <div class="mt-10 space-y-6">
         <div>
-          <p class="text-white/45">Call us</p>
-          <a :href="site.phoneHref" class="mt-1 block text-lg text-white">{{ site.phoneDisplay }}</a>
+          <p class="text-[12px] uppercase tracking-[0.18em] text-white/40">Call us</p>
+          <a :href="site.phoneHref" class="mt-2 block text-[20px] tracking-wide text-white">{{ site.phoneDisplay }}</a>
         </div>
         <div>
-          <p class="text-white/45">Email</p>
-          <a :href="`mailto:${site.email}`" class="mt-1 block text-lg text-white">{{ site.email }}</a>
+          <p class="text-[12px] uppercase tracking-[0.18em] text-white/40">Email</p>
+          <a :href="`mailto:${site.email}`" class="mt-2 block text-[20px] tracking-wide text-white">{{ site.email }}</a>
         </div>
       </div>
-      <div class="mt-8 flex flex-wrap gap-4 text-sm">
-        <a :href="site.social.facebook" target="_blank" rel="noreferrer" class="text-white/70 hover:text-white">Facebook</a>
-        <a :href="site.social.instagram" target="_blank" rel="noreferrer" class="text-white/70 hover:text-white">Instagram</a>
-        <a :href="site.whatsapp" target="_blank" rel="noreferrer" class="text-white/70 hover:text-white">WhatsApp</a>
+      <div class="mt-10 flex flex-wrap gap-5 text-[13px] font-medium tracking-wide">
+        <a :href="site.social.facebook" target="_blank" rel="noreferrer" class="text-white/55 hover:text-white">Facebook</a>
+        <a :href="site.social.instagram" target="_blank" rel="noreferrer" class="text-white/55 hover:text-white">Instagram</a>
+        <a :href="site.whatsapp" target="_blank" rel="noreferrer" class="text-white/55 hover:text-white">WhatsApp</a>
       </div>
     </aside>
   </div>
@@ -123,6 +127,11 @@ const submitForm = async () => {
 
 <style scoped>
 .input {
-  @apply mt-2 w-full rounded-2xl border border-ink-900/10 bg-cream px-4 py-3 text-ink-900 outline-none transition placeholder:text-ink-300 focus:border-coral focus:bg-white;
+  @apply mt-2 w-full rounded-2xl border border-line px-4 py-3.5 text-[16px] outline-none transition placeholder:text-fg-faint focus:border-coral/40;
+  background: var(--field-bg);
+  color: var(--field-fg);
+}
+.input:focus {
+  background: var(--card);
 }
 </style>

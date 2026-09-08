@@ -13,7 +13,9 @@
     </PageHero>
     <section class="section">
       <div class="site-shell">
-        <GalleryGrid :images="realEstateImages" />
+        <Reveal variant="zoom-in">
+          <GalleryGrid :images="realEstateImages" />
+        </Reveal>
       </div>
     </section>
     <CtaBand />

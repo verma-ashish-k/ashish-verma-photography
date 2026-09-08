@@ -3,7 +3,7 @@
     :href="site.whatsapp"
     target="_blank"
     rel="noreferrer"
-    class="fixed bottom-4 right-4 z-40 grid h-14 w-14 place-items-center rounded-full bg-[#20a83e] text-white shadow-lg transition hover:scale-105 sm:bottom-6 sm:right-6"
+    class="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-[#20a83e] text-white shadow-soft transition hover:scale-105 sm:bottom-7 sm:right-7"
     title="Message us on WhatsApp"
   >
     <span class="sr-only">Message Urban Snap on WhatsApp</span>

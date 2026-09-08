@@ -1,70 +1,88 @@
 <template>
-  <section class="section pt-8">
+  <section class="section pt-10">
     <div class="site-shell">
-      <div class="max-w-2xl">
-        <p class="eyebrow">À-la-carte</p>
-        <h2 class="display mt-3">Choose a size, then a service.</h2>
-        <p class="lede mt-4">
-          Slide between property sizes or tap a chip. Prices update for photography, video, iGuide, and add-ons.
-        </p>
-      </div>
-
-      <div class="mt-8 rounded-3xl bg-ink-900 p-5 text-white sm:p-8">
-        <label class="block text-sm font-medium text-white/70" for="area-range">Select your property size</label>
-        <input
-          id="area-range"
-          type="range"
-          min="0"
-          :max="tiers.length - 1"
-          step="1"
-          :value="selectedIndex"
-          class="mt-4 w-full accent-coral"
-          @input="selectTier(Number(($event.target as HTMLInputElement).value))"
-        />
-        <div class="mt-4 flex flex-wrap gap-2">
-          <button
-            v-for="(tier, index) in tiers"
-            :key="tier.id"
-            type="button"
-            class="rounded-full px-3 py-2 text-xs font-semibold sm:text-sm"
-            :class="index === selectedIndex ? 'bg-coral text-white' : 'bg-white/10 text-white/75 hover:bg-white/15'"
-            @click="selectTier(index)"
-          >
-            {{ tier.shortLabel }}
-          </button>
+      <Reveal variant="fade-up">
+        <div class="max-w-2xl">
+          <p class="eyebrow">À-la-carte</p>
+          <h2 class="display mt-4">Choose a size, then a service.</h2>
+          <p class="lede mt-5">
+            Slide between property sizes or tap a chip. Prices update for photography, video, iGuide, and add-ons.
+          </p>
         </div>
-        <p class="mt-4 text-lg font-semibold">{{ selectedTier.label }}</p>
-      </div>
+      </Reveal>
+
+      <Reveal variant="zoom-in">
+        <div class="mt-10 rounded-[28px] bg-ink-950 p-6 text-white sm:p-10">
+          <label class="block text-[13px] font-medium tracking-wide text-white/55" for="area-range">
+            Select your property size
+          </label>
+          <input
+            id="area-range"
+            type="range"
+            min="0"
+            :max="tiers.length - 1"
+            step="1"
+            :value="selectedIndex"
+            class="mt-5 w-full accent-coral"
+            @input="selectTier(Number(($event.target as HTMLInputElement).value))"
+          />
+          <div class="mt-5 flex flex-wrap gap-2">
+            <button
+              v-for="(tier, index) in tiers"
+              :key="tier.id"
+              type="button"
+              class="rounded-full px-3.5 py-2 text-[13px] font-medium tracking-wide transition"
+              :class="index === selectedIndex ? 'bg-coral text-white' : 'bg-white/10 text-white/70 hover:bg-white/15'"
+              @click="selectTier(index)"
+            >
+              {{ tier.shortLabel }}
+            </button>
+          </div>
+          <p class="mt-5 text-[20px] font-semibold tracking-wide">{{ selectedTier.label }}</p>
+        </div>
+      </Reveal>
 
       <div class="mt-8 grid gap-4 lg:grid-cols-3">
-        <article v-for="item in aLaCarteItems" :key="item.key" class="card-surface p-6">
-          <h3 class="font-display text-2xl">{{ item.title }}</h3>
-          <p class="mt-3 text-3xl font-semibold text-coral">{{ formatPrice(selectedTier.prices[item.key]) }}</p>
-          <ul class="mt-5 space-y-2 text-sm text-ink-500">
-            <li v-for="feature in item.features" :key="feature">{{ feature }}</li>
-          </ul>
-        </article>
+        <Reveal v-for="(item, index) in aLaCarteItems" :key="item.key" :delay="index * 80" variant="zoom-in">
+          <article class="card-surface h-full p-7">
+            <h3 class="display-sm">{{ item.title }}</h3>
+            <p class="mt-4 text-[40px] font-semibold tracking-wide text-coral">
+              {{ formatPrice(selectedTier.prices[item.key]) }}
+            </p>
+            <ul class="mt-6 space-y-2.5 text-[15px] text-fg-muted">
+              <li v-for="feature in item.features" :key="feature">{{ feature }}</li>
+            </ul>
+          </article>
+        </Reveal>
       </div>
 
-      <h3 class="mt-14 font-display text-3xl">Add-on items</h3>
+      <Reveal variant="fade-up">
+        <h3 class="display-sm mt-16">Add-on items</h3>
+      </Reveal>
       <div class="mt-6 grid gap-4 md:grid-cols-2">
-        <article v-for="item in addOnItems" :key="item.key" class="card-surface p-6">
-          <h4 class="font-display text-2xl">{{ item.title }}</h4>
-          <p class="mt-3 text-3xl font-semibold text-sky">{{ formatPrice(selectedTier.prices[item.key]) }}</p>
-          <ul class="mt-5 space-y-2 text-sm text-ink-500">
-            <li v-for="feature in item.features" :key="feature">{{ feature }}</li>
-          </ul>
-        </article>
+        <Reveal v-for="(item, index) in addOnItems" :key="item.key" :delay="index * 80" variant="zoom-out">
+          <article class="card-surface h-full p-7">
+            <h4 class="display-sm">{{ item.title }}</h4>
+            <p class="mt-4 text-[40px] font-semibold tracking-wide text-sky">
+              {{ formatPrice(selectedTier.prices[item.key]) }}
+            </p>
+            <ul class="mt-6 space-y-2.5 text-[15px] text-fg-muted">
+              <li v-for="feature in item.features" :key="feature">{{ feature }}</li>
+            </ul>
+          </article>
+        </Reveal>
       </div>
 
-      <article class="mt-6 rounded-3xl bg-ink-800 p-6 text-white">
-        <h4 class="font-display text-2xl">{{ travelFees.title }}</h4>
-        <p class="mt-3 text-3xl font-semibold text-sky-light">Variable</p>
-        <ul class="mt-5 space-y-2 text-sm text-white/70">
-          <li>{{ travelFees.rate }}</li>
-          <li v-for="note in travelFees.notes" :key="note">{{ note }}</li>
-        </ul>
-      </article>
+      <Reveal variant="slide">
+        <article class="mt-6 rounded-[28px] bg-ink-900 p-7 text-white">
+          <h4 class="display-sm text-white">{{ travelFees.title }}</h4>
+          <p class="mt-4 text-[40px] font-semibold tracking-wide text-white/90">Variable</p>
+          <ul class="mt-6 space-y-2.5 text-[15px] text-white/55">
+            <li>{{ travelFees.rate }}</li>
+            <li v-for="note in travelFees.notes" :key="note">{{ note }}</li>
+          </ul>
+        </article>
+      </Reveal>
     </div>
   </section>
 </template>

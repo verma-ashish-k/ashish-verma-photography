@@ -58,11 +58,11 @@ export const footerServices = [
 ] as const
 
 export const clientLogos = [
-  '/v1713166267/realty_logos/1_gkg3cv.png',
-  '/v1713166284/realty_logos/2_per6qc.png',
-  '/v1713166284/realty_logos/3_fbgjxg.png',
-  '/v1713166284/realty_logos/4_yuuymd.png',
-  '/v1713166285/realty_logos/5_dfwutr.png',
-  '/v1713166286/realty_logos/6_euajiw.png',
-  '/v1713166286/realty_logos/7_bjw4b5.png',
+  { src: '/v1713166267/realty_logos/1_gkg3cv.png', alt: 'CBRE' },
+  { src: '/v1713166284/realty_logos/2_per6qc.png', alt: 'Century 21' },
+  { src: '/v1713166284/realty_logos/3_fbgjxg.png', alt: 'CIR Realty' },
+  { src: '/v1713166284/realty_logos/4_yuuymd.png', alt: 'Coldwell Banker' },
+  { src: '/v1713166285/realty_logos/5_dfwutr.png', alt: 'Engel & Völkers' },
+  { src: '/v1713166286/realty_logos/6_euajiw.png', alt: "Sotheby's International Realty" },
+  { src: '/v1713166286/realty_logos/7_bjw4b5.png', alt: 'MaxWell' },
 ] as const

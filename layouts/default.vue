@@ -1,6 +1,6 @@
 <template>
-  <div class="min-h-screen bg-cream">
-    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2">
+  <div class="min-h-screen bg-page text-fg">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-card focus:px-4 focus:py-2 focus:text-fg">
       Skip to content
     </a>
     <AppHeader />
@@ -16,6 +16,8 @@
 <script setup lang="ts">
 import { SpeedInsights } from '@vercel/speed-insights/vue'
 import { site } from '~/data/site'
+
+useTheme()
 
 const enableVercelInsights = computed(() => {
   if (!import.meta.client) return false

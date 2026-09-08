@@ -1,65 +1,67 @@
 <template>
   <Teleport to="body">
-    <div
-      v-if="open"
-      class="fixed inset-0 z-[80] flex flex-col bg-ink-950/95 text-white"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Image viewer"
-      @keydown.escape.prevent="emit('close')"
-    >
-      <div class="flex items-center justify-between px-4 py-4 sm:px-6">
-        <p class="text-sm text-white/60">{{ index + 1 }} / {{ images.length }}</p>
-        <button type="button" class="rounded-full px-4 py-2 text-sm hover:bg-white/10" @click="emit('close')">
-          Close
-        </button>
-      </div>
+    <Transition name="lightbox">
+      <div
+        v-if="open"
+        class="fixed inset-0 z-[80] flex flex-col bg-black/92 text-white backdrop-blur-md"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Image viewer"
+        @keydown.escape.prevent="emit('close')"
+      >
+        <div class="flex items-center justify-between px-5 py-5 sm:px-8">
+          <p class="text-[13px] tracking-wide text-white/50">{{ index + 1 }} / {{ images.length }}</p>
+          <button type="button" class="rounded-full px-4 py-2 text-[14px] text-white/80 hover:bg-white/10" @click="emit('close')">
+            Close
+          </button>
+        </div>
 
-      <div class="relative flex flex-1 items-center justify-center px-4 sm:px-16">
-        <button
-          type="button"
-          class="absolute left-2 hidden h-12 w-12 place-items-center rounded-full bg-white/10 sm:grid"
-          aria-label="Previous image"
-          @click="go(-1)"
-        >
-          ‹
-        </button>
-        <CldImg
-          :src="current.src"
-          :alt="current.alt"
-          class="max-h-[70vh] w-full max-w-5xl object-contain"
-          :widths="[800, 1200, 1800]"
-          sizes="90vw"
-          loading="eager"
-        />
-        <button
-          type="button"
-          class="absolute right-2 hidden h-12 w-12 place-items-center rounded-full bg-white/10 sm:grid"
-          aria-label="Next image"
-          @click="go(1)"
-        >
-          ›
-        </button>
-      </div>
+        <div class="lightbox-frame relative flex flex-1 items-center justify-center px-4 sm:px-16">
+          <button
+            type="button"
+            class="absolute left-3 hidden h-12 w-12 place-items-center rounded-full bg-white/10 text-2xl sm:grid"
+            aria-label="Previous image"
+            @click="go(-1)"
+          >
+            ‹
+          </button>
+          <CldImg
+            :src="current.src"
+            :alt="current.alt"
+            class="max-h-[70vh] w-full max-w-5xl object-contain"
+            :widths="[800, 1200, 1800]"
+            sizes="90vw"
+            loading="eager"
+          />
+          <button
+            type="button"
+            class="absolute right-3 hidden h-12 w-12 place-items-center rounded-full bg-white/10 text-2xl sm:grid"
+            aria-label="Next image"
+            @click="go(1)"
+          >
+            ›
+          </button>
+        </div>
 
-      <div class="flex justify-center gap-4 px-4 py-4 sm:hidden">
-        <button type="button" class="rounded-full bg-white/10 px-4 py-2" @click="go(-1)">Previous</button>
-        <button type="button" class="rounded-full bg-white/10 px-4 py-2" @click="go(1)">Next</button>
-      </div>
+        <div class="flex justify-center gap-3 px-4 py-4 sm:hidden">
+          <button type="button" class="rounded-full bg-white/10 px-4 py-2 text-[14px]" @click="go(-1)">Previous</button>
+          <button type="button" class="rounded-full bg-white/10 px-4 py-2 text-[14px]" @click="go(1)">Next</button>
+        </div>
 
-      <div class="hidden gap-2 overflow-x-auto px-4 pb-5 sm:flex">
-        <button
-          v-for="(image, i) in images"
-          :key="image.src"
-          type="button"
-          class="shrink-0 overflow-hidden rounded-lg border-2"
-          :class="i === index ? 'border-coral' : 'border-transparent'"
-          @click="emit('update:index', i)"
-        >
-          <CldImg :src="image.src" :alt="image.alt" class="h-16 w-20 object-cover" :widths="[160, 240]" sizes="80px" />
-        </button>
+        <div class="hidden gap-2 overflow-x-auto px-5 pb-6 sm:flex">
+          <button
+            v-for="(image, i) in images"
+            :key="image.src"
+            type="button"
+            class="shrink-0 overflow-hidden rounded-xl border-2 transition"
+            :class="i === index ? 'border-coral scale-105' : 'border-transparent'"
+            @click="emit('update:index', i)"
+          >
+            <CldImg :src="image.src" :alt="image.alt" class="h-16 w-20 object-cover" :widths="[160, 240]" sizes="80px" />
+          </button>
+        </div>
       </div>
-    </div>
+    </Transition>
   </Teleport>
 </template>
 
