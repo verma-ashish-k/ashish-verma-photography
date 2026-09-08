@@ -28,7 +28,7 @@
             <div>
               <p class="eyebrow">{{ service.title }}</p>
               <h2 class="display-sm mt-4">{{ service.summary }}</h2>
-              <p class="mt-5 text-[17px] leading-relaxed text-ink-500">{{ service.description }}</p>
+              <p class="mt-5 text-[17px] leading-relaxed text-fg-muted">{{ service.description }}</p>
               <div class="mt-8 flex flex-wrap gap-3">
                 <NuxtLink to="/pricing" class="btn-outline">See pricing</NuxtLink>
                 <NuxtLink v-if="service.id === 'headshots'" to="/portfolio/headshots" class="btn-primary">

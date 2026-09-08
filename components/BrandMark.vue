@@ -13,10 +13,10 @@
       </svg>
     </span>
     <span class="leading-none">
-      <span class="block text-[17px] font-semibold tracking-wide" :class="light ? 'text-white' : 'text-ink-900'">
+      <span class="block text-[17px] font-semibold tracking-wide" :class="light ? 'text-white' : 'text-fg'">
         {{ site.name }}
       </span>
-      <span class="mt-0.5 hidden text-[10px] font-medium uppercase tracking-[0.18em] sm:block" :class="light ? 'text-white/50' : 'text-ink-500'">
+      <span class="mt-0.5 hidden text-[10px] font-medium uppercase tracking-[0.18em] sm:block" :class="light ? 'text-white/50' : 'text-fg-muted'">
         {{ site.tagline }}
       </span>
     </span>

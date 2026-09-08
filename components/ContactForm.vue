@@ -3,37 +3,37 @@
     <form class="card-surface p-7 sm:p-10" @submit.prevent="submitForm">
       <p class="eyebrow">Book a shoot</p>
       <h2 class="display-sm mt-3">Send us a message</h2>
-      <p class="mt-3 text-[15px] leading-relaxed text-ink-500">
+      <p class="mt-3 text-[15px] leading-relaxed text-fg-muted">
         Tell us the address, square footage, and the services you need.
       </p>
 
-      <div v-if="formSubmitted" class="mt-8 rounded-2xl bg-cream p-6 text-[17px] text-ink-800">
+      <div v-if="formSubmitted" class="mt-8 rounded-2xl bg-page-alt p-6 text-[17px] text-fg">
         Thank you for your message. We will get back to you soon.
       </div>
 
       <div v-else class="mt-8 grid gap-4 sm:grid-cols-2">
         <input type="text" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" v-model="botcheck" />
-        <label class="block text-[13px] font-medium tracking-wide text-ink-700">
+        <label class="block text-[13px] font-medium tracking-wide text-fg">
           First name
           <input v-model="firstName" required class="input" type="text" name="firstName" autocomplete="given-name" />
         </label>
-        <label class="block text-[13px] font-medium tracking-wide text-ink-700">
+        <label class="block text-[13px] font-medium tracking-wide text-fg">
           Last name
           <input v-model="lastName" required class="input" type="text" name="lastName" autocomplete="family-name" />
         </label>
-        <label class="block text-[13px] font-medium tracking-wide text-ink-700">
+        <label class="block text-[13px] font-medium tracking-wide text-fg">
           Email
           <input v-model="email" required class="input" type="email" name="email" autocomplete="email" />
         </label>
-        <label class="block text-[13px] font-medium tracking-wide text-ink-700">
+        <label class="block text-[13px] font-medium tracking-wide text-fg">
           Phone
           <input v-model="phone" required class="input" type="tel" name="phone" autocomplete="tel" />
         </label>
-        <label class="block text-[13px] font-medium tracking-wide text-ink-700 sm:col-span-2">
+        <label class="block text-[13px] font-medium tracking-wide text-fg sm:col-span-2">
           Subject
           <input v-model="subject" required class="input" type="text" name="subject" />
         </label>
-        <label class="block text-[13px] font-medium tracking-wide text-ink-700 sm:col-span-2">
+        <label class="block text-[13px] font-medium tracking-wide text-fg sm:col-span-2">
           Message
           <textarea v-model="message" required class="input min-h-32" name="message" />
         </label>
@@ -127,6 +127,11 @@ const submitForm = async () => {
 
 <style scoped>
 .input {
-  @apply mt-2 w-full rounded-2xl border border-ink-900/10 bg-cream px-4 py-3.5 text-[16px] text-ink-900 outline-none transition placeholder:text-ink-300 focus:border-coral/40 focus:bg-white;
+  @apply mt-2 w-full rounded-2xl border border-line px-4 py-3.5 text-[16px] outline-none transition placeholder:text-fg-faint focus:border-coral/40;
+  background: var(--field-bg);
+  color: var(--field-fg);
+}
+.input:focus {
+  background: var(--card);
 }
 </style>

@@ -49,7 +49,7 @@
             <p class="mt-4 text-[40px] font-semibold tracking-wide text-coral">
               {{ formatPrice(selectedTier.prices[item.key]) }}
             </p>
-            <ul class="mt-6 space-y-2.5 text-[15px] text-ink-500">
+            <ul class="mt-6 space-y-2.5 text-[15px] text-fg-muted">
               <li v-for="feature in item.features" :key="feature">{{ feature }}</li>
             </ul>
           </article>
@@ -66,7 +66,7 @@
             <p class="mt-4 text-[40px] font-semibold tracking-wide text-sky">
               {{ formatPrice(selectedTier.prices[item.key]) }}
             </p>
-            <ul class="mt-6 space-y-2.5 text-[15px] text-ink-500">
+            <ul class="mt-6 space-y-2.5 text-[15px] text-fg-muted">
               <li v-for="feature in item.features" :key="feature">{{ feature }}</li>
             </ul>
           </article>

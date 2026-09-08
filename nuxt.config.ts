@@ -17,6 +17,13 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'en' },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
+      script: [
+        {
+          innerHTML:
+            "(function(){try{var t=localStorage.getItem('urban-snap-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();",
+          tagPosition: 'head',
+        },
+      ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'apple-touch-icon', href: '/images/logo-square.png' },
@@ -33,7 +40,8 @@ export default defineNuxtConfig({
           content:
             'Urban Snap is Calgary real estate photography and videography — listing photos, 4K video tours, iGuide floor plans, aerial imaging, twilight shoots, and professional headshots.',
         },
-        { name: 'theme-color', content: '#000000' },
+        { name: 'theme-color', content: '#f5f3ef', media: '(prefers-color-scheme: light)' },
+        { name: 'theme-color', content: '#111113', media: '(prefers-color-scheme: dark)' },
         { name: 'author', content: 'Urban Snap' },
       ],
     },

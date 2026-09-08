@@ -13,7 +13,7 @@
         <Reveal v-for="(item, index) in packages" :key="item.key" :delay="index * 90" :variant="item.highlight ? 'zoom-out' : 'zoom-in'">
           <article
             class="h-full rounded-[28px] p-7 sm:p-9"
-            :class="item.highlight ? 'bg-ink-950 text-white' : 'card-surface text-ink-900'"
+            :class="item.highlight ? 'bg-ink-950 text-white' : 'card-surface text-fg'"
           >
             <p
               class="text-[12px] font-medium uppercase tracking-[0.2em]"
@@ -27,7 +27,7 @@
                 v-for="line in item.includes"
                 :key="line.label"
                 class="flex items-start gap-2"
-                :class="line.included ? '' : item.highlight ? 'text-white/30 line-through' : 'text-ink-300 line-through'"
+                :class="line.included ? '' : item.highlight ? 'text-white/30 line-through' : 'text-fg-faint line-through'"
               >
                 <span aria-hidden="true">{{ line.included ? '✓' : '–' }}</span>
                 {{ line.label }}
@@ -38,7 +38,7 @@
         </Reveal>
       </div>
 
-      <p class="mt-14 text-center text-[15px] text-ink-500">
+      <p class="mt-14 text-center text-[15px] text-fg-muted">
         Contact us for commercial real estate pricing.
       </p>
     </div>

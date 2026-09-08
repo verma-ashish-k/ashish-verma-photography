@@ -16,7 +16,7 @@
             condos to suburban homes, a personalized approach, quick turnaround times, and attention to detail set the
             work apart.
           </p>
-          <p class="mt-5 text-[17px] leading-relaxed text-ink-500">
+          <p class="mt-5 text-[17px] leading-relaxed text-fg-muted">
             We combine architecture-aware composition with MLS-ready delivery so the same set of files works on realtor
             websites, portals, social, and print. If a listing needs more than stills, we add 4K video, iGuide, aerial,
             twilight, or a marketing package without changing crews.
@@ -26,7 +26,7 @@
           <Reveal v-for="(item, index) in facts" :key="item.label" :delay="index * 80" variant="zoom-in">
             <article class="card-surface h-full p-7">
               <p class="text-[12px] font-medium uppercase tracking-[0.18em] text-coral">{{ item.label }}</p>
-              <p class="mt-3 text-[15px] leading-relaxed text-ink-500">{{ item.body }}</p>
+              <p class="mt-3 text-[15px] leading-relaxed text-fg-muted">{{ item.body }}</p>
             </article>
           </Reveal>
         </div>
