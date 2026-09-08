@@ -1,8 +1,10 @@
 <template>
   <button
     type="button"
-    class="grid h-9 w-9 place-items-center rounded-full transition"
-    :class="inverse ? 'text-white/70 hover:bg-white/10 hover:text-white' : 'text-[color:var(--nav-muted)] hover:bg-[color-mix(in_srgb,var(--nav-fg)_8%,transparent)] hover:text-[color:var(--nav-fg)]'"
+    class="grid h-9 w-9 place-items-center rounded-full border transition"
+    :class="inverse
+      ? 'border-white/25 bg-black/30 text-white hover:bg-black/45'
+      : 'border-[color:var(--nav-border)] bg-[color-mix(in_srgb,var(--nav-fg)_6%,transparent)] text-[color:var(--nav-fg)] hover:bg-[color-mix(in_srgb,var(--nav-fg)_12%,transparent)]'"
     :aria-label="label"
     :title="label"
     @click="cyclePreference"
