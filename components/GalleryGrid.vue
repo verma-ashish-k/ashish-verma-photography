@@ -8,13 +8,12 @@
         class="group overflow-hidden rounded-2xl"
         @click="open(index)"
       >
-        <NuxtImg
-          provider="cloudinary"
+        <CldImg
           :src="image.src"
           :alt="image.alt"
           class="aspect-[4/5] w-full object-cover transition duration-700 group-hover:scale-105"
+          :widths="[400, 700, 1000]"
           sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          loading="lazy"
         />
       </button>
     </div>

@@ -24,12 +24,13 @@
         >
           ‹
         </button>
-        <NuxtImg
-          provider="cloudinary"
+        <CldImg
           :src="current.src"
           :alt="current.alt"
           class="max-h-[70vh] w-full max-w-5xl object-contain"
+          :widths="[800, 1200, 1800]"
           sizes="90vw"
+          loading="eager"
         />
         <button
           type="button"
@@ -55,7 +56,7 @@
           :class="i === index ? 'border-coral' : 'border-transparent'"
           @click="emit('update:index', i)"
         >
-          <NuxtImg provider="cloudinary" :src="image.src" :alt="image.alt" class="h-16 w-20 object-cover" sizes="80px" />
+          <CldImg :src="image.src" :alt="image.alt" class="h-16 w-20 object-cover" :widths="[160, 240]" sizes="80px" />
         </button>
       </div>
     </div>

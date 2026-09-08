@@ -15,13 +15,12 @@
           :key="service.id"
           class="scroll-mt-28 grid items-center gap-8 lg:grid-cols-2"
         >
-          <NuxtImg
-            provider="cloudinary"
+          <CldImg
             :src="service.image"
             :alt="service.title"
             class="h-72 w-full rounded-3xl object-cover shadow-lift lg:h-96"
+            :widths="[640, 1000, 1400]"
             sizes="(max-width: 1024px) 100vw, 50vw"
-            loading="lazy"
           />
           <div>
             <p class="eyebrow">{{ service.title }}</p>

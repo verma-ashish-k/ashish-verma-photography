@@ -13,11 +13,12 @@
           </p>
           <NuxtLink to="/about" class="btn-outline mt-8">About the studio</NuxtLink>
         </div>
-        <NuxtImg
-          provider="cloudinary"
+        <CldImg
           :src="site.logo.cloudinaryMark"
           alt="Urban Snap house mark"
           class="mx-auto w-56 rounded-3xl bg-ink-900 p-8 shadow-lift lg:w-72"
+          :widths="[280, 400]"
+          sizes="280px"
         />
       </div>
     </section>

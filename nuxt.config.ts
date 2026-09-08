@@ -1,5 +1,6 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
+  telemetry: false,
   devtools: { enabled: false },
   css: ['~/assets/css/main.css'],
   components: true,
@@ -43,17 +44,8 @@ export default defineNuxtConfig({
     name: 'Urban Snap',
   },
 
-  image: {
-    quality: 75,
-    format: ['webp'],
-    cloudinary: {
-      baseURL: 'https://res.cloudinary.com/ashish-verma-photography/image/upload/',
-    },
-  },
-
   modules: [
     '@nuxtjs/tailwindcss',
-    '@nuxt/image',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
     'nuxt-gtag',

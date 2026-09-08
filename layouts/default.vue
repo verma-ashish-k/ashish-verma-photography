@@ -9,13 +9,19 @@
     </main>
     <AppFooter />
     <WhatsAppButton />
-    <SpeedInsights />
+    <SpeedInsights v-if="enableVercelInsights" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { SpeedInsights } from '@vercel/speed-insights/vue'
 import { site } from '~/data/site'
+
+const enableVercelInsights = computed(() => {
+  if (!import.meta.client) return false
+  const host = window.location.hostname
+  return host === 'urbansnap.ca' || host === 'www.urbansnap.ca' || host.endsWith('.vercel.app')
+})
 
 useHead({
   script: [

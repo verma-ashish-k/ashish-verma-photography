@@ -7,14 +7,14 @@
     </div>
     <div class="relative">
       <div class="marquee-track flex w-max items-center gap-10 px-6">
-        <NuxtImg
+        <CldImg
           v-for="(logo, index) in looped"
           :key="`${logo}-${index}`"
-          provider="cloudinary"
           :src="logo"
           alt="Realty partner logo"
           class="h-16 w-auto object-contain opacity-80 sm:h-20"
-          loading="lazy"
+          :widths="[240, 400]"
+          sizes="160px"
         />
       </div>
     </div>

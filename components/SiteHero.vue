@@ -1,10 +1,10 @@
 <template>
   <section class="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-ink-950 text-white">
-    <NuxtImg
-      provider="cloudinary"
+    <CldImg
       :src="heroImages.home"
       alt="Calgary interior photographed by Urban Snap"
       class="absolute inset-0 h-full w-full object-cover"
+      :widths="[800, 1280, 1920, 2400]"
       sizes="100vw"
       preload
     />
@@ -31,7 +31,9 @@
         Discover the power of visual storytelling with Urban Snap. From downtown condos to suburban retreats, we
         showcase a property’s unique charm and help listings attract the right buyers.
       </p>
-      <p class="mt-4 text-sm font-medium text-sky-light">{{ currentService }}</p>
+      <p class="mt-4 text-sm font-medium text-white/70">
+        Now booking <span class="text-sky-light">{{ currentService }}</span>
+      </p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
         <NuxtLink to="/contact" class="btn-primary">Book a shoot</NuxtLink>
         <NuxtLink to="/portfolio" class="btn-ghost">View the portfolio</NuxtLink>
