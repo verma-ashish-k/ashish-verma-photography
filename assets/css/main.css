@@ -9,7 +9,9 @@
 
   body {
     @apply bg-cream text-ink-900 antialiased;
-    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-sans);
+    font-feature-settings: 'ss01' 1, 'cv11' 1, 'kern' 1;
+    letter-spacing: -0.011em;
   }
 
   :focus-visible {
@@ -17,50 +19,91 @@
   }
 }
 
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter',
+    'Segoe UI', system-ui, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.64, 0, 0.78, 0);
+}
+
 @layer components {
   .site-shell {
-    @apply mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-site px-5 sm:px-8 lg:px-12;
   }
 
   .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.22em] text-coral;
+    @apply text-[12px] font-medium uppercase text-coral;
+    letter-spacing: 0.22em;
   }
 
   .display {
-    @apply font-display text-4xl leading-[1.05] tracking-tight text-ink-900 sm:text-5xl lg:text-6xl;
+    @apply font-sans font-semibold text-ink-900;
+    font-size: clamp(2.4rem, 6vw, 4.75rem);
+    line-height: 1.05;
+    letter-spacing: 0.018em;
+  }
+
+  .display-sm {
+    @apply font-sans font-semibold text-ink-900;
+    font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+    line-height: 1.12;
+    letter-spacing: 0.014em;
   }
 
   .lede {
-    @apply max-w-2xl text-base leading-relaxed text-ink-500 sm:text-lg;
+    @apply max-w-2xl text-[17px] leading-[1.47] text-ink-500 sm:text-[19px];
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-coral px-6 py-3 text-sm font-semibold text-white transition hover:bg-coral-dark;
+    @apply inline-flex items-center justify-center rounded-full bg-coral px-6 py-2.5 text-[15px] font-medium text-white;
+    transition: transform 400ms var(--ease-out), background-color 200ms ease, opacity 200ms ease;
+  }
+
+  .btn-primary:hover {
+    @apply bg-coral-dark;
+    transform: scale(1.03);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.97);
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20;
+    @apply inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-2.5 text-[15px] font-medium text-white backdrop-blur-md;
+    transition: transform 400ms var(--ease-out), background-color 200ms ease;
+  }
+
+  .btn-ghost:hover {
+    @apply bg-white/20;
+    transform: scale(1.03);
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center rounded-full border border-ink-900/15 bg-white px-6 py-3 text-sm font-semibold text-ink-900 transition hover:border-ink-900/30 hover:bg-cream-dark;
+    @apply inline-flex items-center justify-center rounded-full border border-ink-900/10 bg-white px-6 py-2.5 text-[15px] font-medium text-ink-900;
+    transition: transform 400ms var(--ease-out), background-color 200ms ease, border-color 200ms ease;
+  }
+
+  .btn-outline:hover {
+    @apply border-ink-900/20 bg-cream-dark;
+    transform: scale(1.03);
   }
 
   .section {
-    @apply py-16 sm:py-20 lg:py-24;
+    @apply py-20 sm:py-24 lg:py-32;
   }
 
   .card-surface {
-    @apply rounded-3xl bg-white shadow-lift;
+    @apply rounded-[28px] border border-black/[0.04] bg-white;
+    box-shadow: 0 8px 40px -24px rgba(0, 0, 0, 0.18);
   }
 
   .legal-copy h2 {
-    @apply mt-8 text-xl font-semibold text-ink-900;
+    @apply mt-10 text-[22px] font-semibold tracking-wide text-ink-900;
   }
 
   .legal-copy p,
   .legal-copy li {
-    @apply mt-3 text-ink-500 leading-relaxed;
+    @apply mt-3 text-[17px] leading-[1.47] text-ink-500;
   }
 
   .legal-copy ul {
@@ -68,8 +111,107 @@
   }
 }
 
+.hero-zoom {
+  animation: hero-zoom-out 16s var(--ease-out) both;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 420ms ease, transform 640ms var(--ease-out);
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: scale(1.045);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: scale(0.965);
+}
+
+.reveal {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 700ms ease, transform 900ms var(--ease-out);
+}
+
+.reveal-zoom-in {
+  transform: scale(0.92);
+}
+
+.reveal-zoom-out {
+  transform: scale(1.07);
+}
+
+.reveal-fade-up {
+  transform: translate3d(0, 36px, 0) scale(0.98);
+}
+
+.reveal-slide {
+  transform: translate3d(-28px, 0, 0);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.zoom-hover {
+  overflow: hidden;
+}
+
+.zoom-hover > img,
+.zoom-hover img {
+  transition: transform 900ms var(--ease-out);
+}
+
+.zoom-hover:hover img {
+  transform: scale(1.06);
+}
+
+.lightbox-enter-active,
+.lightbox-leave-active {
+  transition: opacity 280ms ease;
+}
+
+.lightbox-enter-active .lightbox-frame,
+.lightbox-leave-active .lightbox-frame {
+  transition: transform 480ms var(--ease-out), opacity 280ms ease;
+}
+
+.lightbox-enter-from,
+.lightbox-leave-to {
+  opacity: 0;
+}
+
+.lightbox-enter-from .lightbox-frame {
+  transform: scale(1.06);
+  opacity: 0;
+}
+
+.lightbox-leave-to .lightbox-frame {
+  transform: scale(0.94);
+  opacity: 0;
+}
+
+.menu-enter-active,
+.menu-leave-active {
+  transition: opacity 280ms ease, transform 420ms var(--ease-out);
+}
+
+.menu-enter-from,
+.menu-leave-to {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.chip-enter-active {
+  transition: transform 360ms var(--ease-out), background-color 200ms ease;
+}
+
 .marquee-track {
-  animation: marquee 32s linear infinite;
+  animation: marquee 36s linear infinite;
 }
 
 @keyframes marquee {
@@ -81,12 +223,41 @@
   }
 }
 
+@keyframes hero-zoom-out {
+  from {
+    transform: scale(1.14);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
-  .marquee-track {
-    animation: none;
+  .marquee-track,
+  .hero-zoom,
+  .reveal,
+  .page-enter-active,
+  .page-leave-active,
+  .lightbox-enter-active,
+  .lightbox-leave-active,
+  .menu-enter-active,
+  .menu-leave-active,
+  .btn-primary,
+  .btn-ghost,
+  .btn-outline,
+  .zoom-hover img {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .reveal,
+  .page-enter-from,
+  .page-leave-to {
+    opacity: 1;
   }
 }

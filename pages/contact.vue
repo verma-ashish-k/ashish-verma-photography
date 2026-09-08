@@ -8,7 +8,9 @@
     />
     <section class="section">
       <div class="site-shell">
-        <ContactForm />
+        <Reveal variant="zoom-in">
+          <ContactForm />
+        </Reveal>
       </div>
     </section>
   </div>

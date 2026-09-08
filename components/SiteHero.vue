@@ -1,40 +1,41 @@
 <template>
   <section class="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-ink-950 text-white">
-    <CldImg
-      :src="heroImages.home"
-      alt="Calgary interior photographed by Urban Snap"
-      class="absolute inset-0 h-full w-full object-cover"
-      :widths="[800, 1280, 1920, 2400]"
-      sizes="100vw"
-      preload
-    />
-    <video
-      v-if="showVideo"
-      class="absolute inset-0 hidden h-full w-full object-cover md:block"
-      autoplay
-      muted
-      loop
-      playsinline
-      poster=""
-    >
-      <source src="/videos/hero.mp4" type="video/mp4" />
-    </video>
-    <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/70 to-ink-950/25" />
+    <div class="absolute inset-0 overflow-hidden">
+      <CldImg
+        :src="heroImages.home"
+        alt="Calgary interior photographed by Urban Snap"
+        class="hero-zoom absolute inset-0 h-full w-full object-cover"
+        :widths="[800, 1280, 1920, 2400]"
+        sizes="100vw"
+        preload
+      />
+      <video
+        v-if="showVideo"
+        class="hero-zoom absolute inset-0 hidden h-full w-full object-cover md:block"
+        autoplay
+        muted
+        loop
+        playsinline
+      >
+        <source src="/videos/hero.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/15" />
 
-    <div class="site-shell relative z-10 w-full pb-16 pt-28 sm:pb-20 sm:pt-32">
+    <div class="site-shell relative z-10 w-full pb-20 pt-28 sm:pb-28 sm:pt-32">
       <p class="eyebrow text-coral-light">{{ site.city }} · {{ site.region }}</p>
-      <h1 class="display mt-4 max-w-4xl text-white">
-        Real estate photography<br class="hidden sm:block" />
-        <span class="italic text-cream">done right.</span>
+      <h1 class="display mt-5 max-w-5xl text-white">
+        Real estate photography
+        <span class="block tracking-[0.03em] text-white/90">done right.</span>
       </h1>
-      <p class="lede mt-6 text-white/75">
+      <p class="lede mt-6 max-w-xl text-white/70">
         Discover the power of visual storytelling with Urban Snap. From downtown condos to suburban retreats, we
         showcase a property’s unique charm and help listings attract the right buyers.
       </p>
-      <p class="mt-4 text-sm font-medium text-white/70">
-        Now booking <span class="text-sky-light">{{ currentService }}</span>
+      <p class="mt-5 text-[15px] font-medium tracking-wide text-white/55">
+        Now booking <span class="text-white">{{ currentService }}</span>
       </p>
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <div class="mt-10 flex flex-col gap-3 sm:flex-row">
         <NuxtLink to="/contact" class="btn-primary">Book a shoot</NuxtLink>
         <NuxtLink to="/portfolio" class="btn-ghost">View the portfolio</NuxtLink>
       </div>
@@ -58,7 +59,7 @@ onMounted(() => {
   timer = setInterval(() => {
     index = (index + 1) % titles.length
     currentService.value = titles[index]
-  }, 2600)
+  }, 2800)
 })
 
 onBeforeUnmount(() => {

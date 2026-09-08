@@ -1,21 +1,17 @@
 <template>
   <div>
-    <div class="grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-3 lg:grid-cols-4">
-      <button
-        v-for="(image, index) in images"
-        :key="image.src"
-        type="button"
-        class="group overflow-hidden rounded-2xl"
-        @click="open(index)"
-      >
-        <CldImg
-          :src="image.src"
-          :alt="image.alt"
-          class="aspect-[4/5] w-full object-cover transition duration-700 group-hover:scale-105"
-          :widths="[400, 700, 1000]"
-          sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-        />
-      </button>
+    <div class="grid grid-cols-2 gap-2.5 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
+      <Reveal v-for="(image, index) in images" :key="image.src" :delay="(index % 8) * 40" variant="zoom-in">
+        <button type="button" class="zoom-hover group w-full overflow-hidden rounded-[20px]" @click="open(index)">
+          <CldImg
+            :src="image.src"
+            :alt="image.alt"
+            class="aspect-[4/5] w-full object-cover"
+            :widths="[400, 700, 1000]"
+            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          />
+        </button>
+      </Reveal>
     </div>
     <GalleryLightbox
       :images="images"

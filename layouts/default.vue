@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-cream">
+  <div class="min-h-screen bg-cream text-ink-900">
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2">
       Skip to content
     </a>
