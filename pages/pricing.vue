@@ -1,36 +1,25 @@
 <template>
-    <div class="pricing-page">
-        <pricing-packages />
-
-    </div>
+  <div>
+    <PageHero
+      eyebrow="Pricing"
+      title="À-la-carte or a pre-curated package."
+      lede="Choose a property size to see photography, videography, iGuide, drone, twilight, and package pricing. Travel is extra outside Calgary city limits."
+      :image="heroImages.pricing"
+    />
+    <PricingMenu />
+    <PricingPackages />
+    <CtaBand cta="Ask about a date" />
+  </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { heroImages } from '~/data/gallery'
 
+useSeoPage({
+  title: 'Urban Snap Pricing — Calgary Real Estate Photography Packages',
+  description:
+    'Urban Snap pricing for Calgary listing photography, 4K videography, iGuide, drone, twilight, and bundled packages by square footage.',
+  path: '/pricing',
+  image: cloudinaryUrl(heroImages.pricing, 'f_auto,q_auto,w_1200'),
+})
 </script>
-
-<style>
-.pricing-page {
-    position: relative;
-}
-
-.pricing-page::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("https://res.cloudinary.com/ashish-verma-photography/image/upload/v1708666614/real_estate/ashish_verma_photography-85_wme92a.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 20%;
-    z-index: -1;
-}
-
-.pricing-page-content {
-    position: relative;
-    z-index: 1;
-}
-</style>

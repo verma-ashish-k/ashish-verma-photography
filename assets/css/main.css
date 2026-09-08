@@ -1,3 +1,92 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink-900 antialiased;
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-coral;
+  }
+}
+
+@layer components {
+  .site-shell {
+    @apply mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.22em] text-coral;
+  }
+
+  .display {
+    @apply font-display text-4xl leading-[1.05] tracking-tight text-ink-900 sm:text-5xl lg:text-6xl;
+  }
+
+  .lede {
+    @apply max-w-2xl text-base leading-relaxed text-ink-500 sm:text-lg;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-coral px-6 py-3 text-sm font-semibold text-white transition hover:bg-coral-dark;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-full border border-ink-900/15 bg-white px-6 py-3 text-sm font-semibold text-ink-900 transition hover:border-ink-900/30 hover:bg-cream-dark;
+  }
+
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .card-surface {
+    @apply rounded-3xl bg-white shadow-lift;
+  }
+
+  .legal-copy h2 {
+    @apply mt-8 text-xl font-semibold text-ink-900;
+  }
+
+  .legal-copy p,
+  .legal-copy li {
+    @apply mt-3 text-ink-500 leading-relaxed;
+  }
+
+  .legal-copy ul {
+    @apply ml-5 list-disc;
+  }
+}
+
+.marquee-track {
+  animation: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+}

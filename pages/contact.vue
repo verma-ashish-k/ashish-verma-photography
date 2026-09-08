@@ -1,36 +1,28 @@
 <template>
-    <div class=" min-h-screen contact-form">
-        <contact-form />
-    </div>
+  <div>
+    <PageHero
+      eyebrow="Contact"
+      title="Let’s get the listing on the calendar."
+      lede="Share the address, size, and the mix of photos, video, iGuide, or aerial you need. We typically reply the same business day."
+      :image="heroImages.contact"
+    />
+    <section class="section">
+      <div class="site-shell">
+        <ContactForm />
+      </div>
+    </section>
+  </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { heroImages } from '~/data/gallery'
 
+const site = useSite()
+
+useSeoPage({
+  title: 'Contact Urban Snap — Book Calgary Listing Photography',
+  description: `Book Urban Snap for Calgary real estate photography, videography, and iGuide. Call ${site.phoneDisplay} or email ${site.email}.`,
+  path: '/contact',
+  image: cloudinaryUrl(heroImages.contact, 'f_auto,q_auto,w_1200'),
+})
 </script>
-
-<style scoped>
-.contact-form {
-    position: relative;
-    min-height: 100vh;
-}
-
-.contact-form::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("https://res.cloudinary.com/ashish-verma-photography/image/upload/v1708666682/real_estate/ashish_verma_photography-196_hb9ewt.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 20%;
-    z-index: -1;
-}
-
-.contact-form-content {
-    position: relative;
-    z-index: 1;
-}
-</style>
