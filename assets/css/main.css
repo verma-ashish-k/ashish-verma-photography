@@ -47,7 +47,7 @@
     --field-bg: #1a1a1d;
     --field-fg: #f5f3ef;
     --logo-plate: #000000;
-    --logo-plate-border: rgba(255, 255, 255, 0.16);
+    --logo-plate-border: rgba(245, 243, 239, 0.22);
     --logo-plate-shadow: 0 16px 36px -18px rgba(0, 0, 0, 0.8);
     --card-shadow: 0 8px 40px -24px rgba(0, 0, 0, 0.55);
     --outline-bg: #242428;
@@ -71,7 +71,7 @@
   --field-bg: #1a1a1d;
   --field-fg: #f5f3ef;
   --logo-plate: #000000;
-  --logo-plate-border: rgba(255, 255, 255, 0.16);
+  --logo-plate-border: rgba(245, 243, 239, 0.22);
   --logo-plate-shadow: 0 16px 36px -18px rgba(0, 0, 0, 0.8);
   --card-shadow: 0 8px 40px -24px rgba(0, 0, 0, 0.55);
   --outline-bg: #242428;
