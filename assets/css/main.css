@@ -343,8 +343,11 @@
 .apple-range {
   -webkit-appearance: none;
   appearance: none;
+  display: block;
   width: 100%;
   height: 28px;
+  margin: 0;
+  padding: 0;
   background: transparent;
   cursor: pointer;
 }

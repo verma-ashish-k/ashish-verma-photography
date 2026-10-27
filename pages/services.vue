@@ -88,7 +88,7 @@ import { audiences, services } from '~/data/services'
 useSeoPage({
   title: 'Urban Snap Services — Ottawa Photography for Builders, Renovators & Realtors',
   description:
-    'Ottawa real estate photography for builders (new construction, model and show homes), renovators (before-and-after portfolios), and realtors (listing photos, 4K video, aerial, twilight).',
+    'Ottawa real estate photography for builders (new construction, model and show homes), renovators (renovation portfolios), and realtors (listing photos, 4K video, aerial, twilight).',
   path: '/services',
   image: cloudinaryUrl(heroImages.services, 'f_auto,q_auto,w_1200'),
 })

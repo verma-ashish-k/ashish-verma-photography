@@ -25,11 +25,8 @@
           </div>
         </Reveal>
 
-        <div v-if="audience.id === 'renovators'" class="mx-auto mt-10 max-w-4xl px-4 pb-10 sm:px-10 sm:pb-14">
-          <BeforeAfter />
-          <p class="mt-3 text-[12px] text-fg-faint">Drag to compare the same room straight out of camera and after the Urban Snap edit.</p>
-        </div>
-        <div v-else class="mt-10 sm:mt-12">
+        <!-- TODO(v2.0): a before/after comparison returns here with real project content. -->
+        <div class="mt-10 sm:mt-12">
           <ScrollZoom :from="index === 0 ? 1.14 : 0.94" class="aspect-[4/3] w-full sm:aspect-[16/7]">
             <CldImg
               :src="audience.image"

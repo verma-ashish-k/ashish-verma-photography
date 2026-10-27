@@ -46,7 +46,7 @@ export const site = {
   ogImage:
     'https://res.cloudinary.com/ashish-verma-photography/image/upload/f_auto,q_auto,w_1200/v1708666694/real_estate/ashish_verma_photography-208_e8ohsv.jpg',
   description:
-    'Urban Snap is real estate photography for Ottawa builders, renovators, and realtors — new construction and model homes, before-and-after renovation portfolios, and listing photos, video, aerial, and twilight across Ottawa and surrounding areas.',
+    'Urban Snap is real estate photography for Ottawa builders, renovators, and realtors — new construction and model homes, renovation portfolios, and listing photos, video, aerial, and twilight across Ottawa and surrounding areas.',
 } as const
 
 export type SocialLink = {

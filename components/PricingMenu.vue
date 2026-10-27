@@ -17,31 +17,39 @@
               <p :key="selectedTier.id" class="text-[17px] text-fg-muted" aria-live="polite">{{ selectedTier.label }}</p>
             </Transition>
           </div>
-          <input
-            id="area-range"
-            type="range"
-            min="0"
-            :max="tiers.length - 1"
-            step="1"
-            :value="selectedIndex"
-            :aria-valuetext="selectedTier.label"
-            class="apple-range mt-6"
-            :style="{ '--fill': `${(selectedIndex / (tiers.length - 1)) * 100}%` }"
-            @input="selectTier(Number(($event.target as HTMLInputElement).value))"
-          />
-          <div class="mt-3 grid text-center" :style="{ gridTemplateColumns: `repeat(${tiers.length}, minmax(0, 1fr))` }">
-            <button
-              v-for="(tier, index) in tiers"
-              :key="tier.id"
-              type="button"
-              class="rounded-full px-1 py-1.5 text-[12px] transition-colors sm:text-[13px]"
-              :class="index === selectedIndex ? 'font-semibold text-[color:var(--link)]' : 'text-fg-muted hover:text-fg'"
-              :aria-pressed="index === selectedIndex"
-              :aria-label="tier.label"
-              @click="selectTier(index)"
-            >
-              {{ tier.shortLabel }}
-            </button>
+          <!--
+            Thumb centres sit at THUMB/2 + (trackWidth - THUMB) * t, not at t * trackWidth.
+            Tick labels and the filled track use the same formula so they line up exactly with the thumb.
+          -->
+          <div class="range-wrap mt-6" :style="{ '--thumb': '28px' }">
+            <input
+              id="area-range"
+              type="range"
+              min="0"
+              :max="tiers.length - 1"
+              step="1"
+              :value="selectedIndex"
+              :aria-valuetext="selectedTier.label"
+              class="apple-range block"
+              :style="{ '--fill': stopPosition(selectedIndex) }"
+              @input="selectTier(Number(($event.target as HTMLInputElement).value))"
+            />
+            <div class="relative mt-3 h-8">
+              <button
+                v-for="(tier, index) in tiers"
+                :key="tier.id"
+                type="button"
+                class="tick-label absolute top-0 whitespace-nowrap rounded-full px-1 py-1.5 text-[12px] leading-none transition-colors sm:text-[13px]"
+                :class="index === selectedIndex ? 'font-semibold text-[color:var(--link)]' : 'text-fg-muted hover:text-fg'"
+                :style="{ left: stopPosition(index) }"
+                :aria-pressed="index === selectedIndex"
+                :aria-label="tier.label"
+                :data-index="index"
+                @click="selectTier(index)"
+              >
+                {{ tier.shortLabel }}
+              </button>
+            </div>
           </div>
           <p class="mt-2 text-center text-[12px] text-fg-faint">Square feet</p>
         </div>
@@ -127,6 +135,12 @@ const allItems = [...aLaCarteItems, ...addOnItems]
 const isSelected = (key: EstimateKey) => selectedServices.value.includes(key)
 const isAddOn = (key: EstimateKey) => addOnItems.some((item) => item.key === key)
 const titleFor = (key: EstimateKey) => allItems.find((item) => item.key === key)?.title ?? key
+/** CSS position of step `index` along the track, matching the native thumb-centre position. */
+const stopPosition = (index: number) => {
+  const t = tiers.length > 1 ? index / (tiers.length - 1) : 0
+  return `calc(var(--thumb) / 2 + (100% - var(--thumb)) * ${t})`
+}
+
 const orderedSelection = computed(() => order.filter((key) => selectedServices.value.includes(key)))
 
 const totalLabel = computed(() => {
@@ -136,6 +150,14 @@ const totalLabel = computed(() => {
 </script>
 
 <style scoped>
+.range-wrap {
+  position: relative;
+}
+
+.tick-label {
+  transform: translateX(-50%);
+}
+
 .option {
   border-color: var(--line);
   background: var(--card);
