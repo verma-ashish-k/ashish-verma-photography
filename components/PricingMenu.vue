@@ -1,21 +1,22 @@
 <template>
-  <section class="section pt-10">
+  <section id="estimate" class="section scroll-mt-28">
     <div class="site-shell">
       <Reveal variant="fade-up">
-        <div class="max-w-2xl">
-          <p class="eyebrow">À-la-carte</p>
-          <h2 class="display mt-4">Choose a size, then a service.</h2>
-          <p class="lede mt-5">
-            Slide between property sizes or tap a chip. Prices update for photography, video, iGuide, and add-ons.
-          </p>
+        <div class="text-center">
+          <h2 class="headline">Build your shoot.</h2>
+          <p class="lede mt-4">Pick a property size, then choose what you need. Your total updates as you go.</p>
         </div>
       </Reveal>
 
+      <!-- Size selector -->
       <Reveal variant="zoom-in">
-        <div class="mt-10 rounded-[28px] bg-ink-950 p-6 text-white sm:p-10">
-          <label class="block text-[13px] font-medium tracking-wide text-white/55" for="area-range">
-            Select your property size
-          </label>
+        <div class="tile mx-auto mt-10 max-w-3xl px-6 py-8 sm:px-10 sm:py-10">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <label for="area-range" class="text-[17px] font-semibold text-fg">Property size</label>
+            <Transition name="price-swap" mode="out-in">
+              <p :key="selectedTier.id" class="text-[17px] text-fg-muted" aria-live="polite">{{ selectedTier.label }}</p>
+            </Transition>
+          </div>
           <input
             id="area-range"
             type="range"
@@ -23,72 +24,146 @@
             :max="tiers.length - 1"
             step="1"
             :value="selectedIndex"
-            class="mt-5 w-full accent-coral"
+            :aria-valuetext="selectedTier.label"
+            class="apple-range mt-6"
+            :style="{ '--fill': `${(selectedIndex / (tiers.length - 1)) * 100}%` }"
             @input="selectTier(Number(($event.target as HTMLInputElement).value))"
           />
-          <div class="mt-5 flex flex-wrap gap-2">
+          <div class="mt-3 grid text-center" :style="{ gridTemplateColumns: `repeat(${tiers.length}, minmax(0, 1fr))` }">
             <button
               v-for="(tier, index) in tiers"
               :key="tier.id"
               type="button"
-              class="rounded-full px-3.5 py-2 text-[13px] font-medium tracking-wide transition"
-              :class="index === selectedIndex ? 'bg-coral text-white' : 'bg-white/10 text-white/70 hover:bg-white/15'"
+              class="rounded-full px-1 py-1.5 text-[12px] transition-colors sm:text-[13px]"
+              :class="index === selectedIndex ? 'font-semibold text-[color:var(--link)]' : 'text-fg-muted hover:text-fg'"
+              :aria-pressed="index === selectedIndex"
+              :aria-label="tier.label"
               @click="selectTier(index)"
             >
               {{ tier.shortLabel }}
             </button>
           </div>
-          <p class="mt-5 text-[20px] font-semibold tracking-wide">{{ selectedTier.label }}</p>
+          <p class="mt-2 text-center text-[12px] text-fg-faint">Square feet</p>
         </div>
       </Reveal>
 
-      <div class="mt-8 grid gap-4 lg:grid-cols-3">
-        <Reveal v-for="(item, index) in aLaCarteItems" :key="item.key" :delay="index * 80" variant="zoom-in">
-          <article class="card-surface h-full p-7">
-            <h3 class="display-sm">{{ item.title }}</h3>
-            <p class="mt-4 text-[40px] font-semibold tracking-wide text-coral">
-              {{ formatPrice(selectedTier.prices[item.key]) }}
-            </p>
-            <ul class="mt-6 space-y-2.5 text-[15px] text-fg-muted">
-              <li v-for="feature in item.features" :key="feature">{{ feature }}</li>
-            </ul>
-          </article>
-        </Reveal>
-      </div>
+      <!-- Configurator -->
+      <div class="mt-12 grid gap-8 lg:grid-cols-[1fr_320px] lg:gap-10">
+        <div>
+          <h3 class="headline-xs">Services</h3>
+          <div class="mt-4 space-y-3">
+            <button
+              v-for="item in [...aLaCarteItems, ...addOnItems]"
+              :key="item.key"
+              type="button"
+              class="option w-full rounded-[14px] border p-5 text-left transition sm:p-6"
+              :class="isSelected(item.key) ? 'is-selected' : ''"
+              :aria-pressed="isSelected(item.key)"
+              @click="toggleService(item.key)"
+            >
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex items-start gap-3">
+                  <span class="check mt-0.5" aria-hidden="true">
+                    <svg v-if="isSelected(item.key)" viewBox="0 0 16 16" class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m3.5 8.5 3 3 6-7" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p class="text-[17px] font-semibold text-fg">
+                      {{ item.title }}
+                      <span v-if="isAddOn(item.key)" class="ml-1 text-[12px] font-normal text-fg-faint">Add-on</span>
+                    </p>
+                    <p class="mt-1 text-[14px] leading-snug text-fg-muted">{{ item.features.slice(0, 4).join(' · ') }}</p>
+                  </div>
+                </div>
+                <Transition name="price-swap" mode="out-in">
+                  <p :key="`${item.key}-${selectedTier.id}`" class="shrink-0 text-[17px] font-semibold text-fg">
+                    {{ formatPrice(selectedTier.prices[item.key]) }}
+                  </p>
+                </Transition>
+              </div>
+            </button>
+          </div>
+        </div>
 
-      <Reveal variant="fade-up">
-        <h3 class="display-sm mt-16">Add-on items</h3>
-      </Reveal>
-      <div class="mt-6 grid gap-4 md:grid-cols-2">
-        <Reveal v-for="(item, index) in addOnItems" :key="item.key" :delay="index * 80" variant="zoom-out">
-          <article class="card-surface h-full p-7">
-            <h4 class="display-sm">{{ item.title }}</h4>
-            <p class="mt-4 text-[40px] font-semibold tracking-wide text-sky">
-              {{ formatPrice(selectedTier.prices[item.key]) }}
-            </p>
-            <ul class="mt-6 space-y-2.5 text-[15px] text-fg-muted">
-              <li v-for="feature in item.features" :key="feature">{{ feature }}</li>
+        <aside class="lg:sticky lg:top-32 lg:self-start">
+          <div class="tile p-6 sm:p-8">
+            <p class="text-[14px] text-fg-muted">Your estimate</p>
+            <Transition name="price-swap" mode="out-in">
+              <p :key="totalLabel" class="mt-1 text-[40px] font-semibold leading-tight tracking-[-0.01em] text-fg" aria-live="polite">
+                {{ totalLabel }}
+              </p>
+            </Transition>
+            <p class="mt-1 text-[14px] text-fg-muted">{{ selectedTier.label }} · {{ selectedServices.length }} selected</p>
+            <ul v-if="selectedServices.length" class="mt-5 space-y-2 border-t border-line pt-4 text-[14px]">
+              <li v-for="key in orderedSelection" :key="key" class="flex justify-between gap-3">
+                <span class="text-fg-muted">{{ titleFor(key) }}</span>
+                <span class="text-fg">{{ formatPrice(selectedTier.prices[key]) }}</span>
+              </li>
             </ul>
-          </article>
-        </Reveal>
+            <p v-if="packageTip" class="mt-5 rounded-[12px] bg-[color:var(--page)] p-3 text-[14px] text-fg-muted">
+              Tip: the <a href="#packages" class="text-[color:var(--link)] hover:underline">Basic package</a> includes
+              photos and video for ${{ packageTip.price }} — save ${{ packageTip.saving }}.
+            </p>
+            <NuxtLink to="/contact" class="btn-primary mt-6 w-full">Book this shoot</NuxtLink>
+            <p class="mt-3 text-center text-[12px] text-fg-faint">Travel billed beyond 30 km of downtown Ottawa.</p>
+          </div>
+        </aside>
       </div>
-
-      <Reveal variant="slide">
-        <article class="mt-6 rounded-[28px] bg-ink-900 p-7 text-white">
-          <h4 class="display-sm text-white">{{ travelFees.title }}</h4>
-          <p class="mt-4 text-[40px] font-semibold tracking-wide text-white/90">Variable</p>
-          <ul class="mt-6 space-y-2.5 text-[15px] text-white/55">
-            <li>{{ travelFees.rate }}</li>
-            <li v-for="note in travelFees.notes" :key="note">{{ note }}</li>
-          </ul>
-        </article>
-      </Reveal>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { aLaCarteItems, addOnItems, travelFees } from '~/data/pricing'
+import { aLaCarteItems, addOnItems } from '~/data/pricing'
+import type { EstimateKey } from '~/composables/usePricing'
 
-const { tiers, selectedIndex, selectedTier, selectTier } = usePricing()
+const { tiers, selectedIndex, selectedTier, selectTier, selectedServices, toggleService, estimate, packageTip } =
+  usePricing()
+
+const order: EstimateKey[] = ['photography', 'videography', 'drone', 'twilight']
+const allItems = [...aLaCarteItems, ...addOnItems]
+
+const isSelected = (key: EstimateKey) => selectedServices.value.includes(key)
+const isAddOn = (key: EstimateKey) => addOnItems.some((item) => item.key === key)
+const titleFor = (key: EstimateKey) => allItems.find((item) => item.key === key)?.title ?? key
+const orderedSelection = computed(() => order.filter((key) => selectedServices.value.includes(key)))
+
+const totalLabel = computed(() => {
+  if (!selectedServices.value.length) return '$0'
+  return estimate.value === null ? 'Call us' : `$${estimate.value}`
+})
 </script>
+
+<style scoped>
+.option {
+  border-color: var(--line);
+  background: var(--card);
+}
+
+.option:hover {
+  border-color: var(--fg-faint);
+}
+
+.option.is-selected {
+  border-color: #0071e3;
+  box-shadow: inset 0 0 0 1px #0071e3;
+}
+
+.check {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  border: 1.5px solid var(--fg-faint);
+  color: #fff;
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+.option.is-selected .check {
+  background: #0071e3;
+  border-color: #0071e3;
+}
+</style>

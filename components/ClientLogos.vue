@@ -1,30 +1,20 @@
 <template>
-  <section class="border-y border-line bg-page-alt">
-    <div class="site-shell py-20 sm:py-24">
+  <section class="section bg-[color:var(--page-alt)]">
+    <div class="site-shell text-center">
       <Reveal variant="fade-up">
-        <div class="mx-auto max-w-2xl text-center">
-          <p class="eyebrow">Trusted locally</p>
-          <h2 class="display-sm mt-3">Clients we have worked with</h2>
-          <p class="mx-auto mt-4 max-w-xl text-[16px] leading-relaxed text-fg-muted">
-            Calgary brokerages and teams whose listings we photograph.
-          </p>
-        </div>
+        <h2 class="headline-sm">Clients we have worked with.</h2>
+        <p class="body-copy mx-auto mt-3 max-w-xl">Brokerages and teams whose properties we have photographed.</p>
       </Reveal>
-
-      <ul class="mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
-        <li v-for="logo in clientLogos" :key="logo.src">
-          <div class="logo-plate">
-            <CldImg
-              :src="logo.src"
-              :alt="logo.alt"
-              class="h-24 w-full object-contain sm:h-28"
-              :widths="[320, 480]"
-              sizes="220px"
-            />
-          </div>
-        </li>
-      </ul>
     </div>
+    <ul class="site-shell mt-10 flex flex-wrap justify-center gap-3">
+      <li v-for="(logo, index) in clientLogos" :key="logo.src" class="w-[calc(50%-6px)] sm:w-[calc(33.333%-8px)] lg:w-[calc(25%-9px)]">
+        <Reveal variant="zoom-in" :delay="index * 50">
+          <div class="logo-plate">
+            <CldImg :src="logo.src" :alt="logo.alt" :widths="[320, 480]" sizes="240px" />
+          </div>
+        </Reveal>
+      </li>
+    </ul>
   </section>
 </template>
 

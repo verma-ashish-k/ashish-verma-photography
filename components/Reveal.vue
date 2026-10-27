@@ -17,25 +17,22 @@ const props = withDefaults(
     once?: boolean
   }>(),
   {
-    variant: 'zoom-in',
+    variant: 'fade-up',
     delay: 0,
     once: true,
   },
 )
 
 const el = ref<HTMLElement | null>(null)
+// Visible during SSR so content is never hidden for crawlers or no-JS visitors.
 const visible = ref(true)
 
 onMounted(() => {
   if (!el.value) return
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    visible.value = true
-    return
-  }
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
   const rect = el.value.getBoundingClientRect()
-  const inView = rect.top < window.innerHeight * 0.92 && rect.bottom > 40
-  visible.value = inView
+  visible.value = rect.top < window.innerHeight * 0.92 && rect.bottom > 0
 
   const observer = new IntersectionObserver(
     ([entry]) => {
@@ -46,7 +43,7 @@ onMounted(() => {
         visible.value = false
       }
     },
-    { threshold: 0.14, rootMargin: '0px 0px -6% 0px' },
+    { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
   )
 
   observer.observe(el.value)

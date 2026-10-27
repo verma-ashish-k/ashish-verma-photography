@@ -1,76 +1,85 @@
 <template>
-  <div class="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8">
-    <form class="card-surface p-7 sm:p-10" @submit.prevent="submitForm">
-      <p class="eyebrow">Book a shoot</p>
-      <h2 class="display-sm mt-3">Send us a message</h2>
-      <p class="mt-3 text-[15px] leading-relaxed text-fg-muted">
-        Tell us the address, square footage, and the services you need.
+  <div class="grid gap-4 lg:grid-cols-[1.4fr_1fr]">
+    <form class="rounded-[18px] bg-[color:var(--card)] p-6 sm:p-10" :class="onAlt ? '' : 'border border-line'" @submit.prevent="submitForm">
+      <h2 class="headline-xs">Tell us about the property.</h2>
+      <p class="mt-2 text-[15px] text-fg-muted">
+        Address or community, square footage, and whether it is a new build, a renovation, or a listing.
       </p>
 
-      <div v-if="formSubmitted" class="mt-8 rounded-2xl bg-page-alt p-6 text-[17px] text-fg">
-        Thank you for your message. We will get back to you soon.
+      <div v-if="formSubmitted" class="mt-8 rounded-[12px] bg-[color:var(--page-alt)] p-6 text-[17px] text-fg" role="status">
+        Thank you — we will get back to you soon.
       </div>
 
       <div v-else class="mt-8 grid gap-4 sm:grid-cols-2">
-        <input type="text" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" v-model="botcheck" />
-        <label class="block text-[13px] font-medium tracking-wide text-fg">
-          First name
-          <input v-model="firstName" required class="input" type="text" name="firstName" autocomplete="given-name" />
+        <input v-model="botcheck" type="text" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
+        <label class="field">
+          <span>First name</span>
+          <input v-model="firstName" required type="text" name="firstName" autocomplete="given-name" />
         </label>
-        <label class="block text-[13px] font-medium tracking-wide text-fg">
-          Last name
-          <input v-model="lastName" required class="input" type="text" name="lastName" autocomplete="family-name" />
+        <label class="field">
+          <span>Last name</span>
+          <input v-model="lastName" required type="text" name="lastName" autocomplete="family-name" />
         </label>
-        <label class="block text-[13px] font-medium tracking-wide text-fg">
-          Email
-          <input v-model="email" required class="input" type="email" name="email" autocomplete="email" />
+        <label class="field">
+          <span>Email</span>
+          <input v-model="email" required type="email" name="email" autocomplete="email" />
         </label>
-        <label class="block text-[13px] font-medium tracking-wide text-fg">
-          Phone
-          <input v-model="phone" required class="input" type="tel" name="phone" autocomplete="tel" />
+        <label class="field">
+          <span>Phone</span>
+          <input v-model="phone" required type="tel" name="phone" autocomplete="tel" />
         </label>
-        <label class="block text-[13px] font-medium tracking-wide text-fg sm:col-span-2">
-          Subject
-          <input v-model="subject" required class="input" type="text" name="subject" />
+        <label class="field sm:col-span-2">
+          <span>I am a…</span>
+          <select v-model="clientType" name="clientType">
+            <option v-for="option in clientTypes" :key="option" :value="option">{{ option }}</option>
+          </select>
         </label>
-        <label class="block text-[13px] font-medium tracking-wide text-fg sm:col-span-2">
-          Message
-          <textarea v-model="message" required class="input min-h-32" name="message" />
+        <label class="field sm:col-span-2">
+          <span>Subject</span>
+          <input v-model="subject" required type="text" name="subject" />
         </label>
-        <p v-if="error" class="sm:col-span-2 text-sm text-coral">{{ error }}</p>
+        <label class="field sm:col-span-2">
+          <span>Message</span>
+          <textarea v-model="message" required name="message" rows="5" />
+        </label>
+        <p v-if="error" class="text-[14px] text-[#e30000] sm:col-span-2" role="alert">{{ error }}</p>
         <button type="submit" class="btn-primary sm:col-span-2" :disabled="submitting || !isFormValid">
           {{ submitting ? 'Sending…' : 'Send message' }}
         </button>
       </div>
     </form>
 
-    <aside class="rounded-[28px] bg-ink-950 p-7 text-white sm:p-10">
-      <p class="eyebrow text-coral-light">Studio</p>
-      <h2 class="display-sm mt-3 text-white">Urban Snap</h2>
-      <p class="mt-3 text-[15px] leading-relaxed text-white/55">
-        Real Estate Photography<br />{{ site.locationLabel }}
+    <aside class="flex flex-col rounded-[18px] bg-black p-6 text-[#f5f5f7] sm:p-10">
+      <h2 class="headline-xs !text-[#f5f5f7]">Prefer to talk?</h2>
+      <p class="mt-2 text-[15px] text-[#a1a1a6]">
+        Urban Snap · {{ site.locationLabel }}<br />Serving {{ site.serviceArea.length }} communities within
+        {{ site.serviceRadiusKm }} km.
       </p>
-      <div class="mt-10 space-y-6">
+      <dl class="mt-8 space-y-6">
         <div>
-          <p class="text-[12px] uppercase tracking-[0.18em] text-white/40">Call us</p>
-          <a :href="site.phoneHref" class="mt-2 block text-[20px] tracking-wide text-white">{{ site.phoneDisplay }}</a>
+          <dt class="text-[12px] text-[#86868b]">Call</dt>
+          <dd><a :href="site.phoneHref" class="mt-1 block text-[21px] font-semibold text-[#2997ff] hover:underline">{{ site.phoneDisplay }}</a></dd>
         </div>
         <div>
-          <p class="text-[12px] uppercase tracking-[0.18em] text-white/40">Email</p>
-          <a :href="`mailto:${site.email}`" class="mt-2 block text-[20px] tracking-wide text-white">{{ site.email }}</a>
+          <dt class="text-[12px] text-[#86868b]">Email</dt>
+          <dd><a :href="`mailto:${site.email}`" class="mt-1 block break-all text-[21px] font-semibold text-[#2997ff] hover:underline">{{ site.email }}</a></dd>
         </div>
-      </div>
-      <div class="mt-10 flex flex-wrap gap-5 text-[13px] font-medium tracking-wide">
-        <a :href="site.social.facebook" target="_blank" rel="noreferrer" class="text-white/55 hover:text-white">Facebook</a>
-        <a :href="site.social.instagram" target="_blank" rel="noreferrer" class="text-white/55 hover:text-white">Instagram</a>
-        <a :href="site.whatsapp" target="_blank" rel="noreferrer" class="text-white/55 hover:text-white">WhatsApp</a>
+      </dl>
+      <div class="mt-auto flex flex-wrap gap-5 pt-10 text-[14px]">
+        <a :href="site.whatsapp" target="_blank" rel="noreferrer" class="text-[#a1a1a6] hover:text-white">WhatsApp</a>
+        <a :href="site.social.instagram" target="_blank" rel="noreferrer" class="text-[#a1a1a6] hover:text-white">Instagram</a>
+        <a :href="site.social.facebook" target="_blank" rel="noreferrer" class="text-[#a1a1a6] hover:text-white">Facebook</a>
       </div>
     </aside>
   </div>
 </template>
 
 <script setup lang="ts">
+defineProps<{ onAlt?: boolean }>()
+
 const site = useSite()
+const clientTypes = ['Builder', 'Renovator', 'Realtor', 'Other']
+const clientType = ref('Builder')
 const config = useRuntimeConfig()
 
 const firstName = ref('')
@@ -107,6 +116,7 @@ const submitForm = async () => {
         'Last Name': lastName.value,
         Phone: phone.value,
         Email: email.value,
+        'Client Type': clientType.value,
         Subject: subject.value,
         Message: message.value,
       }),
@@ -126,12 +136,23 @@ const submitForm = async () => {
 </script>
 
 <style scoped>
-.input {
-  @apply mt-2 w-full rounded-2xl border border-line px-4 py-3.5 text-[16px] outline-none transition placeholder:text-fg-faint focus:border-coral/40;
-  background: var(--field-bg);
-  color: var(--field-fg);
+.field {
+  @apply block text-[12px] text-fg-muted;
 }
-.input:focus {
-  background: var(--card);
+
+.field input,
+.field select,
+.field textarea {
+  @apply mt-1.5 w-full rounded-[12px] border px-4 py-3 text-[17px] outline-none transition;
+  background: var(--field-bg);
+  color: var(--fg);
+  border-color: var(--field-border);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: #0071e3;
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.25);
 }
 </style>

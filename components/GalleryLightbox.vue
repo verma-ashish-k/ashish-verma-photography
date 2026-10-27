@@ -54,7 +54,7 @@
             :key="image.src"
             type="button"
             class="shrink-0 overflow-hidden rounded-xl border-2 transition"
-            :class="i === index ? 'border-coral scale-105' : 'border-transparent'"
+            :class="i === index ? 'border-[#0071e3] scale-105' : 'border-transparent'"
             @click="emit('update:index', i)"
           >
             <CldImg :src="image.src" :alt="image.alt" class="h-16 w-20 object-cover" :widths="[160, 240]" sizes="80px" />

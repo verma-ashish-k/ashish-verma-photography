@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="grid grid-cols-2 gap-2.5 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
+    <div class="grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-3 lg:grid-cols-4">
       <Reveal v-for="(image, index) in images" :key="image.src" :delay="(index % 8) * 40" variant="zoom-in">
-        <button type="button" class="zoom-hover group w-full overflow-hidden rounded-[20px]" @click="open(index)">
+        <button type="button" class="zoom-hover group w-full overflow-hidden rounded-[14px]" @click="open(index)">
           <CldImg
             :src="image.src"
             :alt="image.alt"

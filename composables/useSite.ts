@@ -7,5 +7,4 @@ export const cloudinaryUrl = (path: string, transform = 'f_auto,q_auto,w_1600') 
   return `${site.cloudinary.baseUrl}/${transform}/${clean}`
 }
 
-export const formatPrice = (value: number | 'Call Us') =>
-  typeof value === 'number' ? `$${value}` : value
+export const formatPrice = (value: number | 'Call Us') => (typeof value === 'number' ? `$${value}` : 'Call us')

@@ -1,21 +1,13 @@
 <template>
   <div>
     <PageHero
-      eyebrow="Portfolio"
-      title="Calgary interiors, exteriors, and the spaces between."
-      lede="A selection of recent Urban Snap listing photography. Tap any frame to open the viewer."
-      :image="heroImages.portfolio"
-    >
-      <div class="mt-6 flex flex-wrap gap-3">
-        <NuxtLink to="/portfolio" class="btn-primary">Real estate</NuxtLink>
-        <NuxtLink to="/portfolio/headshots" class="btn-ghost">Headshots</NuxtLink>
-      </div>
-    </PageHero>
-    <section class="section">
-      <div class="site-shell">
-        <Reveal variant="zoom-in">
-          <GalleryGrid :images="realEstateImages" />
-        </Reveal>
+      eyebrow="Work"
+      title="Interiors, exteriors, and the spaces between."
+      lede="A selection of recent Urban Snap real estate photography. Tap any frame to open the viewer."
+    />
+    <section class="section pt-10 sm:pt-12">
+      <div class="wide-shell">
+        <GalleryGrid :images="realEstateImages" />
       </div>
     </section>
     <CtaBand />
@@ -26,9 +18,9 @@
 import { heroImages, realEstateImages } from '~/data/gallery'
 
 useSeoPage({
-  title: 'Urban Snap Portfolio — Calgary Real Estate Photography',
+  title: 'Urban Snap Work — Real Estate Photography Portfolio',
   description:
-    'Browse Urban Snap real estate photography from Calgary listings — interiors, exteriors, and architectural details.',
+    'Browse Urban Snap real estate photography — new builds, renovated interiors, exteriors, and architectural details. Serving Ottawa and area.',
   path: '/portfolio',
   image: cloudinaryUrl(heroImages.portfolio, 'f_auto,q_auto,w_1200'),
 })

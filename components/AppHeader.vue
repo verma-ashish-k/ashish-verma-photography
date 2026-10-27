@@ -1,48 +1,44 @@
 <template>
-  <header class="fixed inset-x-0 top-0 z-50">
-    <div class="site-nav-bar transition duration-500" :class="frosted && 'is-frosted'">
-      <div class="site-shell flex h-14 items-center justify-between sm:h-16">
-        <BrandMark :light="inverse" />
+  <header class="sticky top-0 z-50">
+    <div class="global-nav" :class="menuOpen && '!bg-[color:var(--page)]'">
+      <div class="mx-auto flex h-12 max-w-site items-center justify-between px-4 text-[color:var(--nav-fg)] lg:h-11 lg:px-0">
+        <BrandMark />
 
-        <nav class="hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <nav class="hidden items-center gap-8 lg:flex" aria-label="Primary">
           <NuxtLink
             v-for="link in navLinks"
             :key="link.to"
             :to="link.to"
-            class="text-[13px] font-medium tracking-wide transition"
-            :class="inverse ? 'text-white/70 hover:text-white' : 'text-[color:var(--nav-muted)] hover:text-[color:var(--nav-fg)]'"
-            :active-class="inverse ? '!text-white' : '!text-[color:var(--nav-fg)]'"
+            class="text-[12px] tracking-[-0.01em] text-[color:var(--nav-muted)] transition-colors duration-200 hover:text-[color:var(--nav-fg)]"
           >
             {{ link.label }}
           </NuxtLink>
-          <NuxtLink to="/contact" class="btn-primary !px-5 !py-2 !text-[13px]">Book a shoot</NuxtLink>
-          <ThemeToggle :inverse="inverse" />
         </nav>
 
-        <div class="flex items-center gap-1 lg:hidden">
-          <ThemeToggle :inverse="inverse" />
+        <div class="flex items-center gap-1">
+          <ThemeToggle />
+          <a
+            :href="site.phoneHref"
+            class="hidden text-[12px] text-[color:var(--nav-muted)] transition-colors hover:text-[color:var(--nav-fg)] lg:ml-3 lg:inline"
+          >
+            {{ site.phoneDisplay }}
+          </a>
           <button
             type="button"
-            class="grid h-10 w-10 place-items-center rounded-full"
-            :class="inverse ? 'text-white' : 'text-[color:var(--nav-fg)]'"
+            class="grid h-11 w-11 place-items-center lg:hidden"
             :aria-expanded="menuOpen"
             aria-controls="mobile-nav"
             :aria-label="menuOpen ? 'Close menu' : 'Open menu'"
             @click="menuOpen = !menuOpen"
           >
-            <span class="sr-only">Menu</span>
-            <span class="relative block h-3.5 w-4">
+            <span class="relative block h-[10px] w-[17px]">
               <span
-                class="absolute left-0 top-0 block h-px w-4 transition"
-                :class="[barClass, menuOpen && 'translate-y-1.5 rotate-45']"
+                class="absolute left-0 top-0 block h-[1.5px] w-[17px] bg-current transition-transform duration-300"
+                :class="menuOpen && 'translate-y-[4.25px] rotate-45'"
               />
               <span
-                class="absolute left-0 top-[7px] block h-px w-4 transition"
-                :class="[barClass, menuOpen && 'opacity-0']"
-              />
-              <span
-                class="absolute left-0 top-[14px] block h-px w-4 transition"
-                :class="[barClass, menuOpen && '-translate-y-1.5 -rotate-45']"
+                class="absolute bottom-0 left-0 block h-[1.5px] w-[17px] bg-current transition-transform duration-300"
+                :class="menuOpen && '-translate-y-[4.25px] -rotate-45'"
               />
             </span>
           </button>
@@ -54,24 +50,23 @@
       <div
         v-if="menuOpen"
         id="mobile-nav"
-        class="border-b backdrop-blur-2xl lg:hidden"
-        :style="{
-          background: 'var(--nav-bg)',
-          borderColor: 'var(--nav-border)',
-          color: 'var(--nav-fg)',
-        }"
+        class="fixed inset-x-0 bottom-0 top-12 overflow-y-auto bg-[color:var(--page)] lg:hidden"
       >
-        <nav class="site-shell flex flex-col gap-1 py-5" aria-label="Mobile">
+        <nav class="flex flex-col px-10 pb-12 pt-6" aria-label="Mobile">
           <NuxtLink
-            v-for="link in navLinks"
+            v-for="(link, index) in navLinks"
             :key="link.to"
             :to="link.to"
-            class="rounded-2xl px-3 py-3 text-[17px] font-medium"
+            class="mobile-link py-1.5 text-[28px] font-semibold tracking-[0.007em] text-fg"
+            :style="{ animationDelay: `${60 + index * 30}ms` }"
             @click="menuOpen = false"
           >
             {{ link.label }}
           </NuxtLink>
-          <NuxtLink to="/contact" class="btn-primary mt-3" @click="menuOpen = false">Book a shoot</NuxtLink>
+          <div class="mt-10 space-y-2 text-[14px] text-fg-muted">
+            <a :href="site.phoneHref" class="block">{{ site.phoneDisplay }}</a>
+            <a :href="`mailto:${site.email}`" class="block">{{ site.email }}</a>
+          </div>
         </nav>
       </div>
     </Transition>
@@ -81,19 +76,11 @@
 <script setup lang="ts">
 import { navLinks } from '~/data/site'
 
+const site = useSite()
 const route = useRoute()
 const menuOpen = ref(false)
-const scrolled = ref(false)
 
-const frosted = computed(() => scrolled.value || menuOpen.value)
-const inverse = computed(() => !frosted.value)
-const barClass = computed(() => (inverse.value ? 'bg-white' : 'bg-[var(--nav-fg)]'))
-
-const onScroll = () => {
-  scrolled.value = window.scrollY > 8
-}
-
-watch(() => route.path, () => {
+watch(() => route.fullPath, () => {
   menuOpen.value = false
 })
 
@@ -102,13 +89,30 @@ watch(menuOpen, (open) => {
   document.body.style.overflow = open ? 'hidden' : ''
 })
 
-onMounted(() => {
-  onScroll()
-  window.addEventListener('scroll', onScroll, { passive: true })
-})
-
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', onScroll)
-  document.body.style.overflow = ''
+  if (import.meta.client) document.body.style.overflow = ''
 })
 </script>
+
+<style scoped>
+.mobile-link {
+  animation: mobile-link-in 420ms cubic-bezier(0.28, 0.11, 0.32, 1) both;
+}
+
+@keyframes mobile-link-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-link {
+    animation: none;
+  }
+}
+</style>
