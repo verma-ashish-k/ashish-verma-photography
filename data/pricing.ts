@@ -7,11 +7,9 @@ export type PricingTier = {
   prices: {
     photography: PriceValue
     videography: PriceValue
-    iguide: PriceValue
     drone: PriceValue
     twilight: PriceValue
     basicPackage: PriceValue
-    plusPackage: PriceValue
     ultimatePackage: PriceValue
   }
 }
@@ -24,11 +22,9 @@ export const pricingTiers: PricingTier[] = [
     prices: {
       photography: 119,
       videography: 179,
-      iguide: 149,
       drone: 149,
       twilight: 99,
       basicPackage: 279,
-      plusPackage: 379,
       ultimatePackage: 499,
     },
   },
@@ -39,11 +35,9 @@ export const pricingTiers: PricingTier[] = [
     prices: {
       photography: 159,
       videography: 199,
-      iguide: 249,
       drone: 199,
       twilight: 149,
       basicPackage: 379,
-      plusPackage: 549,
       ultimatePackage: 599,
     },
   },
@@ -54,11 +48,9 @@ export const pricingTiers: PricingTier[] = [
     prices: {
       photography: 199,
       videography: 249,
-      iguide: 299,
       drone: 249,
       twilight: 249,
       basicPackage: 249,
-      plusPackage: 349,
       ultimatePackage: 599,
     },
   },
@@ -69,11 +61,9 @@ export const pricingTiers: PricingTier[] = [
     prices: {
       photography: 249,
       videography: 349,
-      iguide: 349,
       drone: 249,
       twilight: 349,
       basicPackage: 399,
-      plusPackage: 549,
       ultimatePackage: 649,
     },
   },
@@ -84,11 +74,9 @@ export const pricingTiers: PricingTier[] = [
     prices: {
       photography: 'Call Us',
       videography: 'Call Us',
-      iguide: 'Call Us',
       drone: 'Call Us',
       twilight: 'Call Us',
       basicPackage: 'Call Us',
-      plusPackage: 'Call Us',
       ultimatePackage: 'Call Us',
     },
   },
@@ -109,7 +97,7 @@ export const aLaCarteItems = [
   },
   {
     key: 'videography' as const,
-    title: 'Real Estate Videography',
+    title: 'Video Tours',
     features: [
       '2–3 minute tour',
       '4K video',
@@ -117,18 +105,6 @@ export const aLaCarteItems = [
       'High resolution delivery',
       'No ads',
       'Professionally edited',
-    ],
-  },
-  {
-    key: 'iguide' as const,
-    title: 'iGuide',
-    features: [
-      'Interactive 3D walkthrough',
-      'Measured floor plans',
-      'Shareable listing link',
-      'MLS-ready assets',
-      'Room-by-room navigation',
-      'Desktop and mobile viewing',
     ],
   },
 ]
@@ -164,23 +140,11 @@ export const packages = [
   {
     key: 'basicPackage' as const,
     name: 'Basic',
+    bestFor: 'Realtor listings and finished renovations',
     highlight: false,
     includes: [
       { label: '25–30 HDR photos', included: true },
       { label: '2–3 min 4K video', included: true },
-      { label: 'iGuide', included: false },
-      { label: 'Social media slideshow', included: false },
-      { label: 'Single-page website', included: false },
-    ],
-  },
-  {
-    key: 'plusPackage' as const,
-    name: 'Plus',
-    highlight: true,
-    includes: [
-      { label: '25–30 HDR photos', included: true },
-      { label: '2–3 min 4K video', included: true },
-      { label: 'iGuide', included: true },
       { label: 'Social media slideshow', included: false },
       { label: 'Single-page website', included: false },
     ],
@@ -188,11 +152,11 @@ export const packages = [
   {
     key: 'ultimatePackage' as const,
     name: 'Ultimate',
-    highlight: false,
+    bestFor: 'Model homes, builder launches, and premium listings',
+    highlight: true,
     includes: [
       { label: '25–30 HDR photos', included: true },
       { label: '2–3 min 4K video', included: true },
-      { label: 'iGuide', included: true },
       { label: 'Social media slideshow', included: true },
       { label: 'Single-page website', included: true },
     ],
@@ -204,6 +168,6 @@ export const travelFees = {
   rate: 'Charged at $0.70 / km',
   notes: [
     'Calculated both ways',
-    'Charged outside of Calgary city limits',
+    'Charged only beyond 30 km of downtown Ottawa',
   ],
 }

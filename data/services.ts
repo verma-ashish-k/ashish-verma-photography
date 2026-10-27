@@ -3,90 +3,130 @@ export type ServiceItem = {
   title: string
   summary: string
   description: string
-  icon: string
   image: string
 }
 
+export type Audience = {
+  id: 'builders' | 'renovators' | 'realtors'
+  label: string
+  headline: string
+  subhead: string
+  description: string
+  points: string[]
+  image: string
+  cta: string
+}
+
+/**
+ * Who Urban Snap shoots for, in order of priority: builders, then renovators, then realtors.
+ * Every page that lists audiences should render them in this order.
+ */
+export const audiences: Audience[] = [
+  {
+    id: 'builders',
+    label: 'For Builders',
+    headline: 'New construction. Shown at its best.',
+    subhead: 'Model homes, show homes, and finished builds photographed to sell the next phase.',
+    description:
+      'From a single custom home to a full model-home program, we photograph interiors, exteriors, and finishes so your sales team, website, and brochures all work from one consistent, high-resolution set.',
+    points: [
+      'Model and show homes',
+      'Completed builds and spec homes',
+      'Exteriors, streetscapes, and aerial context',
+      'Twilight shoots for launch marketing',
+    ],
+    image: '/v1708666630/real_estate/ashish_verma_photography-101_nscqug.jpg',
+    cta: 'Book a builder shoot',
+  },
+  {
+    id: 'renovators',
+    label: 'For Renovators',
+    headline: 'Before. After. Proof.',
+    subhead: 'Before-and-after photography that turns finished projects into your best sales tool.',
+    description:
+      'Clients hire renovators from their portfolio. We document the space before work starts and photograph the finished kitchen, bath, basement, or whole-home renovation with matched angles, so the transformation is obvious at a glance.',
+    points: [
+      'Matched before-and-after angles',
+      'Kitchens, baths, basements, and whole homes',
+      'Portfolio-ready files for web, social, and awards',
+      'Video walkthroughs of finished projects',
+    ],
+    image: '/v1707335738/real_estate/MH-FS-2-resized_tk4qfk.jpg',
+    cta: 'Book a renovation shoot',
+  },
+  {
+    id: 'realtors',
+    label: 'For Realtors',
+    headline: 'Listings that stop the scroll.',
+    subhead: 'MLS-ready photos, video tours, and aerials that help a listing compete.',
+    description:
+      'From downtown condos to family homes in the suburbs, we photograph listings with balanced HDR editing, straight verticals, and quick turnaround — sized for MLS, realtor websites, and social.',
+    points: [
+      'HDR listing photography',
+      '4K video tours',
+      'Licensed drone imaging',
+      'Social slideshow and single-page listing site',
+    ],
+    image: '/v1708666682/real_estate/ashish_verma_photography-196_hb9ewt.jpg',
+    cta: 'Book a listing shoot',
+  },
+]
+
+/** Capabilities — what every audience can book. */
 export const services: ServiceItem[] = [
   {
     id: 'photography',
     title: 'Real Estate Photography',
-    summary: 'Listing-ready HDR stills that make every room feel open, bright, and true to the property.',
+    summary: 'Bright, true-to-life HDR stills.',
     description:
-      'From downtown condos to suburban homes, we photograph interiors and exteriors with ultra-wide composition, balanced HDR editing, and MLS-optimized delivery so your listing looks sharp on every portal.',
-    icon: 'camera',
-    image: '/v1708666682/real_estate/ashish_verma_photography-196_hb9ewt.jpg',
+      'Ultra-wide interiors and exteriors with balanced HDR editing and straight verticals, delivered in high resolution and MLS-optimized sizes.',
+    image: '/v1708666678/real_estate/ashish_verma_photography-194_d2jqv0.jpg',
   },
   {
     id: 'videography',
-    title: 'Videography',
-    summary: 'Cinematic 4K walkthroughs that help buyers feel the flow of a home before they book a showing.',
+    title: 'Video Tours',
+    summary: 'Cinematic 4K walkthroughs.',
     description:
-      'Our 2–3 minute property videos are shot in 4K, edited without ads, and built for realtor websites, social posts, and YouTube. HDR video is available when the listing needs extra atmosphere.',
-    icon: 'video',
+      '2–3 minute 4K property videos, edited without ads, for websites, social, and YouTube. HDR video available.',
     image: '/v1708666694/real_estate/ashish_verma_photography-208_e8ohsv.jpg',
-  },
-  {
-    id: 'iguide',
-    title: 'iGuide Floor Plans',
-    summary: 'Interactive 3D tours with measured floor plans buyers can explore on any device.',
-    description:
-      'iGuide combines a shareable walkthrough with accurate floor plans so remote buyers understand scale, layout, and how rooms connect. It is one of the fastest ways to reduce unnecessary showings.',
-    icon: 'plan',
-    image: '/v1707337372/real_estate/T3E-16-resized_ibwjun.jpg',
   },
   {
     id: 'aerial',
     title: 'Aerial Imaging',
-    summary: 'Licensed drone stills and video that show lot size, orientation, and the surrounding neighbourhood.',
+    summary: 'Licensed drone stills and video.',
     description:
-      'Urban Snap flies Transport Canada licensed drone missions for listing stills and 4K aerial video. It is especially useful for larger lots, infill, and properties where the setting is part of the story.',
-    icon: 'drone',
-    image: '/v1708666630/real_estate/ashish_verma_photography-101_nscqug.jpg',
-  },
-  {
-    id: 'virtual-tours',
-    title: 'Virtual Tours',
-    summary: 'Immersive online tours that keep a listing working around the clock.',
-    description:
-      'Pair photography with an interactive tour so out-of-town buyers, relocating families, and busy locals can walk the property on their own time and arrive at showings already interested.',
-    icon: 'tour',
-    image: '/v1708666678/real_estate/ashish_verma_photography-194_d2jqv0.jpg',
+      'Transport Canada licensed drone imaging that shows lot size, orientation, streetscape, and the neighbourhood around a build.',
+    image: '/v1707701807/real_estate/TFM_OB-1_dqm8ol.jpg',
   },
   {
     id: 'twilight',
     title: 'Twilight Photography',
-    summary: 'After-hours exteriors for luxury listings that need warmth, glow, and curb appeal.',
+    summary: 'Warm glow. Serious curb appeal.',
     description:
-      'A dedicated twilight visit captures the house when interior lights, landscaping, and sky color work together. It is one of the strongest add-ons for premium and architectural properties.',
-    icon: 'twilight',
+      'A dedicated after-hours visit when interior lights, landscaping, and sky work together — ideal for model homes and premium listings.',
     image: '/v1708666662/real_estate/ashish_verma_photography-172_ycvwt5.jpg',
   },
   {
     id: 'commercial',
     title: 'Commercial Photography',
-    summary: 'Spaces built for leasing, hospitality, and business marketing — not just residential MLS.',
+    summary: 'Offices, retail, and mixed-use.',
     description:
-      'We photograph offices, retail, hospitality, and mixed-use spaces with the same attention to line, light, and finish. Contact us for commercial real estate pricing tailored to the property.',
-    icon: 'building',
+      'Leasing, hospitality, and mixed-use spaces photographed with the same attention to line, light, and finish. Contact us for commercial pricing.',
     image: '/v1708666685/real_estate/ashish_verma_photography-202_bmdyh9.jpg',
-  },
-  {
-    id: 'headshots',
-    title: 'Portrait Photography',
-    summary: 'Clean, confident realtor and team headshots for portals, social, and personal branding.',
-    description:
-      'Professional portraits help your listing brand feel consistent from the first photo to the agent card. We shoot on location or in a simple setup that stays current across MLS and social channels.',
-    icon: 'portrait',
-    image: '/v1707770470/head_shots/ashish_verma_photography-294_mzoczz.jpg',
   },
   {
     id: 'marketing',
     title: 'Listing Marketing',
-    summary: 'Social slideshows and single-page listing sites that put the visuals to work after the shoot.',
+    summary: 'Put the visuals to work.',
     description:
-      'The Ultimate package includes a social media slideshow and a single-page property website so the photography, video, and iGuide have a home beyond the MLS feed.',
-    icon: 'megaphone',
+      'A social media slideshow and a single-page property website, included in the Ultimate package, give the photos and video a home beyond the MLS feed.',
     image: '/v1707352153/real_estate/T3E_6_of_25_-resized_t1lgkg.jpg',
   },
 ]
+
+/** Headshots are a quiet add-on: not in the main nav or headline services. */
+export const headshotAddOn = {
+  title: 'Headshots',
+  summary: 'Clean, confident headshots for sales teams, renovators, and realtors — booked alongside any shoot.',
+  to: '/portfolio/headshots',
+}

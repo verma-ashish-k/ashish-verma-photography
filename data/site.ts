@@ -1,18 +1,35 @@
 export const site = {
   name: 'Urban Snap',
   legalName: 'Urban Snap Inc.',
-  tagline: 'Real Estate Photography Done Right',
+  tagline: 'Real Estate Photography',
   domain: 'urbansnap.ca',
   url: 'https://urbansnap.ca',
-  city: 'Calgary',
-  region: 'AB',
+  city: 'Ottawa',
+  region: 'ON',
+  regionName: 'Ontario',
   country: 'CA',
-  locationLabel: 'Calgary, Alberta',
-  phoneDisplay: '403-994-SNAP (7627)',
-  phoneHref: 'tel:+14039947627',
+  locationLabel: 'Ottawa, Ontario',
+  serviceRadiusKm: 30,
+  // Downtown Ottawa (Parliament Hill area) — centre of the 30 km service radius. No street address is published.
+  geo: { latitude: 45.4215, longitude: -75.6972 },
+  serviceArea: [
+    'Ottawa',
+    'Kanata',
+    'Orléans',
+    'Barrhaven',
+    'Nepean',
+    'Gloucester',
+    'Stittsville',
+    'Riverside South',
+    'Manotick',
+    'Gatineau',
+  ],
+  phoneDisplay: '613-704-0004',
+  phoneHref: 'tel:+16137040004',
+  phoneE164: '+1-613-704-0004',
   email: 'letschat@urbansnap.ca',
   legalEmail: 'info@urbansnap.ca',
-  whatsapp: 'https://wa.me/message/JIDTIORNF7ZSG1',
+  whatsapp: 'https://wa.me/16137040004',
   foundedYear: 2018,
   social: {
     instagram: 'https://www.instagram.com/urban_snap_yyc/',
@@ -35,26 +52,28 @@ export const site = {
   ogImage:
     'https://res.cloudinary.com/ashish-verma-photography/image/upload/f_auto,q_auto,w_1200/v1708666694/real_estate/ashish_verma_photography-208_e8ohsv.jpg',
   description:
-    'Urban Snap is a Calgary real estate photography and videography studio. We create listing-ready photography, 4K video tours, iGuide floor plans, aerial imaging, twilight shoots, and professional headshots.',
+    'Urban Snap is real estate photography for Ottawa builders, renovators, and realtors — new construction and model homes, before-and-after renovation portfolios, and listing photos, video, aerial, and twilight within 30 km of downtown Ottawa.',
 } as const
 
 export const navLinks = [
+  { label: 'Builders', to: '/services#builders' },
+  { label: 'Renovators', to: '/services#renovators' },
+  { label: 'Realtors', to: '/services#realtors' },
   { label: 'Work', to: '/portfolio' },
-  { label: 'Services', to: '/services' },
   { label: 'Pricing', to: '/pricing' },
   { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ] as const
 
 export const footerServices = [
+  { label: 'For Builders', to: '/services#builders' },
+  { label: 'For Renovators', to: '/services#renovators' },
+  { label: 'For Realtors', to: '/services#realtors' },
   { label: 'Real Estate Photography', to: '/services#photography' },
   { label: 'Video Tours', to: '/services#videography' },
-  { label: 'iGuide Floor Plans', to: '/services#iguide' },
   { label: 'Aerial Imaging', to: '/services#aerial' },
-  { label: 'Virtual Tours', to: '/services#virtual-tours' },
   { label: 'Twilight Photography', to: '/services#twilight' },
   { label: 'Commercial Photography', to: '/services#commercial' },
-  { label: 'Headshots', to: '/portfolio/headshots' },
 ] as const
 
 export const clientLogos = [

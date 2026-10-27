@@ -12,7 +12,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Urban Snap — Calgary Real Estate Photography & Videography',
+      title: 'Urban Snap — Ottawa Real Estate Photography for Builders, Renovators & Realtors',
       titleTemplate: '%s',
       htmlAttrs: { lang: 'en' },
       charset: 'utf-8',
@@ -38,10 +38,10 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Urban Snap is Calgary real estate photography and videography — listing photos, 4K video tours, iGuide floor plans, aerial imaging, twilight shoots, and professional headshots.',
+            'Ottawa real estate photography for builders, renovators, and realtors — new construction and model homes, before-and-after renovations, listing photos, 4K video, aerial, and twilight within 30 km of downtown Ottawa.',
         },
-        { name: 'theme-color', content: '#f5f3ef', media: '(prefers-color-scheme: light)' },
-        { name: 'theme-color', content: '#111113', media: '(prefers-color-scheme: dark)' },
+        { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' },
+        { name: 'theme-color', content: '#000000', media: '(prefers-color-scheme: dark)' },
         { name: 'author', content: 'Urban Snap' },
       ],
     },
@@ -77,6 +77,14 @@ export default defineNuxtConfig({
     '/headshots': { redirect: { to: '/portfolio/headshots', statusCode: 301 } },
     '/privacyPolicy': { redirect: { to: '/privacy', statusCode: 301 } },
     '/termsConditions': { redirect: { to: '/terms', statusCode: 301 } },
+    // Floor plans / iGuide are no longer offered.
+    '/iguide': { redirect: { to: '/services', statusCode: 301 } },
+    '/iGuide': { redirect: { to: '/services', statusCode: 301 } },
+    '/floor-plans': { redirect: { to: '/services', statusCode: 301 } },
+    '/floorplans': { redirect: { to: '/services', statusCode: 301 } },
+    '/floor_plans': { redirect: { to: '/services', statusCode: 301 } },
+    '/services/iguide': { redirect: { to: '/services', statusCode: 301 } },
+    '/services/floor-plans': { redirect: { to: '/services', statusCode: 301 } },
   },
 
   runtimeConfig: {

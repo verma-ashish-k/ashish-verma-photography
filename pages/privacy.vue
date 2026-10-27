@@ -12,7 +12,7 @@
         <p><strong>Contact Information:</strong></p>
         <ul>
           <li><strong>Website:</strong> urbansnap.ca</li>
-          <li><strong>Phone:</strong> 403-994-7627</li>
+          <li><strong>Phone:</strong> {{ site.phoneDisplay }}</li>
           <li><strong>Email:</strong> {{ site.legalEmail }}</li>
         </ul>
 
@@ -73,7 +73,7 @@ const site = useSite()
 
 useSeoPage({
   title: 'Privacy Policy — Urban Snap',
-  description: 'Privacy policy for Urban Snap, Calgary real estate photography.',
+  description: 'Privacy policy for Urban Snap, Ottawa real estate photography.',
   path: '/privacy',
 })
 </script>
