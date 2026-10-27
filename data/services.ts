@@ -41,12 +41,12 @@ export const audiences: Audience[] = [
   {
     id: 'renovators',
     label: 'For Renovators',
-    headline: 'Before. After. Proof.',
-    subhead: 'Before-and-after photography that turns finished projects into your best sales tool.',
+    headline: 'Show the finished work.',
+    subhead: 'Renovation photography that turns finished projects into your best sales tool.',
     description:
-      'Clients hire renovators from their portfolio. We document the space before work starts and photograph the finished kitchen, bath, basement, or whole-home renovation with matched angles, so the transformation is obvious at a glance.',
+      'Clients hire renovators from their portfolio. We photograph the finished kitchen, bath, basement, or whole-home renovation so the craftsmanship and detail are obvious at a glance.',
     points: [
-      'Matched before-and-after angles',
+      'Detail shots that show the craftsmanship',
       'Kitchens, baths, basements, and whole homes',
       'Portfolio-ready files for web, social, and awards',
       'Video walkthroughs of finished projects',

@@ -56,7 +56,7 @@ useHead({
         knowsAbout: [
           'New construction photography',
           'Model home photography',
-          'Renovation before and after photography',
+          'Renovation photography',
           'Real estate listing photography',
           'Real estate videography',
           'Aerial drone photography',
