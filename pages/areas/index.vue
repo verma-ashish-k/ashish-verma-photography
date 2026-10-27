@@ -15,6 +15,7 @@
               class="aspect-[16/10] w-full object-cover"
               :widths="[480, 800, 1200]"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px"
+              :preload="index === 0"
             />
             <div class="flex flex-1 flex-col p-6 sm:p-7">
               <h2 class="headline-xs">{{ area.name }}</h2>

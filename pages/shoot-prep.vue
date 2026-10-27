@@ -24,8 +24,8 @@
         <p><span class="font-semibold text-fg">On the day:</span> {{ turnaround }}</p>
         <p class="mt-3">
           Questions before the shoot? Message us on
-          <a :href="site.whatsapp" target="_blank" rel="noreferrer" class="text-[color:var(--link)] hover:underline">WhatsApp</a>
-          or call <a :href="site.phoneHref" class="text-[color:var(--link)] hover:underline">{{ site.phoneDisplay }}</a>.
+          <a :href="site.whatsapp" target="_blank" rel="noreferrer" class="text-[color:var(--link)] underline">WhatsApp</a>
+          or call <a :href="site.phoneHref" class="text-[color:var(--link)] underline">{{ site.phoneDisplay }}</a>.
         </p>
       </div>
     </section>

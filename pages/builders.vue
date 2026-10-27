@@ -78,7 +78,7 @@
       </div>
       <p class="site-shell mt-8 text-center text-[14px] text-fg-muted">
         Listing a finished home through a realtor instead?
-        <NuxtLink to="/pricing" class="text-[color:var(--link)] hover:underline">See size-based pricing</NuxtLink>.
+        <NuxtLink to="/pricing" class="text-[color:var(--link)] underline">See size-based pricing</NuxtLink>.
       </p>
     </section>
 
