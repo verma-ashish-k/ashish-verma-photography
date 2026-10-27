@@ -1,14 +1,20 @@
 <template>
   <div>
+    <LocalNav
+      title="Pricing"
+      :links="[
+        { label: 'Build your shoot', href: '#estimate' },
+        { label: 'Packages', href: '#packages' },
+      ]"
+    />
     <PageHero
       eyebrow="Pricing"
-      title="À-la-carte or a pre-curated package."
-      lede="Choose a property size to see photography, videography, iGuide, drone, twilight, and package pricing. Travel is extra outside Calgary city limits."
-      :image="heroImages.pricing"
+      title="Simple, size-based pricing."
+      lede="Real estate photography for builders, renovators, and realtors. Slide to your property size and see every price update live."
     />
     <PricingMenu />
     <PricingPackages />
-    <CtaBand cta="Ask about a date" />
+    <CtaBand cta="Ask about a date" title="Questions about a project?" plain />
   </div>
 </template>
 
@@ -16,9 +22,9 @@
 import { heroImages } from '~/data/gallery'
 
 useSeoPage({
-  title: 'Urban Snap Pricing — Calgary Real Estate Photography Packages',
+  title: 'Urban Snap Pricing — Ottawa Real Estate Photography Packages',
   description:
-    'Urban Snap pricing for Calgary listing photography, 4K videography, iGuide, drone, twilight, and bundled packages by square footage.',
+    'Size-based pricing for Ottawa real estate photography, 4K video tours, drone, twilight, and packages for builders, renovators, and realtors.',
   path: '/pricing',
   image: cloudinaryUrl(heroImages.pricing, 'f_auto,q_auto,w_1200'),
 })

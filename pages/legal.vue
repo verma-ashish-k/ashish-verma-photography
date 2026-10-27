@@ -44,7 +44,7 @@
 
         <h2>Governing Law</h2>
         <p>
-          Any claim relating to Urban Snap's website shall be governed by the laws of the Province of Alberta without
+          Any claim relating to Urban Snap's website shall be governed by the laws of the Province of Ontario without
           regard to its conflict of law provisions.
         </p>
 
@@ -52,7 +52,7 @@
         <p>If you have any questions or concerns about the legal notices or other legal matters related to Urban Snap, please contact us at:</p>
         <ul>
           <li><strong>Website:</strong> urbansnap.ca</li>
-          <li><strong>Phone:</strong> 403-994-7627</li>
+          <li><strong>Phone:</strong> {{ site.phoneDisplay }}</li>
           <li><strong>Email:</strong> {{ site.legalEmail }}</li>
         </ul>
       </article>

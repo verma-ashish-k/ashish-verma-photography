@@ -67,7 +67,7 @@
 
         <h2>10. Governing Law</h2>
         <p>
-          These terms shall be governed and construed in accordance with the laws of Alberta, Canada, without regard to
+          These terms shall be governed and construed in accordance with the laws of Ontario, Canada, without regard to
           its conflict of law provisions.
         </p>
 
@@ -81,7 +81,7 @@
         <p>If you have any questions about these Terms, please contact us at:</p>
         <ul>
           <li><strong>Website:</strong> urbansnap.ca</li>
-          <li><strong>Phone:</strong> 403-994-7627</li>
+          <li><strong>Phone:</strong> {{ site.phoneDisplay }}</li>
           <li><strong>Email:</strong> {{ site.legalEmail }}</li>
         </ul>
       </article>
@@ -94,7 +94,7 @@ const site = useSite()
 
 useSeoPage({
   title: 'Terms and Conditions — Urban Snap',
-  description: 'Terms and conditions for Urban Snap photography services in Calgary, Alberta.',
+  description: 'Terms and conditions for Urban Snap photography services in Ottawa, Ontario.',
   path: '/terms',
 })
 </script>

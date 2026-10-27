@@ -1,28 +1,23 @@
 <template>
-  <section class="overflow-hidden bg-cream-dark py-12">
-    <div class="site-shell mb-6">
-      <p class="text-center text-sm font-semibold uppercase tracking-[0.2em] text-ink-500">
-        Clients we have worked with
-      </p>
+  <section class="section bg-[color:var(--page-alt)]">
+    <div class="site-shell text-center">
+      <Reveal variant="fade-up">
+        <h2 class="headline-sm">Clients we have worked with.</h2>
+        <p class="body-copy mx-auto mt-3 max-w-xl">Brokerages and teams whose properties we have photographed.</p>
+      </Reveal>
     </div>
-    <div class="relative">
-      <div class="marquee-track flex w-max items-center gap-10 px-6">
-        <CldImg
-          v-for="(logo, index) in looped"
-          :key="`${logo}-${index}`"
-          :src="logo"
-          alt="Realty partner logo"
-          class="h-16 w-auto object-contain opacity-80 sm:h-20"
-          :widths="[240, 400]"
-          sizes="160px"
-        />
-      </div>
-    </div>
+    <ul class="site-shell mt-10 flex flex-wrap justify-center gap-3">
+      <li v-for="(logo, index) in clientLogos" :key="logo.src" class="w-[calc(50%-6px)] sm:w-[calc(33.333%-8px)] lg:w-[calc(25%-9px)]">
+        <Reveal variant="zoom-in" :delay="index * 50">
+          <div class="logo-plate">
+            <CldImg :src="logo.src" :alt="logo.alt" :widths="[320, 480]" sizes="240px" />
+          </div>
+        </Reveal>
+      </li>
+    </ul>
   </section>
 </template>
 
 <script setup lang="ts">
 import { clientLogos } from '~/data/site'
-
-const looped = [...clientLogos, ...clientLogos]
 </script>

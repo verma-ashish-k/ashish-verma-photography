@@ -5,68 +5,68 @@ module.exports = {
     './layouts/**/*.vue',
     './pages/**/*.vue',
     './composables/**/*.{js,ts}',
+    './data/**/*.ts',
     './app.vue',
     './error.vue',
   ],
   theme: {
     extend: {
       colors: {
-        coral: {
-          DEFAULT: '#f25244',
-          dark: '#d83d30',
-          light: '#f58b78',
+        // Apple-style palette. Theme-aware tokens resolve through CSS variables in main.css.
+        apple: {
+          blue: '#0071e3',
+          'blue-hover': '#0077ed',
+          link: 'var(--link)',
+          ink: '#1d1d1f',
+          gray: '#6e6e73',
+          light: '#f5f5f7',
         },
-        sky: {
-          DEFAULT: '#30a8d8',
-          dark: '#1e86b0',
-          light: '#6cc6e8',
+        page: {
+          DEFAULT: 'var(--page)',
+          alt: 'var(--page-alt)',
         },
-        ink: {
-          950: '#050b14',
-          900: '#0a1628',
-          800: '#12233a',
-          700: '#1b3352',
-          500: '#4b627c',
-          300: '#9aadc0',
-        },
-        cream: {
-          DEFAULT: '#f6f1ea',
-          dark: '#ebe3d6',
+        tile: 'var(--tile)',
+        card: 'var(--card)',
+        line: 'var(--line)',
+        fg: {
+          DEFAULT: 'var(--fg)',
+          muted: 'var(--fg-muted)',
+          faint: 'var(--fg-faint)',
         },
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['"Instrument Serif"', 'Georgia', 'serif'],
+        sans: [
+          '"SF Pro Text"',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Helvetica Neue"',
+          'Inter',
+          '"Segoe UI"',
+          'system-ui',
+          'sans-serif',
+        ],
+        display: [
+          '"SF Pro Display"',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Helvetica Neue"',
+          'Inter',
+          'system-ui',
+          'sans-serif',
+        ],
       },
       boxShadow: {
-        lift: '0 18px 50px -24px rgba(10, 22, 40, 0.45)',
+        tile: '2px 4px 12px rgba(0, 0, 0, 0.08)',
+        lift: '2px 4px 16px rgba(0, 0, 0, 0.16)',
       },
       maxWidth: {
-        site: '72rem',
+        site: '980px',
+        wide: '1260px',
+      },
+      transitionTimingFunction: {
+        apple: 'cubic-bezier(0.28, 0.11, 0.32, 1)',
       },
     },
   },
-  plugins: [require('daisyui')],
-  daisyui: {
-    themes: [
-      {
-        urbansnap: {
-          primary: '#f25244',
-          secondary: '#30a8d8',
-          accent: '#f58b78',
-          neutral: '#0a1628',
-          'base-100': '#f6f1ea',
-          'base-content': '#0a1628',
-          info: '#30a8d8',
-          success: '#009485',
-          warning: '#ff9900',
-          error: '#ff5724',
-        },
-      },
-    ],
-    base: false,
-    styled: true,
-    utils: true,
-    logs: false,
-  },
+  plugins: [],
 }
