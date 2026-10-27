@@ -32,7 +32,6 @@ export const site = {
   whatsapp: 'https://wa.me/16137040004',
   foundedYear: 2018,
   social: {
-    instagram: 'https://www.instagram.com/urban_snap_yyc/',
     facebook: 'https://www.facebook.com/urbansnap.ca',
     youtube: 'https://www.youtube.com/@Urban_Snap',
   },

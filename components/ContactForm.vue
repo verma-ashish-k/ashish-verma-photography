@@ -67,7 +67,6 @@
       </dl>
       <div class="mt-auto flex flex-wrap gap-5 pt-10 text-[14px]">
         <a :href="site.whatsapp" target="_blank" rel="noreferrer" class="text-[#a1a1a6] hover:text-white">WhatsApp</a>
-        <a :href="site.social.instagram" target="_blank" rel="noreferrer" class="text-[#a1a1a6] hover:text-white">Instagram</a>
         <a :href="site.social.facebook" target="_blank" rel="noreferrer" class="text-[#a1a1a6] hover:text-white">Facebook</a>
       </div>
     </aside>

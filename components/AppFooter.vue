@@ -47,7 +47,6 @@
         <div>
           <h2 class="font-semibold text-fg">Follow</h2>
           <ul class="mt-2 space-y-2">
-            <li><a :href="site.social.instagram" target="_blank" rel="noreferrer" class="hover:underline">Instagram</a></li>
             <li><a :href="site.social.facebook" target="_blank" rel="noreferrer" class="hover:underline">Facebook</a></li>
             <li><a :href="site.social.youtube" target="_blank" rel="noreferrer" class="hover:underline">YouTube</a></li>
           </ul>

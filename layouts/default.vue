@@ -71,7 +71,7 @@ useHead({
           'Aerial drone photography',
           'Twilight photography',
         ],
-        sameAs: [site.social.instagram, site.social.facebook, site.social.youtube],
+        sameAs: [site.social.facebook, site.social.youtube],
       }),
     },
   ],
