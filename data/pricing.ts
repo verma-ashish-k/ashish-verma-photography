@@ -162,3 +162,52 @@ export const packages = [
     ],
   },
 ]
+
+/**
+ * Builder program pricing — PLACEHOLDER VALUES, pending Ashish.
+ * `null` means "not published yet": the /builders page renders "Request a builder quote"
+ * for that line instead of a number. Do not fill these with estimates.
+ */
+export type BuilderPriceLine = {
+  key: 'builderPerHome' | 'builderMultiHome' | 'builderModelHome' | 'builderTwilight'
+  title: string
+  detail: string
+  /** CAD before HST. null = PLACEHOLDER until real pricing is confirmed. */
+  price: number | null
+  /** Unit shown after a real price, e.g. "per home". */
+  unit: string
+}
+
+export const builderPricing: BuilderPriceLine[] = [
+  {
+    key: 'builderPerHome',
+    title: 'Completed home',
+    detail: 'Interiors, exteriors, and finish details for a single completed or spec home.',
+    price: null, // PLACEHOLDER
+    unit: 'per home',
+  },
+  {
+    key: 'builderMultiHome',
+    title: 'Multi-home or phase rate',
+    detail: 'Several homes or a phase booked together, photographed to one consistent look.',
+    price: null, // PLACEHOLDER
+    unit: 'per home',
+  },
+  {
+    key: 'builderModelHome',
+    title: 'Model and show home',
+    detail: 'Full coverage for the sales centre, website, and print — styled rooms and hero exteriors.',
+    price: null, // PLACEHOLDER
+    unit: 'per model',
+  },
+  {
+    key: 'builderTwilight',
+    title: 'Launch twilight add-on',
+    detail: 'A dedicated after-hours visit for launch and signage creative.',
+    price: null, // PLACEHOLDER
+    unit: 'per visit',
+  },
+]
+
+export const builderPriceLabel = (line: BuilderPriceLine) =>
+  typeof line.price === 'number' ? `$${line.price} ${line.unit}` : 'Request a builder quote'

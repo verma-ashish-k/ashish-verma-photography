@@ -39,8 +39,9 @@
               </li>
             </ul>
             <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-              <NuxtLink to="/contact" class="btn-primary">{{ audience.cta }}</NuxtLink>
-              <NuxtLink to="/pricing" class="link-more">See pricing</NuxtLink>
+              <NuxtLink :to="{ path: '/contact', query: { audience: audienceQuery[audience.id] } }" class="btn-primary">{{ audience.cta }}</NuxtLink>
+              <NuxtLink v-if="audience.id !== 'realtors'" :to="audiencePage(audience.id)" class="link-more">{{ audience.label }} page</NuxtLink>
+              <NuxtLink v-else to="/pricing" class="link-more">See pricing</NuxtLink>
             </div>
           </Reveal>
         </article>
@@ -83,7 +84,7 @@
 
 <script setup lang="ts">
 import { heroImages } from '~/data/gallery'
-import { audiences, services } from '~/data/services'
+import { audiences, audiencePage, audienceQuery, services } from '~/data/services'
 
 useSeoPage({
   title: 'Urban Snap Services — Ottawa Photography for Builders, Renovators & Realtors',

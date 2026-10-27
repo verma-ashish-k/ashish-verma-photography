@@ -1,3 +1,5 @@
+import { areaRoutes } from './data/areas'
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   telemetry: false,
@@ -70,6 +72,7 @@ export default defineNuxtConfig({
 
   sitemap: {
     exclude: [],
+    urls: ['/builders', '/renovators', '/areas', ...areaRoutes, '/faq', '/shoot-prep'],
   },
 
   routeRules: {
@@ -85,6 +88,8 @@ export default defineNuxtConfig({
     '/floor_plans': { redirect: { to: '/services', statusCode: 301 } },
     '/services/iguide': { redirect: { to: '/services', statusCode: 301 } },
     '/services/floor-plans': { redirect: { to: '/services', statusCode: 301 } },
+    '/prep': { redirect: { to: '/shoot-prep', statusCode: 301 } },
+    '/booking': { redirect: { to: '/contact', statusCode: 301 } },
   },
 
   runtimeConfig: {
@@ -98,7 +103,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/'],
+      routes: ['/', '/builders', '/renovators', '/areas', ...areaRoutes, '/faq', '/shoot-prep'],
     },
   },
 })

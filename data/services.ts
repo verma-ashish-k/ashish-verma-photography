@@ -130,3 +130,14 @@ export const headshotAddOn = {
   summary: 'Clean, confident headshots for sales teams, renovators, and realtors — booked alongside any shoot.',
   to: '/portfolio/headshots',
 }
+
+/** Dedicated landing page for each audience (realtors still live on /services). */
+export const audiencePage = (id: Audience['id']) =>
+  id === 'builders' ? '/builders' : id === 'renovators' ? '/renovators' : '/services#realtors'
+
+/** Value for the booking form's ?audience= prefill. */
+export const audienceQuery: Record<Audience['id'], string> = {
+  builders: 'builder',
+  renovators: 'renovator',
+  realtors: 'realtor',
+}

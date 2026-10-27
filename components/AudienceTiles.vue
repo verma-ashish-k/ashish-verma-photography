@@ -17,10 +17,10 @@
             </h2>
             <p class="subhead mx-auto mt-3 max-w-2xl" :class="index === 0 && '!text-[#f5f5f7]'">{{ audience.subhead }}</p>
             <div class="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
-              <NuxtLink :to="`/services#${audience.id}`" class="link-more" :class="index === 0 && '!text-[#2997ff]'">
+              <NuxtLink :to="audiencePage(audience.id)" class="link-more" :class="index === 0 && '!text-[#2997ff]'" :aria-label="`Learn more about photography ${audience.label.toLowerCase()}`">
                 Learn more
               </NuxtLink>
-              <NuxtLink to="/contact" class="link-more" :class="index === 0 && '!text-[#2997ff]'">{{ audience.cta }}</NuxtLink>
+              <NuxtLink :to="{ path: '/contact', query: { audience: audienceQuery[audience.id] } }" class="link-more" :class="index === 0 && '!text-[#2997ff]'">{{ audience.cta }}</NuxtLink>
             </div>
           </div>
         </Reveal>
@@ -43,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import { audiences } from '~/data/services'
+import { audiences, audiencePage, audienceQuery } from '~/data/services'
 </script>
 
 <style scoped>

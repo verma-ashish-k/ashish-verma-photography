@@ -7,8 +7,9 @@
         <p class="body-copy mt-5 max-w-md">
           Based in Ottawa, we shoot new builds, renovations, and listings across the city and the communities around it.
         </p>
+        <NuxtLink to="/areas" class="link-more mt-5 !text-[17px]">Explore the communities we serve</NuxtLink>
         <ul class="mt-7 flex flex-wrap gap-2" aria-label="Communities we serve">
-          <li v-for="place in site.serviceArea" :key="place" class="chip">{{ place }}</li>
+          <li v-for="area in areas" :key="area.slug"><NuxtLink :to="`/areas/${area.slug}`" class="chip hover:border-[color:var(--link)] hover:text-[color:var(--link)]">{{ area.name }}</NuxtLink></li>
         </ul>
       </Reveal>
       <Reveal variant="zoom-in">
@@ -33,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-const site = useSite()
+import { areas } from '~/data/areas'
 
 // Approximate compass placement for a schematic (not to scale) area graphic.
 const placed = [

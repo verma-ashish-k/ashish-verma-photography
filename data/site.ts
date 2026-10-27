@@ -66,9 +66,10 @@ export const socials: SocialLink[] = [
 export const activeSocialUrls = socials.map((social) => social.url).filter(Boolean)
 
 export const navLinks = [
-  { label: 'Builders', to: '/services#builders' },
-  { label: 'Renovators', to: '/services#renovators' },
+  { label: 'Builders', to: '/builders' },
+  { label: 'Renovators', to: '/renovators' },
   { label: 'Realtors', to: '/services#realtors' },
+  { label: 'Areas', to: '/areas' },
   { label: 'Work', to: '/portfolio' },
   { label: 'Pricing', to: '/pricing' },
   { label: 'About', to: '/about' },
@@ -76,8 +77,8 @@ export const navLinks = [
 ] as const
 
 export const footerServices = [
-  { label: 'For Builders', to: '/services#builders' },
-  { label: 'For Renovators', to: '/services#renovators' },
+  { label: 'For Builders', to: '/builders' },
+  { label: 'For Renovators', to: '/renovators' },
   { label: 'For Realtors', to: '/services#realtors' },
   { label: 'Real Estate Photography', to: '/services#photography' },
   { label: 'Video Tours', to: '/services#videography' },
@@ -95,3 +96,34 @@ export const clientLogos = [
   { src: '/v1713166286/realty_logos/6_euajiw.png', alt: "Sotheby's International Realty" },
   { src: '/v1713166286/realty_logos/7_bjw4b5.png', alt: 'MaxWell' },
 ] as const
+
+/**
+ * Service promises that are PENDING Ashish's numbers.
+ * Any value still wrapped in {{…}} is a placeholder: the site renders the neutral `fallback`
+ * text instead and never shows the raw token. Replace the `value` with the real wording
+ * (e.g. 'Photos delivered next business day') to publish it everywhere at once.
+ */
+export const promises = {
+  turnaround: {
+    value: '{{TURNAROUND}}',
+    fallback: 'Fast turnaround — we’ll confirm your delivery time when you book.',
+  },
+  videoTurnaround: {
+    value: '{{VIDEO_TURNAROUND}}',
+    fallback: 'Video, aerial, and twilight edits follow the photos — we’ll confirm timing when you book.',
+  },
+  reshoot: {
+    value: '{{RESHOOT_POLICY}}',
+    fallback: 'If something in your gallery isn’t right, tell us — we’ll walk you through revisions when you book.',
+  },
+} as const
+
+export type PromiseKey = keyof typeof promises
+
+export const isPlaceholder = (value: string | null | undefined) => !value || /\{\{[^}]+\}\}/.test(value)
+
+/** Published wording for a promise, or its neutral fallback while the value is still a placeholder. */
+export const promiseText = (key: PromiseKey) => {
+  const entry = promises[key]
+  return isPlaceholder(entry.value) ? entry.fallback : entry.value
+}
