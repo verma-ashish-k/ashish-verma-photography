@@ -51,15 +51,6 @@ useHead({
           longitude: site.geo.longitude,
         },
         areaServed: [
-          {
-            '@type': 'GeoCircle',
-            geoMidpoint: {
-              '@type': 'GeoCoordinates',
-              latitude: site.geo.latitude,
-              longitude: site.geo.longitude,
-            },
-            geoRadius: site.serviceRadiusKm * 1000,
-          },
           ...site.serviceArea.map((name) => ({ '@type': 'City', name })),
         ],
         knowsAbout: [

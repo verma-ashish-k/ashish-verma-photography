@@ -12,7 +12,7 @@
     <PageHero
       eyebrow="Services"
       title="Real estate photography, focused."
-      lede="Built first for builders, then renovators and realtors — across Ottawa and 30 km around."
+      lede="Built first for builders, then renovators and realtors — across Ottawa and surrounding areas."
     />
 
     <section class="space-y-3 py-12 sm:py-16">

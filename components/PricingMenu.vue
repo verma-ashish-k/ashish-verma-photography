@@ -106,7 +106,7 @@
               photos and video for ${{ packageTip.price }} — save ${{ packageTip.saving }}.
             </p>
             <NuxtLink to="/contact" class="btn-primary mt-6 w-full">Book this shoot</NuxtLink>
-            <p class="mt-3 text-center text-[12px] text-fg-faint">Travel billed beyond 30 km of downtown Ottawa.</p>
+            <p class="mt-3 text-center text-[12px] text-fg-faint">Serving Ottawa and surrounding areas.</p>
           </div>
         </aside>
       </div>

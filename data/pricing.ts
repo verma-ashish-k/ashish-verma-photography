@@ -162,12 +162,3 @@ export const packages = [
     ],
   },
 ]
-
-export const travelFees = {
-  title: 'Travel Fees',
-  rate: 'Charged at $0.70 / km',
-  notes: [
-    'Calculated both ways',
-    'Charged only beyond 30 km of downtown Ottawa',
-  ],
-}

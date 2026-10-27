@@ -52,8 +52,7 @@
     <aside class="flex flex-col rounded-[18px] bg-black p-6 text-[#f5f5f7] sm:p-10">
       <h2 class="headline-xs !text-[#f5f5f7]">Prefer to talk?</h2>
       <p class="mt-2 text-[15px] text-[#a1a1a6]">
-        Urban Snap · {{ site.locationLabel }}<br />Serving {{ site.serviceArea.length }} communities within
-        {{ site.serviceRadiusKm }} km.
+        Urban Snap · {{ site.locationLabel }}<br />Serving Ottawa and surrounding areas.
       </p>
       <dl class="mt-8 space-y-6">
         <div>

@@ -46,9 +46,9 @@
       <div class="mx-auto mt-6 grid max-w-4xl gap-4 md:grid-cols-2">
         <Reveal variant="fade-up">
           <div class="h-full rounded-[18px] bg-[color:var(--card)] p-7">
-            <h3 class="text-[17px] font-semibold text-fg">{{ travelFees.title }}</h3>
+            <h3 class="text-[17px] font-semibold text-fg">Service area</h3>
             <p class="mt-2 text-[14px] text-fg-muted">
-              {{ travelFees.rate }}. {{ travelFees.notes.join('. ') }}.
+              Serving Ottawa and surrounding areas — Kanata, Orléans, Barrhaven, Nepean, Gloucester, Stittsville, Riverside South, Manotick and Gatineau.
             </p>
           </div>
         </Reveal>
@@ -72,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import { packages, travelFees } from '~/data/pricing'
+import { packages } from '~/data/pricing'
 import { headshotAddOn } from '~/data/services'
 
 const { selectedTier } = usePricing()

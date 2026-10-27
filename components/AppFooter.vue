@@ -2,9 +2,8 @@
   <footer class="bg-[color:var(--page-alt)] text-[12px] leading-[1.33] text-fg-muted">
     <div class="site-shell py-10">
       <p class="border-b border-line pb-4">
-        Urban Snap photographs new construction, renovations, and listings within about {{ site.serviceRadiusKm }} km of
-        downtown Ottawa, including {{ site.serviceArea.slice(1).join(', ') }}. Travel beyond the service area is billed per
-        kilometre.
+        Urban Snap photographs new construction, renovations, and listings across Ottawa and surrounding areas,
+        including {{ site.serviceArea.slice(1).join(', ') }}.
       </p>
 
       <div class="grid gap-8 py-6 sm:grid-cols-2 lg:grid-cols-4">
