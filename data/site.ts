@@ -9,8 +9,7 @@ export const site = {
   regionName: 'Ontario',
   country: 'CA',
   locationLabel: 'Ottawa, Ontario',
-  serviceRadiusKm: 30,
-  // Downtown Ottawa (Parliament Hill area) — centre of the 30 km service radius. No street address is published.
+  // Downtown Ottawa (Parliament Hill area). No street address is published.
   geo: { latitude: 45.4215, longitude: -75.6972 },
   serviceArea: [
     'Ottawa',
@@ -47,7 +46,7 @@ export const site = {
   ogImage:
     'https://res.cloudinary.com/ashish-verma-photography/image/upload/f_auto,q_auto,w_1200/v1708666694/real_estate/ashish_verma_photography-208_e8ohsv.jpg',
   description:
-    'Urban Snap is real estate photography for Ottawa builders, renovators, and realtors — new construction and model homes, before-and-after renovation portfolios, and listing photos, video, aerial, and twilight within 30 km of downtown Ottawa.',
+    'Urban Snap is real estate photography for Ottawa builders, renovators, and realtors — new construction and model homes, before-and-after renovation portfolios, and listing photos, video, aerial, and twilight across Ottawa and surrounding areas.',
 } as const
 
 export type SocialLink = {

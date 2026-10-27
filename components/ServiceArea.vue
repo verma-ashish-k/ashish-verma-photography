@@ -3,17 +3,16 @@
     <div class="site-shell grid items-center gap-12 md:grid-cols-2">
       <Reveal variant="fade-up">
         <p class="eyebrow">Service area</p>
-        <h2 class="headline mt-2">Ottawa and 30&nbsp;km around.</h2>
+        <h2 class="headline mt-2">Ottawa and surrounding areas.</h2>
         <p class="body-copy mt-5 max-w-md">
-          Based in Ottawa, we shoot anywhere within about {{ site.serviceRadiusKm }} km of downtown — no travel fee. Further
-          out? We still come; travel is billed per kilometre.
+          Based in Ottawa, we shoot new builds, renovations, and listings across the city and the communities around it.
         </p>
         <ul class="mt-7 flex flex-wrap gap-2" aria-label="Communities we serve">
           <li v-for="place in site.serviceArea" :key="place" class="chip">{{ place }}</li>
         </ul>
       </Reveal>
       <Reveal variant="zoom-in">
-        <div class="radius-map relative mx-auto aspect-square w-full max-w-[420px]" aria-hidden="true">
+        <div class="area-map relative mx-auto aspect-square w-full max-w-[420px]" aria-hidden="true">
           <span class="ring ring-1" />
           <span class="ring ring-2" />
           <span class="ring ring-3" />
@@ -27,7 +26,6 @@
           >
             {{ place.name }}
           </span>
-          <span class="absolute bottom-1 left-1/2 -translate-x-1/2 text-[11px] text-fg-faint">{{ site.serviceRadiusKm }} km</span>
         </div>
       </Reveal>
     </div>
@@ -37,7 +35,7 @@
 <script setup lang="ts">
 const site = useSite()
 
-// Approximate compass placement for a schematic (not to scale) radius graphic.
+// Approximate compass placement for a schematic (not to scale) area graphic.
 const placed = [
   { name: 'Gatineau', x: 40, y: 30 },
   { name: 'Orléans', x: 80, y: 38 },

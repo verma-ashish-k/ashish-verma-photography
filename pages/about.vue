@@ -3,7 +3,7 @@
     <PageHero
       eyebrow="About"
       title="An Ottawa studio for property photography."
-      lede="Urban Snap photographs new builds, renovations, and listings across Ottawa and the communities within 30 km of downtown."
+      lede="Urban Snap photographs new builds, renovations, and listings across Ottawa and surrounding areas."
       :image="heroImages.about"
       image-alt="Sunlit living room photographed by Urban Snap"
     />
@@ -52,7 +52,7 @@ const facts = [
 useSeoPage({
   title: 'About Urban Snap — Ottawa Real Estate Photography',
   description:
-    'Urban Snap is an Ottawa real estate photography studio for builders, renovators, and realtors, serving communities within 30 km of downtown Ottawa.',
+    'Urban Snap is an Ottawa real estate photography studio for builders, renovators, and realtors, serving Ottawa and surrounding areas.',
   path: '/about',
   image: cloudinaryUrl(heroImages.about, 'f_auto,q_auto,w_1200'),
 })

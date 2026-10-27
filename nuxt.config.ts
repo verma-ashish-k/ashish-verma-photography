@@ -38,7 +38,7 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Ottawa real estate photography for builders, renovators, and realtors — new construction and model homes, before-and-after renovations, listing photos, 4K video, aerial, and twilight within 30 km of downtown Ottawa.',
+            'Ottawa real estate photography for builders, renovators, and realtors — new construction and model homes, before-and-after renovations, listing photos, 4K video, aerial, and twilight across Ottawa and surrounding areas.',
         },
         { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' },
         { name: 'theme-color', content: '#000000', media: '(prefers-color-scheme: dark)' },

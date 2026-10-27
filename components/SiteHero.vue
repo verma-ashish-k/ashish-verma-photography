@@ -5,7 +5,7 @@
         <p class="eyebrow">Ottawa real estate photography</p>
         <h1 class="headline-hero mt-3">Built to be seen.</h1>
         <p class="subhead mx-auto mt-4 max-w-2xl">
-          Photography for builders, renovators, and realtors across Ottawa and 30&nbsp;km around.
+          Photography for builders, renovators, and realtors across Ottawa and surrounding areas.
         </p>
         <div class="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
           <NuxtLink to="/contact" class="btn-primary">Book a shoot</NuxtLink>
