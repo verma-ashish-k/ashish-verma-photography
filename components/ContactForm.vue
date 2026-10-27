@@ -65,9 +65,9 @@
           <dd><a :href="`mailto:${site.email}`" class="mt-1 block break-all text-[21px] font-semibold text-[#2997ff] hover:underline">{{ site.email }}</a></dd>
         </div>
       </dl>
-      <div class="mt-auto flex flex-wrap gap-5 pt-10 text-[14px]">
-        <a :href="site.whatsapp" target="_blank" rel="noreferrer" class="text-[#a1a1a6] hover:text-white">WhatsApp</a>
-        <a :href="site.social.facebook" target="_blank" rel="noreferrer" class="text-[#a1a1a6] hover:text-white">Facebook</a>
+      <div class="mt-auto pt-10">
+        <a :href="site.whatsapp" target="_blank" rel="noreferrer" class="text-[14px] text-[#a1a1a6] hover:text-white">WhatsApp</a>
+        <SocialLinks inverse inline class="mt-5 border-t border-white/10 pt-5" />
       </div>
     </aside>
   </div>

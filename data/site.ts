@@ -31,10 +31,6 @@ export const site = {
   legalEmail: 'info@urbansnap.ca',
   whatsapp: 'https://wa.me/16137040004',
   foundedYear: 2018,
-  social: {
-    facebook: 'https://www.facebook.com/urbansnap.ca',
-    youtube: 'https://www.youtube.com/@Urban_Snap',
-  },
   web3formsKey: 'd1bc0811-4796-4f5a-956b-782094171a22',
   gtag: 'G-VTTPE9V8EC',
   cloudinary: {
@@ -53,6 +49,22 @@ export const site = {
   description:
     'Urban Snap is real estate photography for Ottawa builders, renovators, and realtors — new construction and model homes, before-and-after renovation portfolios, and listing photos, video, aerial, and twilight within 30 km of downtown Ottawa.',
 } as const
+
+export type SocialLink = {
+  id: 'instagram' | 'youtube' | 'facebook'
+  label: string
+  /** Leave empty to show a non-clickable "Coming soon" placeholder. Add the profile URL to re-enable the link. */
+  url: string
+}
+
+/** Social profiles are paused for now; entries with an empty url render as placeholders and are left out of JSON-LD. */
+export const socials: SocialLink[] = [
+  { id: 'instagram', label: 'Instagram', url: '' },
+  { id: 'youtube', label: 'YouTube', url: '' },
+  { id: 'facebook', label: 'Facebook', url: '' },
+]
+
+export const activeSocialUrls = socials.map((social) => social.url).filter(Boolean)
 
 export const navLinks = [
   { label: 'Builders', to: '/services#builders' },

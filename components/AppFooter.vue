@@ -46,15 +46,12 @@
 
         <div>
           <h2 class="font-semibold text-fg">Follow</h2>
-          <ul class="mt-2 space-y-2">
-            <li><a :href="site.social.facebook" target="_blank" rel="noreferrer" class="hover:underline">Facebook</a></li>
-            <li><a :href="site.social.youtube" target="_blank" rel="noreferrer" class="hover:underline">YouTube</a></li>
-          </ul>
+          <SocialLinks class="mt-2" />
         </div>
       </div>
 
       <div class="flex flex-col gap-2 border-t border-line pt-4 sm:flex-row sm:items-center sm:justify-between">
-        <p>Copyright © {{ year }} {{ site.legalName }}. All rights reserved.</p>
+        <p>Copyright © {{ year }} {{ site.legalName }} All rights reserved.</p>
         <ul class="flex flex-wrap gap-x-4 gap-y-1">
           <li><NuxtLink to="/privacy" class="hover:underline">Privacy Policy</NuxtLink></li>
           <li><NuxtLink to="/terms" class="hover:underline">Terms &amp; Conditions</NuxtLink></li>

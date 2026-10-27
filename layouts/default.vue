@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { SpeedInsights } from '@vercel/speed-insights/vue'
-import { site } from '~/data/site'
+import { activeSocialUrls, site } from '~/data/site'
 
 useTheme()
 
@@ -71,7 +71,7 @@ useHead({
           'Aerial drone photography',
           'Twilight photography',
         ],
-        sameAs: [site.social.facebook, site.social.youtube],
+        ...(activeSocialUrls.length ? { sameAs: activeSocialUrls } : {}),
       }),
     },
   ],
