@@ -29,6 +29,9 @@
             <li><NuxtLink to="/about" class="hover:underline">About</NuxtLink></li>
             <li><NuxtLink to="/portfolio" class="hover:underline">Work</NuxtLink></li>
             <li><NuxtLink to="/pricing" class="hover:underline">Pricing</NuxtLink></li>
+            <li><NuxtLink to="/areas" class="hover:underline">Areas we serve</NuxtLink></li>
+            <li><NuxtLink to="/faq" class="hover:underline">FAQ</NuxtLink></li>
+            <li><NuxtLink to="/shoot-prep" class="hover:underline">Shoot prep guide</NuxtLink></li>
             <li><NuxtLink to="/contact" class="hover:underline">Contact</NuxtLink></li>
           </ul>
         </div>

@@ -3,12 +3,12 @@
     <PageHero
       eyebrow="Contact"
       title="Let’s book your shoot."
-      :lede="`Builders, renovators, and realtors across Ottawa — call ${site.phoneDisplay}, email, or send the form. We typically reply the same business day.`"
+      :lede="`Builders, renovators, and realtors across Ottawa — send a booking request, message us on WhatsApp, or call ${site.phoneDisplay}. We typically reply the same business day.`"
     />
     <section class="section pt-10 sm:pt-12">
       <div class="wide-shell max-w-[1080px]">
         <Reveal variant="zoom-in">
-          <ContactForm />
+          <BookingRequest />
         </Reveal>
       </div>
     </section>

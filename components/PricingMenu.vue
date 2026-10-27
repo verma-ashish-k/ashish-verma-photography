@@ -113,7 +113,7 @@
               Tip: the <a href="#packages" class="text-[color:var(--link)] hover:underline">Basic package</a> includes
               photos and video for ${{ packageTip.price }} — save ${{ packageTip.saving }}.
             </p>
-            <NuxtLink to="/contact" class="btn-primary mt-6 w-full">Book this shoot</NuxtLink>
+            <NuxtLink :to="bookingLink" class="btn-primary mt-6 w-full">Book this shoot</NuxtLink>
             <p class="mt-3 text-center text-[12px] text-fg-faint">Serving Ottawa and surrounding areas.</p>
           </div>
         </aside>
@@ -140,6 +140,11 @@ const stopPosition = (index: number) => {
   const t = tiers.length > 1 ? index / (tiers.length - 1) : 0
   return `calc(var(--thumb) / 2 + (100% - var(--thumb)) * ${t})`
 }
+
+const bookingLink = computed(() => ({
+  path: '/contact',
+  query: { services: orderedSelection.value.join(',') || undefined, size: selectedTier.value.id, from: 'pricing' },
+}))
 
 const orderedSelection = computed(() => order.filter((key) => selectedServices.value.includes(key)))
 

@@ -36,7 +36,7 @@
                 <span><span class="sr-only">{{ line.included ? 'Included: ' : 'Not included: ' }}</span>{{ line.label }}</span>
               </li>
             </ul>
-            <NuxtLink to="/contact" class="mt-8 w-full" :class="item.highlight ? 'btn-primary' : 'btn-secondary'">
+            <NuxtLink :to="{ path: '/contact', query: { package: item.key, size: selectedTier.id } }" class="mt-8 w-full" :class="item.highlight ? 'btn-primary' : 'btn-secondary'">
               Book {{ item.name }}
             </NuxtLink>
           </article>

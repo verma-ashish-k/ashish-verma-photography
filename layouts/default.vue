@@ -31,7 +31,8 @@ useHead({
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
-        '@type': 'ProfessionalService',
+        '@type': ['LocalBusiness', 'ProfessionalService'],
+        '@id': `${site.url}/#business`,
         name: site.name,
         description: site.description,
         url: site.url,

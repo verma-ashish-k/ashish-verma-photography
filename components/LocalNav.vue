@@ -25,7 +25,7 @@ withDefaults(
     title: string
     links?: { label: string; href: string }[]
     cta?: string
-    ctaTo?: string
+    ctaTo?: string | Record<string, unknown>
   }>(),
   { cta: 'Book a shoot', ctaTo: '/contact' },
 )
